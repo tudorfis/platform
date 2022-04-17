@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Wickedmouse;
+    src: url("../fonts/wicked_mouse.otf") format("opentype");
+}
+@font-face {
+    font-family: Veramolt;
+    src: url("../fonts/veramolt.ttf") format("truetype");
+}

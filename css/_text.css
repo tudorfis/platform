@@ -1,0 +1,11 @@
+
+.code, .code > * {
+    font-family: var(--code);
+}
+.title, .title > * {
+    font-family: var(--font);
+}
+
+p {
+    margin: 1.2rem 0;
+}
