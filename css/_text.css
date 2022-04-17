@@ -1,9 +1,19 @@
 
 .code, .code > * {
     font-family: var(--code);
+    letter-spacing: .1rem;
+    line-height: 1.3rem;
 }
+
 .title, .title > * {
     font-family: var(--font);
+}
+
+.brand {
+    color: var(--brand);
+}
+.light {
+    color: var(--light);
 }
 
 p {
