@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Page 3</title>
+    <link rel="stylesheet" href="../css/lib/shjs/sh_navy.css" />
+</head>
+<body>
+
+<style>
+    i {
+        font-size: 1.5rem;
+        color: white;
+        position: absolute;
+        cursor: pointer;
+        right: 1rem;
+        font-weight: 100;
+        top: 1.5rem;
+    }
+</style>
+<i class="fas fa-copy"></i>
+
+<pre class="sh_javascript">
+    
+    function deepFreeze(obj) {
+        if (obj instanceof Map) {
+            obj.clear = obj.delete = obj.set = function () {
+                throw new Error('map is read-only');
+            };
+        } else if (obj instanceof Set) {
+            obj.add = obj.clear = obj.delete = function () {
+                throw new Error('set is read-only');
+            };
+        }
+
+        // Freeze self
+        Object.freeze(obj);
+
+        Object.getOwnPropertyNames(obj).forEach(function (name) {
+            var prop = obj[name];
+
+            // Freeze prop if it is an object
+            if (typeof prop == 'object' && !Object.isFrozen(prop)) {
+                deepFreeze(prop);
+            }
+        });
+
+        return obj;
+    }     
+
+</pre>
+
+<pre class="sh_html">
+
+    &lt;div&gt;
+        &lt;div&gt;Magazin alimentar (aprozar)&lt;/div&gt;
+        &lt;div&gt;cos de cumparaturi&lt;/div&gt; 
+        &lt;div&gt;
+            &lt;div&gt;Banane&lt;/div&gt;
+            &lt;div&gt;
+                &lt;div&gt;Mere rosii&lt;/div&gt;
+                &lt;div&gt;Mere verzi&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+</pre>
+
+<pre class="sh_css">
+
+    &lt;style&gt;
+        .code, .code > * {
+            font-family: var(--code);
+            letter-spacing: .1rem;
+            line-height: 1.3rem;
+        }
+
+        .title, .title > * {
+            font-family: var(--font);
+        }
+
+        .brand {
+            color: var(--brand);
+        }
+        .light {
+            color: var(--light);
+        }
+
+        p {
+            margin: 1.2rem 0;
+        }
+    &lt;/style&gt;
+
+</pre>
+
+    <script src="../js/lib/font-awesome/font-awesome.js" crossorigin="anonymous"></script>
+    <script src="../js/lib/shjs/sh_main.js"></script>
+    <script src="../js/lib/shjs/sh_javascript.js"></script>
+    <script src="../js/lib/shjs/sh_html.js"></script>
+    <script src="../js/lib/shjs/sh_css.js"></script>
+    <script src="../js/lib/shjs/sh_php.js"></script>
+    <script src="../js/lib/shjs/sh_sql.js"></script>
+
+    <script>
+        addEventListener( 'load', _ => {
+            sh_highlightDocument()
+        })
+    </script>
+</body>
+</html>
