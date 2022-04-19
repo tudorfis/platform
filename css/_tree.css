@@ -1,0 +1,27 @@
+
+.chart {
+    height: 100vh;
+    width: 100vw;
+    background: #ededed;
+}
+
+.Treant>.node {
+    padding: 3px;
+    border: 1px solid #484848;
+    border-radius: 3px;
+}
+
+.Treant>.node img {
+    width: 100px;
+    aspect-ratio: 10/16;
+}
+
+.Treant .collapse-switch {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.Treant .node.collapsed .collapse-switch {
+    background: none;
+}
