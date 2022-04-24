@@ -1,10 +1,5 @@
-import { chartConfig } from '/js/src/config/tree/tree.config.js'
-import projectConfig from '/js/src/config/calculator-digital/calculator-digital.config.js' 
 
-console.log(projectConfig)
 export default {
-    ...chartConfig( '#chart' ),
-    
     nodeStructure: {
         image: "placeholder-img/lana.png",
         children: [

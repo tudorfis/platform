@@ -1,4 +1,9 @@
-import globalConfig from '/js/src/config/global.config.js'
+
+export const locate = {
+    image: 'i.jpg',
+    video: 'v.mp4',
+    code: 'c.'
+}
 
 export function chartConfig( container ) {
     return {
@@ -18,7 +23,7 @@ export function chartConfig( container ) {
             connectors: {
                 type: 'step',
                 style: {
-                    'stroke': globalConfig.brandColor,
+                    'stroke': config.global.brandColor,
                     'stroke-width': 5
                 }
             },

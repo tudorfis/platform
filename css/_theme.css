@@ -10,7 +10,17 @@
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
 
-.scroll-x::-webkit-scrollbar, 
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar {
+    height: .5rem;
+    width: .5rem;
+    background: var(--light);
+}
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: var(--brand);
+}
+
+/* .scroll-x::-webkit-scrollbar, 
 .scroll-y::-webkit-scrollbar {
     height: .5rem;
     width: .5rem;
@@ -21,6 +31,7 @@
     cursor: pointer;
     background: var(--brand);
 }
+ */
 
 body {
     background: var(--dark);

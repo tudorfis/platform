@@ -1,4 +1,3 @@
-import { fetchScripts } from '/js/src/utils/async.utils.js'
 
 const libs = [
     '/js/lib/jquery/jquery.min.js',
@@ -8,7 +7,7 @@ const libs = [
 ]
 
 export function initTree( config ) {
-    fetchScripts( libs, _ => {
+    utils.async.fetch_scripts( libs, _ => {
         new Treant( config )
     })
 }

@@ -1,6 +1,4 @@
 
-import { qsa } from '/js/src/utils/dom.utils.js'
-
 const panningConfig = {}
 
 export function pan( element  ) {
@@ -30,6 +28,6 @@ export function pan( element  ) {
 
 export function initPan() {
     document.addEventListener( 'DOMContentLoaded', _ => {
-        qsa( '.pan' ).forEach( pan )
+        utils.dom.qsa( '.pan' ).forEach( pan )
     })
 }

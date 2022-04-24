@@ -1,13 +1,12 @@
-import { qs } from '/js/src/utils/dom.utils.js'
 
-export function fetchScripts( libs, callbackFn ) {
+export function fetch_scripts( libs, callbackFn ) {
     const obj = { index: 0 }
     libs = libs.map( lib => [ lib, false ] )
 
-    createScript( libs, obj, callbackFn )
+    create_script( libs, obj, callbackFn )
 }
 
-function createScript( libs, obj, cb ) {
+function create_script( libs, obj, cb = _ => {} ) {
     if ( !libs[obj.index]) {
         cb()
         return
@@ -16,8 +15,8 @@ function createScript( libs, obj, cb ) {
     const src = libs[obj.index][0]
     obj.index++
 
-    if ( qs(`script[src="${src}"]`) ) {
-        createScript( libs, obj, cb )
+    if ( utils.dom.qs(`script[src="${src}"]`) ) {
+        create_script( libs, obj, cb )
     }
     else {
         const script = document.createElement( 'script' )
@@ -25,7 +24,11 @@ function createScript( libs, obj, cb ) {
         document.body.append(script)
     
         script.onload = function() {
-            createScript( libs, obj, cb )
+            create_script( libs, obj, cb )
         }
     }
+}
+
+export async function fetch_text( url ) {
+    return await (await fetch( url )).text()
 }
