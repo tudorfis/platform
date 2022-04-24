@@ -23,7 +23,7 @@ export function chartConfig( container ) {
             connectors: {
                 type: 'step',
                 style: {
-                    'stroke': config.global.brandColor,
+                    'stroke': config.app.brandColor,
                     'stroke-width': 5
                 }
             },

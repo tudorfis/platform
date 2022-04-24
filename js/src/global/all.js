@@ -19,11 +19,11 @@ window.utils = {
 }
 
 /////// CONFIG /////////
-import global from '/js/src/config/global.config.js'
+import app from '/js/src/config/app/app.config.js'
 import { locate, chartConfig } from '/js/src/config/tree/tree.config.js'
 
 window.config = {
-    global,
+    app,
     tree: {
         locate,
         chartConfig
