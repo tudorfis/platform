@@ -1,6 +1,16 @@
 
-pre {
+.code-wrapper {
+    position: relative;
     margin: 2rem;
+}
+.code-wrapper > h1 {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+}
+.code-wrapper > pre {
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 2rem 0.3rem #333;
 }

@@ -1,7 +1,10 @@
 
 modules.icons.initIcons()
-modules.highlight.initHighlight()
 modules.pan.initPan()
+
+modules.highlight.initHighlight(_ => {
+    sh_highlightDocument()
+})
 
 modules.tree.initTree({
     ...config.tree.chartConfig( '#chart' ),

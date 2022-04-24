@@ -14,16 +14,9 @@ export default {
         'htex': {
             hierachy: '2',
             title: `Structura HTML al calculatorului digital`,
-            tree: {
-                parent: '',
-                children: []
-            },
-            resources: {
-                folderPath: `2.html`,
-                image: `image.jpg`,
-                video: `video.mp4`,
-                code: `code.html`,
-            }
+            children: [],
+            folderPath: `2.html`,
+            code: [ 'html' ],
         },
         'we2A': {
     

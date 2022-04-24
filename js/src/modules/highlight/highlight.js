@@ -8,8 +8,10 @@ const libs = [
     '/js/lib/shjs/sh_sql.js',
 ]
 
-export function initHighlight() {
+export function initHighlight( cb = _ => {} ) {
     utils.async.fetch_scripts( libs, _ => {
-        sh_highlightDocument()
+        if ( cb ) {
+            cb()
+        }
     })
 }

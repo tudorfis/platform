@@ -46,6 +46,7 @@ window.projects = {
 import { initIcons } from '/js/src/modules/icons/icons.js'
 import { initPan } from '/js/src/modules/pan/pan.js'
 import { initHighlight } from '/js/src/modules/highlight/highlight.js'
+import { renderCode } from '/js/src/modules/highlight/render-code/render-code.js'
 import { initTree } from '/js/src/modules/tree/tree.js'
 
 window.modules = {
@@ -56,7 +57,8 @@ window.modules = {
         initPan
     },
     highlight: {
-        initHighlight
+        initHighlight,
+        renderCode
     },
     tree: {
         initTree
