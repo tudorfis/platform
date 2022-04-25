@@ -1,9 +1,9 @@
 
 modules.highlight.initHighlight(_ => {
     const vidId = 'qwXa'
-    // const vidId = 'htex'
+    const project = projects.calculator
+    const vidValue = project.chart[ vidId ]
 
-    const linkode = projects.calculator.config.chart[ vidId ]
-    modules.highlight.renderCode( linkode, '#code' )
+    modules.highlight.renderCode( project, vidValue, '#code' )
 })
 

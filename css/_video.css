@@ -9,7 +9,7 @@
 }
 
 .video-preview {
-    border: .1rem solid var(--light);
+    border: .1rem solid var(--light-color);
     border-radius: .3rem;
     font-size: 26px;
 }
@@ -21,7 +21,7 @@
     font-size: .8em;
     z-index: 1;
     top: .5rem;
-    text-shadow: 3px 3px 5px var(--dark);
+    text-shadow: 3px 3px 5px var(--dark-color);
 }
 
 .video .video-gif {

@@ -13,27 +13,14 @@
 :is(.scroll-x,.scroll-y)::-webkit-scrollbar {
     height: .5rem;
     width: .5rem;
-    background: var(--light);
+    background: var(--light-color);
 }
 :is(.scroll-x,.scroll-y)::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background: var(--brand);
+    background: var(--brand-color);
 }
-
-/* .scroll-x::-webkit-scrollbar, 
-.scroll-y::-webkit-scrollbar {
-    height: .5rem;
-    width: .5rem;
-    background: var(--light);
-}
-.scroll-x::-webkit-scrollbar-thumb, 
-.scroll-y::-webkit-scrollbar-thumb {
-    cursor: pointer;
-    background: var(--brand);
-}
- */
 
 body {
-    background: var(--dark);
-    color: var(--light);
+    background: var(--dark-color);
+    color: var(--light-color);
 }

@@ -6,8 +6,8 @@ const libs = [
     '/js/lib/Treant.js',
 ]
 
-export function initTree( config ) {
+export function initTree( config, cb = _ => {} ) {
     utils.async.fetch_scripts( libs, _ => {
-        new Treant( config )
+        new Treant( config, cb )
     })
 }

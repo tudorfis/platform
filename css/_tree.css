@@ -12,8 +12,9 @@
 }
 
 .Treant>.node img {
-    width: 100px;
-    aspect-ratio: 10/16;
+    height: 7rem;
+    aspect-ratio: 16/9;
+    cursor: pointer;
 }
 
 .Treant .collapse-switch {

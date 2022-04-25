@@ -8,9 +8,25 @@
     top: 1rem;
     right: 1rem;
     font-size: 2rem;
+    user-select: none;
 }
 .code-wrapper > pre {
+    font-family: veramolt;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 2rem 0.3rem #333;
+}
+
+pre.sh_sourceCode, 
+pre.sh_sourceCode .sh_type {
+    color:  #f06329;
+}
+pre.sh_sourceCode .sh_string,
+pre.sh_sourceCode .sh_value {
+    color: #efda4f;
+}
+pre.sh_sourceCode .sh_selector,
+pre.sh_sourceCode .sh_function,
+pre.sh_sourceCode .sh_keyword {
+    color: #25a1e2;
 }

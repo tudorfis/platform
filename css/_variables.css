@@ -1,7 +1,13 @@
 * {
-    --brand: #01abf8;
-    --dark: #1e1e1e;
-    --light: #efefef;
-    --font: wickedmouse;
-    --code: veramolt;
+    --brand-color: #01abf8;
+    --dark-color: #1e1e1e;
+    --light-color: #efefef;
+    
+    --font-wicked: wickedmouse;
+    --font-vera: veramolt;
+    
+    --tree-color: #999999;
+    --html-color: #f06329;
+    --css-color: #25a1e2;
+    --js-color: #efda4f;
 }

@@ -20,13 +20,19 @@ export function chartConfig( container ) {
                 connectorsSpeed: 300,
                 connectorsType: 'step'
             },
-            connectors: {
-                type: 'step',
-                style: {
-                    'stroke': config.app.brandColor,
-                    'stroke-width': 5
-                }
-            },
+            ...connectorColor( config.app.brandColor )
         }
+    }
+}
+
+export function connectorColor( color ) {
+    return {
+        connectors: {
+            type: 'step',
+            style: {
+                'stroke': color,
+                'stroke-width': 5
+            }
+        },
     }
 }
