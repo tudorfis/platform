@@ -1,9 +1,9 @@
 
-export async function renderCode( project = {}, vidValue = {}, selector = '#code' ) {
+export async function renderCode( vidValue = {}, selector = '#code' ) {
     const targetDiv = utils.dom.qs( selector )
 
     for await ( const code of vidValue.code ) {
-        const fetchUrl = [ utils.linkode.get_folder( project, vidValue ), config.tree.locate.code + code ].join('/')
+        const fetchUrl = [ utils.tree.get_folder( vidValue ), config.tree.locate.code + code ].join('/')
         const text = await utils.async.fetch_text( fetchUrl )
         
         const codeWrapper = utils.html.create_element( 'section', '', targetDiv, { 'class': [ 'code-wrapper' ]})
