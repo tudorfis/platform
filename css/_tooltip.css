@@ -5,17 +5,33 @@
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 220px;
     background-color: var(--dark-color);
     color: var(--light-color);
     text-align: center;
     border-radius: .4rem;
+    width: 13rem;
     padding: .5rem;
     font-size: .8rem;
     position: absolute;
-    z-index: 1;
-    top: calc(50% - 1rem);
-    left: 105%;
+    z-index: 10;
+    box-shadow: 0 0 7px 2px var(--light-color);
+}
+
+.tooltip .tooltiptext.tooltip-right {
+    top: .5rem;
+    left: calc(100% + .3rem);
+}
+.tooltip .tooltiptext.tooltip-left {
+    top: .5rem;
+    right: calc(100% + .3rem);
+}
+.tooltip .tooltiptext.tooltip-bottom {
+    top: calc(100% + .3rem);
+    left: -6rem;
+}
+.tooltip .tooltiptext.tooltip-top {
+    top: -calc(100% + .3rem);
+    left: -6rem;
 }
 
 .tooltip:hover .tooltiptext {

@@ -5,25 +5,35 @@ export function handleLoading() {
 
     utils.dom.qsa('.node').forEach( element => {
         element.addEventListener( 'mouseenter', _ => {
-            if ( app.events.disableEvents ) return
-            if ( modules.video.isPlaying( mem.video ) ) return
+            if ( mem.video && !mem.video?.classList.contains('hide') ) return
 
-            mem.video.classList.add( 'hide' )
-
-            const node = modules.tree.findNode( element.id )
-            const video = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
-
-            console.log( video )
-            video.classList.remove( 'hide' )
-            modules.video.setVideoPosition( video, element )
-            
-            mem.video = video
+            handleVideoLoad( mem, element, chart )
         })
 
         element.addEventListener( 'click', _ => {
-            mem.video.pause()
-            mem.video.classList.add( 'hide' )
-            utils.dom.engage_event_stoper( 1000 )
+            if ( mem.video.id === element.id ) {
+                modules.video.setVideoPosition( mem.video, element )
+                return
+            }
+
+            if ( utils.dom.qs( '.collapse-switch', element ) ) {
+                mem.video?.classList.add( 'hide' )
+                return
+            }
+
+            handleVideoLoad( mem, element, chart )
         })
     })
+}
+
+function handleVideoLoad( mem, element, chart ) {
+    mem.video?.classList.add( 'hide' )
+
+    const node = modules.tree.findNode( element.id )
+    const video = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
+
+    video.classList.remove( 'hide' )
+    modules.video.setVideoPosition( video, element )
+    
+    mem.video = video
 }

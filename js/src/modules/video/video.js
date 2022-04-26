@@ -1,6 +1,6 @@
 
 export const mem = {
-    video: document.createElement( 'video' ),
+    video: null,
     videos: {},
 }
 
@@ -17,14 +17,17 @@ export function createVideo( chart, element, node ) {
     const style = styles.map( arr => arr.join(':') ).join(';')
 
     const videoWrapper = utils.html.create_element( 'div', '', chart, { 
-        'class': [ 'video-wrapper' ],
+        'class': [ 'video-wrapper', 'fade-in' ],
         'id': element.id,
         'style': style,
     })
 
     const video = utils.html.create_element( 'video', '', videoWrapper, { 
         'class': [ 'video' ],
-        'style': `border-color: ${node.color}; box-shadow: 0 0 7px 4px ${node.color}`,
+        'style': `
+            border-color: ${node.color}; 
+            box-shadow: 0 0 7px 4px ${node.color}
+        `,
         'controls': '',
     })
     
@@ -34,24 +37,42 @@ export function createVideo( chart, element, node ) {
     })
 
     createCodeIcon( videoWrapper, node )
+    createCloseIcon( videoWrapper, node )
 
     mem.videos[ element.id ] = videoWrapper
 
     return videoWrapper
 }
 
-function createCodeIcon( videoWrapper, node ) {
-    const codeIcon = utils.html.create_element( 'i', '', videoWrapper, {
-        'class': [ 'fa-solid', 'fa-code', 'tooltip', 'code-icon', 'js_code_icon' ],
-        'style': `background: ${node.color}`
-    })
+    function createCodeIcon( videoWrapper, node ) {
+        const codeIcon = utils.html.create_element( 'i', '', videoWrapper, {
+            'class': [ 'fa-solid', 'fa-code', 'tooltip', 'video-icon', 'code-icon' ],
+            'style': `background: ${node.color}`
+        })
 
-    utils.html.create_element( 'span', 'Show the source code of this video', codeIcon, {
-        'class': [ 'tooltiptext' ],
-    })
+        utils.html.create_element( 'span', 'Arata codul sursa<br>pentru aceasta lectie', codeIcon, {
+            'class': [ 'tooltiptext', 'tooltip-bottom' ],
+        })
 
-    return codeIcon
-}
+        return codeIcon
+    }
+
+    function createCloseIcon( videoWrapper, node ) {
+        const closeIcon = utils.html.create_element( 'i', '', videoWrapper, {
+            'class': [ 'fa-solid', 'fa-x', 'tooltip', 'video-icon', 'close-icon' ],
+        })
+
+        utils.html.create_element( 'span', 'Inchide videoul acestei lectii', closeIcon, {
+            'class': [ 'tooltiptext', 'tooltip-right' ],
+        })
+
+        closeIcon.addEventListener('click', e => {
+            videoWrapper.classList.add( 'hide' )
+            utils.dom.qs( 'video', videoWrapper ).pause()
+        })
+
+        return closeIcon
+    }
 
 export function setVideoPosition( video, element ) {
     Object.assign( video.style, {
@@ -63,6 +84,7 @@ export function setVideoPosition( video, element ) {
 function calculateTop( element ) {
     return Number(element.style.top.replace('px','')) + element.getBoundingClientRect().height * 1.08 + 'px'
 }
+
 function calculateLeft( element ) {
     const left = Number(element.style.left.replace('px',''))
     const offset = element.getBoundingClientRect().width / 2
