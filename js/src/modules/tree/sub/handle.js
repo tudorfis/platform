@@ -2,52 +2,61 @@
 const mem = {
     video: document.createElement( 'video' ),
     videos: {},
-    videoHover: {}
 }
 
-let timeout = null
-
 export function handleLoading() {
+    utils.dom.engage_event_stoper()
     const chart = utils.dom.qs( app.tree.chartSelector )
 
     utils.dom.qsa('.node').forEach( element => {
         element.addEventListener( 'mouseenter', _ => {
-            const node = modules.tree.findNode( element.id )
-            const video = queryVideo( element.id ) || createVideo( chart, element, node )
+            if ( app.events.disableEvents ) return
 
-            clearTimeout( timeout )
+            const node = modules.tree.findNode( element.id )
+            const video = mem.videos[ element.id ] || createVideo( chart, element, node )
+
+            closePreviousVideo()
+
             video.classList.remove( 'hide' )
-            mem.video.classList.add( 'hide' )
+            setVideoPosition( video, element )
+            video.play()
+            
             mem.video = video
         })
 
-        element.addEventListener( 'mouseleave', _ => {
-            timeout = setTimeout( _ => {
-                if ( !mem.videoHover[ mem.video.id ] ) {
-                    mem.video.classList.add( 'hide' )
-                }
-            }, 330)
-        })
-
         element.addEventListener( 'click', _ => {
-            utils.dom.qs( `video[id="${element.id}"]`, chart ).style.top = calculateTop( element )
+            utils.dom.engage_event_stoper()
+            setVideoPosition( mem.videos[ element.id ], element )
+            closePreviousVideo()
         })
     })
 }
 
-function queryVideo( id ) {
-    utils.dom.qs( `video[id="${id}"]`, chart )
+function setVideoPosition( video, element ) {
+    Object.assign( video.style, {
+        top: calculateTop( element ),
+        left: calculateLeft( element ),
+    })
 }
 
 function calculateTop( element ) {
-    return Number(element.style.top.replace('px','')) + element.getBoundingClientRect().height * 2 + 'px'
+    return Number(element.style.top.replace('px','')) + element.getBoundingClientRect().height + 'px'
+}
+function calculateLeft( element ) {
+    const left = Number(element.style.left.replace('px',''))
+    return ((left < config.app.offsetLeft) ? left : left - config.app.offsetLeft) + 'px'
+}
+
+function closePreviousVideo() {
+    mem.video.classList.add( 'hide' )
+    mem.video.pause()
 }
 
 function createVideo( chart, element, node ) {
     const styles = [
-        [ 'border-color', node.lineColor ],
+        [ 'border-color', node.color ],
         [ 'top', calculateTop( element ) ],
-        [ 'left', element.style.left ]
+        [ 'left', calculateLeft( element )]
     ]
     
     const style = styles.map( arr => arr.join(':') ).join(';')
@@ -56,7 +65,6 @@ function createVideo( chart, element, node ) {
         'class': [ 'video' ],
         'id': element.id,
         'style': style,
-        'autoplay': '',
         'controls': '',
     })
     
@@ -65,15 +73,7 @@ function createVideo( chart, element, node ) {
         'src': [ node.folderPath, config.tree.locate.video ].join('/') 
     })
 
-    video.addEventListener( 'mouseover', _ => {
-        mem.videoHover[ video.id ] = true
-    })
-    video.addEventListener( 'mouseleave', _ => {
-        mem.videoHover[ video.id ] = false
-        setTimeout( _ => {
-            video.classList.add( 'hide' )
-        }, 330)
-    })
+    mem.videos[ element.id ] = video
 
     return video
 }

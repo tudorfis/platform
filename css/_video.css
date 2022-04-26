@@ -5,7 +5,6 @@
     width: 400px;
     border-radius: 0.3rem;
     border: .3rem solid;
-    margin: -115px 0 0 -100px;
     position: absolute;
-    transition: all .7s ease 0s;
+    /* transition: all .7s ease 0s; */
 }

@@ -15,7 +15,7 @@ export function generateNode( nodeValue ) {
         code: nodeValue.code,
         
         ...( !!nodeValue.stackChildren ? { stackChildren: nodeValue.stackChildren } : {} ),
-        ...( !!nodeValue.lineColor ? { lineColor: nodeValue.lineColor } : {} ),
+        ...( !!nodeValue.color ? { color: nodeValue.color } : {} ),
         ...( !!nodeValue.lineColor ? config.tree.connectorColor( nodeValue.lineColor ) : {} ),
     }
 }

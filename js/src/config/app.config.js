@@ -5,4 +5,8 @@ export default {
     htmlColor: '#f06329',
     cssColor: '#25a1e2',
     jsColor: '#efda4f',
+
+    offsetLeft: 115,
+    videoWidth: 400,
+    nodeHeight: 115,
 }

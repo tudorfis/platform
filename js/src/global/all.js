@@ -1,6 +1,6 @@
 /////// UTILS /////////
 import { fetch_scripts, fetch_text } from '/js/src/utils/async.utils.js'
-import { qs, qsa } from '/js/src/utils/dom.utils.js'
+import { qs, qsa, engage_event_stoper } from '/js/src/utils/dom.utils.js'
 import { html_entities, create_element } from '/js/src/utils/html.utils.js'
 import { get_folder, get_image_location, id_generator } from '/js/src/utils/tree.utils.js'
 window.utils = {
@@ -11,6 +11,7 @@ window.utils = {
     dom: {
         qs,
         qsa,
+        engage_event_stoper,
     },
     html: {
         html_entities,
@@ -72,7 +73,8 @@ window.modules = {
 
 ///////// APP ///////////
 window.app = {
-    tree: {
-        
+    tree: {},
+    events: {
+        disableEvents: true
     }
 }
