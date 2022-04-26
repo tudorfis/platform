@@ -6,9 +6,8 @@
 }
 
 .Treant>.node {
-    padding: 3px;
-    border: 1px solid #484848;
-    border-radius: 3px;
+    border: 0;
+    z-index: 9;
 }
 
 .Treant>.node img {

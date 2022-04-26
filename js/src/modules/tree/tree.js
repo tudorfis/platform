@@ -6,13 +6,13 @@ const libs = [
     '/js/lib/Treant.js',
 ]
 
-export function initTree( selector, nodeStructure ) {
+export function initTree() {
     utils.async.fetch_scripts( libs, _ => {
         new Treant({
-            ...config.tree.chartConfig( selector ),
-            nodeStructure
+            ...config.tree.chartConfig( app.tree.chartSelector ),
+            nodeStructure: app.tree.nodeStructure
         }, _ => {
             modules.tree.handleLoading()
-        } )
+        })
     })
 }

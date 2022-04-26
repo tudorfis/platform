@@ -15,11 +15,12 @@ export function generateNode( nodeValue ) {
         code: nodeValue.code,
         
         ...( !!nodeValue.stackChildren ? { stackChildren: nodeValue.stackChildren } : {} ),
-        ...( !!nodeValue.lineColor ? config.tree.connectorColor( nodeValue.lineColor ) : {} )
+        ...( !!nodeValue.lineColor ? { lineColor: nodeValue.lineColor } : {} ),
+        ...( !!nodeValue.lineColor ? config.tree.connectorColor( nodeValue.lineColor ) : {} ),
     }
 }
 
-export function findNode( nodeId, node = nodeStructure ) {
+export function findNode( nodeId, node = app.tree.nodeStructure ) {
     if ( nodeId === node.HTMLid ) return node
 
     return node.children

@@ -6,15 +6,28 @@ export function html_entities( html ) {
     return div.innerHTML
 }
 
-export function create_element( type, html, parent, props ) {
+export function create_element( 
+    type = '', 
+    html = '', 
+    parent = HTMLElement, 
+    props = {
+        class: ''
+    }, 
+    operation = 'append' 
+) {
     const element = document.createElement( type )
     element.innerHTML = html
-    parent.append( element )
+    parent[ operation ]( element )
 
     if ( props.class ) {
         for ( const className of props.class ) {
             element.classList.add( className )
         }
+        delete props.class
+    }
+
+    for ( const propName in props ) {
+        element.setAttribute( propName, props[ propName ] )
     }
 
     return element
