@@ -1,12 +1,14 @@
 
 const panningConfig = {}
 
-export function pan( element  ) {
+export function pan( element, matchConstructor = 'SVGSVGElement' ) {
     panningConfig[ element ] = {
         isPanning: false
     }
 
-    element.addEventListener( 'mousedown', _ => {
+    element.addEventListener( 'mousedown', e => {
+        if ( !e.target.constructor.toString().match( matchConstructor ) ) return
+
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
     })
@@ -28,6 +30,6 @@ export function pan( element  ) {
 
 export function initPan() {
     document.addEventListener( 'DOMContentLoaded', _ => {
-        utils.dom.qsa( '.pan' ).forEach( pan )
+        utils.dom.qsa( '.pan' ).forEach( element => pan( element ))
     })
 }

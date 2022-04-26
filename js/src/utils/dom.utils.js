@@ -7,10 +7,10 @@ export function qsa(selector, parent = document) {
     return [...parent.querySelectorAll(selector)]
 }
 
-export function engage_event_stoper() {
+export function engage_event_stoper( timeoutTime = 330 ) {
     app.events.disableEvents = true
     
     setTimeout(_ => {
         app.events.disableEvents = false
-    }, 330)
+    }, timeoutTime)
 }

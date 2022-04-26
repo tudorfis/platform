@@ -52,6 +52,7 @@ import { renderCode } from '/js/src/modules/highlight/sub/render-code.js'
 import { initTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
+import { mem, isPlaying, createVideo, setVideoPosition } from '/js/src/modules/video/video.js'
 window.modules = {
     icons: {
         initIcons,
@@ -69,12 +70,18 @@ window.modules = {
         generateNode,
         handleLoading,
     },
+    video: {
+        mem,
+        isPlaying,
+        createVideo,
+        setVideoPosition
+    }
 }
 
 ///////// APP ///////////
 window.app = {
     tree: {},
     events: {
-        disableEvents: true
+        disableEvents: false
     }
 }
