@@ -13,6 +13,7 @@ export function initTree() {
             nodeStructure: app.tree.nodeStructure
         }, _ => {
             modules.tree.handleLoading()
+            modules.tree.handleZoom()
         })
     })
 }

@@ -63,7 +63,7 @@ import { renderCode } from '/js/src/modules/highlight/sub/render-code.js'
 import { initTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
-import { zoomIn, zoomOut, disableZoomOut, disableZoomIn } from '/js/src/modules/tree/sub/zoom.js'
+import { zoomIn, zoomOut, disableZoomOut, disableZoomIn, handleZoom } from '/js/src/modules/tree/sub/zoom.js'
 import { mem, isPlaying, createVideo, setVideoPosition, setBackdrop } from '/js/src/modules/video/video.js'
 import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
 import { changeBackground } from '/js/src/modules/background/background.js'
@@ -87,6 +87,7 @@ window.modules = {
         zoomOut,
         disableZoomOut,
         disableZoomIn,
+        handleZoom,
     },
     video: {
         mem,
@@ -108,7 +109,7 @@ window.app = {
     tree: {
         chartSelector: '#chart',
         chart: null,
-        zoomLevel: 100
+        zoomLevel: 75
     },
     events: {
         disableEvents: false

@@ -5,4 +5,8 @@ export default {
     htmlColor: '#f06329',
     cssColor: '#25a1e2',
     jsColor: '#efda4f',
+
+    backdropNo: 'var(--light-color)',
+    backdropCover:  '#00000777',
+    backdropDarker: '#000007bb',
 }

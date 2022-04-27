@@ -3,12 +3,20 @@ export function handleLoading() {
     const { mem } = modules.video
     const chart = app.tree.chart
 
-    const chartDebounce = utils.events.debounce( e => {
+    const chartMousemoveDebounce = utils.events.debounce( e => {
         mem.chartHover = !!e.target.constructor.toString().match( 'SVGSVGElement' )
     }, 10)
 
+    const chartScrollThrottle = utils.events.throttle( e => {
+        modules.video.setBackdrop()
+    })
+
     chart.addEventListener( 'mousemove', e => {
-        chartDebounce(e)
+        chartMousemoveDebounce(e)
+    })
+
+    chart.addEventListener( 'scroll', e => {
+        chartScrollThrottle(e)
     })
 
     utils.dom.qsa('.node').forEach( element => {
@@ -49,7 +57,9 @@ function handleVideoLoad( mem, element, chart ) {
 
     video.classList.remove( 'hide' )
     modules.video.setVideoPosition( video, element )
-    modules.video.setBackdrop( '#000007aa')
+    
+    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker: config.app.backdropNo
+    modules.video.setBackdrop( backdropColor )
 
     mem.video = video
 }

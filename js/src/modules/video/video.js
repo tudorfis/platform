@@ -78,7 +78,6 @@ export function createVideo( chart, element, node ) {
 
         codeIcon.addEventListener( 'click', function(){
             console.log( 'codeIcon' )
-            modules.video.setBackdrop()
         })
     }
 
@@ -95,7 +94,7 @@ export function createVideo( chart, element, node ) {
             videoWrapper.classList.add( 'hide' )
             utils.dom.qs( 'video', videoWrapper ).pause()
             
-            const backdropColor = app.tree.chart.classList.contains('bg') ? '#00000777': ''
+            const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropCover: config.app.backdropNo
             
             modules.video.setBackdrop( backdropColor )
             utils.dom.engage_event_stoper()
@@ -111,6 +110,8 @@ export function setVideoPosition( video, element ) {
 
 export function setBackdrop( backdropColor = '' ) {
     const backdrop = utils.dom.qs('.backdrop', app.tree.chart)
+    
+    if ( !backdrop ) return
     
     if ( backdropColor ) {
         backdrop.style.background = backdropColor

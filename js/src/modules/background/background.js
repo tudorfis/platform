@@ -8,9 +8,11 @@ export function changeBackground( src, bgNum ) {
 
     if ( bgNum === 0 ) {
         chart.classList.remove('bg')
+        modules.video.setBackdrop( config.app.backdropNo )
     }
     else {
         chart.classList.add( 'bg', `bg-${bgNum}`  )
         chart.setAttribute( 'data-bg-num', bgNum )
+        modules.video.setBackdrop( config.app.backdropCover )
     }
 }
