@@ -14,7 +14,6 @@ export class WebComponent extends HTMLElement {
         this.componentUrl = componentUrl
         this.props = props
 
-        this.shadow = this.attachShadow({ mode: 'open' })
         this.storeData( data )
         this.init()
     }
@@ -69,8 +68,8 @@ export class WebComponent extends HTMLElement {
         const template = document.createElement( 'template' )
         template.innerHTML = this.templateContent
         
-        this.shadow.innerHTML = ''
-        this.shadow.appendChild( template.content.cloneNode( true ) )
+        this.innerHTML = ''
+        this.appendChild( template.content.cloneNode( true ) )
 
         this.storeRefs()
         this.attachEvents()
@@ -167,10 +166,10 @@ export class WebComponent extends HTMLElement {
         return this.#refs
     }
     qs( query ) {
-        return this.shadow.querySelector( query )
+        return this.querySelector( query )
     }
     qsa( query ) {
-        return [ ...this.shadow.querySelectorAll( query ) ]
+        return [ ...this.querySelectorAll( query ) ]
     }
     attr( attribute ) {
         return this.getAttribute( attribute )

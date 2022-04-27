@@ -1,4 +1,5 @@
 
+
 export default class extends modules.component.WebComponent {
     constructor() {
         super({ 
@@ -6,21 +7,13 @@ export default class extends modules.component.WebComponent {
         })
     }
     afterRender() {
-
-    }
-    changeBg({ target: img }) {
-        const chart = app.tree.chart
-        const bgNum = img.parentNode.getAttribute('data-bg-num')
-
-        const chartBgNum = chart.getAttribute( 'data-bg-num' )
-        chart.classList.remove( `bg-${chartBgNum}` )
-
-        if ( bgNum === '0' ) {
-            chart.classList.remove('bg')
-        }
-        else {
-            chart.classList.add( 'bg', `bg-${bgNum}`  )
-            chart.setAttribute( 'data-bg-num', bgNum )
-        }
+        this.refs.wrapper.innerHTML = config.bg.map( (src, bgNum) => `
+            <button 
+                data-bg-num="${bgNum+1}"
+                onclick="modules.background.changeBackground( '${src}', ${bgNum+1} )"
+            >
+                <img src="${src.replace('.','_small.')}" />
+            </button>
+        `).join('') + this.refs.wrapper.innerHTML
     }
 }

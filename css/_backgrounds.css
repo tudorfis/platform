@@ -1,50 +1,39 @@
 
 .bg.chart .tooltip-arrow:before { display: none; }
+.bg.chart > svg { background: #00000777;}
+.bg.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
 
-.bg-1.chart { background-image: url('/img/bg/314769.jpg'); }
-.bg-1.chart > svg { background: #00000777;}
-.bg-1.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+:is(.bg-1.chart.scroll-x,.bg-1.chart.scroll-y)::-webkit-scrollbar-thumb { background: #1A3A49;}
 
-.bg-2.chart { background-image: url('/img/bg/4742279.jpg'); }
-.bg-2.chart > svg { background: #00000777;}
-.bg-2.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-2.chart.scroll-y::-webkit-scrollbar-thumb {background: linear-gradient(90deg, rgb(231, 15, 148) 0%, rgb(181, 175, 4), #2cad6d 100%); }
+.bg-2.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, rgb(231, 15, 148) 0%, rgb(181, 175, 4), #2cad6d 100%); }
 
-.bg-3.chart { background-image: url('/img/bg/4742287.jpg'); }
-.bg-3.chart > svg { background: #00000777;}
-.bg-3.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-3.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #173a47 0%, #54CFFB 100%); }
+.bg-3.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #1e4b5c 0%, #54CFFB 100%); }
 
-.bg-4.chart { background-image: url('/img/bg/314841.jpg'); }
-.bg-4.chart > svg { background: #00000777;}
-.bg-4.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-4.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #000 0%, #333 100%); }
+.bg-4.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #000 0%, #333 100%); }
 
-.bg-5.chart { background-image: url('/img/bg/314873.jpg'); }
-.bg-5.chart > svg { background: #00000777;}
-.bg-5.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-5.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #021935 0%, #1b7ef8 100%); }
+.bg-5.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #021935 0%, #1b7ef8 100%); }
 
-.bg-6.chart { background-image: url('/img/bg/314902.jpg'); }
-.bg-6.chart > svg { background: #00000777;}
-.bg-6.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-6.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #0a3c43 0%, #137585 100%); }
+.bg-6.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #0a3c43 0%, #137585 100%); }
 
-.bg-7.chart { background-image: url('/img/bg/314917.jpg'); }
-.bg-7.chart > svg { background: #00000777;}
-.bg-7.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-7.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #000 0%, #333 100%); }
+.bg-7.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #000 0%, #333 100%); }
 
-.bg-8.chart { background-image: url('/img/bg/314944.jpg'); }
-.bg-8.chart > svg { background: #00000777;}
-.bg-8.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-8.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #365944 0%, #333 100%); }
+.bg-8.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #365944 0%, #333 100%); }
 
-.bg-9.chart { background-image: url('/img/bg/4742295.jpg'); }
-.bg-9.chart > svg { background: #00000777;}
-.bg-9.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-9.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #6A1011 0%, #090A5D 100%); }
+.bg-9.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #6A1011 0%, #090A5D 100%); }
 
-.bg-10.chart { background-image: url('/img/bg/4742366.jpg'); }
-.bg-10.chart > svg { background: #00000777;}
-.bg-10.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-10.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #371C70 0%, #422288 100%); }
+.bg-10.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #371C70 0%, #422288 100%); }
 
-.bg-11.chart { background-image: url('/img/bg/4742472.jpg'); }
-.bg-11.chart > svg { background: #00000777;}
-.bg-11.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-11.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #000 0%, #333 100%); }
+.bg-11.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #000 0%, #333 100%); }
 
-.bg-12.chart { background-image: url('/img/bg/4742482.jpg'); }
-.bg-12.chart > svg { background: #00000777;}
-.bg-12.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+.bg-12.chart.scroll-x::-webkit-scrollbar-thumb {background: linear-gradient(90deg, #0B5962 0%, #063439 100%); }
+.bg-12.chart.scroll-y::-webkit-scrollbar-thumb:vertical {background: linear-gradient(180deg, #0B5962 0%, #063439 100%); }

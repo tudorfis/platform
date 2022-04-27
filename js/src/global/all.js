@@ -35,9 +35,11 @@ window.utils = {
 
 /////// CONFIG /////////
 import app from '/js/src/config/app.config.js'
+import bg from '/js/src/config/bg.config.js'
 import { locate, chartConfig, connectorColor } from '/js/src/config/tree.config.js'
 window.config = {
     app,
+    bg,
     tree: {
         locate,
         chartConfig,
@@ -64,6 +66,7 @@ import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn } from '/js/src/modules/tree/sub/zoom.js'
 import { mem, isPlaying, createVideo, setVideoPosition } from '/js/src/modules/video/video.js'
 import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
+import { changeBackground } from '/js/src/modules/background/background.js'
 window.modules = {
     icons: {
         initIcons,
@@ -93,6 +96,9 @@ window.modules = {
     },
     component: {
         WebComponent
+    },
+    background: {
+        changeBackground,
     }
 }
 

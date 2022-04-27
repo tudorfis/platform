@@ -6,9 +6,8 @@ window.customElements.define('bg-change', BgChange)
 
 app.tree.chart = utils.dom.qs( app.tree.chartSelector ) 
 app.tree.nodeStructure = modules.tree.generateNode(projects.calculator)
-    
-app.tree.chart.classList.add( 'bg', 'bg-10', 'pan', 'scroll-x', 'scroll-y' )
-app.tree.chart.setAttribute( 'data-bg-num', '10' )
+app.tree.chart.classList.add( 'pan', 'scroll-x', 'scroll-y' )
+modules.background.changeBackground( '/img/bg/4742366.jpg', 10 )
 
 modules.icons.initIcons()
 modules.pan.initPan()
