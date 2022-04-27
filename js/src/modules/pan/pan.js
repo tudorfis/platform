@@ -7,7 +7,10 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
     }
 
     element.addEventListener( 'mousedown', e => {
-        if ( !e.target.constructor.toString().match( matchConstructor ) ) return
+        if ( 
+            !e.target.constructor.toString().match( matchConstructor ) && 
+            !e.target.classList.contains('backdrop') 
+        ) return
 
         app.events.disableEvents = true
         panningConfig[ element ].isPanning = true

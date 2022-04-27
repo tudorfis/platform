@@ -7,13 +7,6 @@ export function handleLoading() {
         mem.chartHover = !!e.target.constructor.toString().match( 'SVGSVGElement' )
     }, 10)
 
-    chart.addEventListener( 'click', e => {
-        if ( !mem.video || !mem.chartHover ) return
-
-        mem.video.classList.add( 'hide' )
-        utils.dom.qs( 'video', mem.video ).pause()
-    })
-
     chart.addEventListener( 'mousemove', e => {
         chartDebounce(e)
     })
@@ -21,9 +14,10 @@ export function handleLoading() {
     utils.dom.qsa('.node').forEach( element => {
         const videoDebounce = utils.events.debounce(() => {
             if ( mem.chartHover || ( mem.video && !mem.video?.classList.contains('hide'))) return
+            
             const nodeElement = utils.dom.qs( `.node[id="${mem.videoId}"]`, chart )
             handleVideoLoad( mem, nodeElement, chart )
-        }, 770)
+        }, 330)
 
         element.addEventListener( 'mouseenter', _ => {
             mem.videoId = element.id
@@ -39,6 +33,10 @@ export function handleLoading() {
             handleVideoLoad( mem, element, chart )
         })
     })
+
+    const backdrop = document.createElement( 'div' )
+    backdrop.classList.add( 'backdrop' )
+    utils.dom.qs( 'svg', chart ).after( backdrop )
 }
 
 function handleVideoLoad( mem, element, chart ) {
@@ -51,6 +49,7 @@ function handleVideoLoad( mem, element, chart ) {
 
     video.classList.remove( 'hide' )
     modules.video.setVideoPosition( video, element )
-    
+    utils.dom.qs( '.backdrop', app.tree.chart ).style.background = '#000007aa'
+
     mem.video = video
 }

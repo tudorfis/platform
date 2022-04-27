@@ -4,6 +4,13 @@
     width: 100vw;
     background: #ededed;
 }
+.chart .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 125%;
+    height: 125%;
+}
 
 .Treant>.node {
     border: 0;

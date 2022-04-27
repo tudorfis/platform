@@ -49,5 +49,14 @@ function handleZoom() {
         height,
     })
 
+    let offset = 1.25
+    if (  app.tree.zoomLevel === 75 ) offset = 0.85
+    else if (  app.tree.zoomLevel === 50 ) offset = 0.60
+
+    Object.assign( utils.dom.qs( '.backdrop', chart ).style, {
+        width: `${zoomDimension*offset}%`,
+        height: `${zoomDimension*offset}%`,
+    })
+
     document.body.style.zoom = `${app.tree.zoomLevel}%`
 }

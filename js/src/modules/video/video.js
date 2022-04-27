@@ -89,6 +89,7 @@ export function createVideo( chart, element, node ) {
         closeIcon.addEventListener('click', e => {
             videoWrapper.classList.add( 'hide' )
             utils.dom.qs( 'video', videoWrapper ).pause()
+            utils.dom.qs( '.backdrop', app.tree.chart ).style.background = '#00000777'
             utils.dom.engage_event_stoper()
         })
     }
