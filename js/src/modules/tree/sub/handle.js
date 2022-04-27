@@ -49,7 +49,7 @@ function handleVideoLoad( mem, element, chart ) {
 
     video.classList.remove( 'hide' )
     modules.video.setVideoPosition( video, element )
-    utils.dom.qs( '.backdrop', app.tree.chart ).style.background = '#000007aa'
+    modules.video.setBackdrop( '#000007aa')
 
     mem.video = video
 }

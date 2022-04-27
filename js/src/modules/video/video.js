@@ -75,6 +75,11 @@ export function createVideo( chart, element, node ) {
         utils.html.create_element( 'span', 'Arata codul sursa<br>pentru aceasta lectie', codeIcon, {
             'class': [ 'tooltiptext', 'tooltip-bottom', 'tooltip-arrow' ],
         })
+
+        codeIcon.addEventListener( 'click', function(){
+            console.log( 'codeIcon' )
+            modules.video.setBackdrop()
+        })
     }
 
     function createCloseIcon( videoWrapper, node ) {
@@ -89,7 +94,10 @@ export function createVideo( chart, element, node ) {
         closeIcon.addEventListener('click', e => {
             videoWrapper.classList.add( 'hide' )
             utils.dom.qs( 'video', videoWrapper ).pause()
-            utils.dom.qs( '.backdrop', app.tree.chart ).style.background = '#00000777'
+            
+            const backdropColor = app.tree.chart.classList.contains('bg') ? '#00000777': ''
+            
+            modules.video.setBackdrop( backdropColor )
             utils.dom.engage_event_stoper()
         })
     }
@@ -98,6 +106,24 @@ export function setVideoPosition( video, element ) {
     Object.assign( video.style, {
         top: calculateTop( element ),
         left: calculateLeft( element ),
+    })
+}
+
+export function setBackdrop( backdropColor = '' ) {
+    const backdrop = utils.dom.qs('.backdrop', app.tree.chart)
+    
+    if ( backdropColor ) {
+        backdrop.style.background = backdropColor
+    }
+
+    Object.assign( backdrop.style, {
+        width: '0px',
+        height: '0px',
+    })
+
+    Object.assign( backdrop.style, {
+        width: app.tree.chart.scrollWidth+'px',
+        height: app.tree.chart.scrollHeight+'px',
     })
 }
 

@@ -64,7 +64,7 @@ import { initTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn } from '/js/src/modules/tree/sub/zoom.js'
-import { mem, isPlaying, createVideo, setVideoPosition } from '/js/src/modules/video/video.js'
+import { mem, isPlaying, createVideo, setVideoPosition, setBackdrop } from '/js/src/modules/video/video.js'
 import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
 import { changeBackground } from '/js/src/modules/background/background.js'
 window.modules = {
@@ -92,7 +92,8 @@ window.modules = {
         mem,
         isPlaying,
         createVideo,
-        setVideoPosition
+        setVideoPosition,
+        setBackdrop,
     },
     component: {
         WebComponent

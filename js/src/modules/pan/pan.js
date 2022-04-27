@@ -15,6 +15,7 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
         app.events.disableEvents = true
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
+        modules.video.setBackdrop()
     })
     element.addEventListener( 'mouseup', _ => {
         panningConfig[ element ].isPanning = false
