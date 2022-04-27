@@ -1,6 +1,7 @@
 /////// UTILS /////////
 import { fetch_scripts, fetch_text } from '/js/src/utils/async.utils.js'
 import { qs, qsa, engage_event_stoper } from '/js/src/utils/dom.utils.js'
+import { deepclone } from '/js/src/utils/object.utils.js'
 import { html_entities, create_element } from '/js/src/utils/html.utils.js'
 import { get_folder, get_image_location, id_generator } from '/js/src/utils/tree.utils.js'
 window.utils = {
@@ -12,6 +13,9 @@ window.utils = {
         qs,
         qsa,
         engage_event_stoper,
+    },
+    object: {
+        deepclone
     },
     html: {
         html_entities,
@@ -53,8 +57,8 @@ import { initTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn } from '/js/src/modules/tree/sub/zoom.js'
-
 import { mem, isPlaying, createVideo, setVideoPosition } from '/js/src/modules/video/video.js'
+import { WebComponent } from '/js/src/modules/component/component.js'
 window.modules = {
     icons: {
         initIcons,
@@ -81,6 +85,9 @@ window.modules = {
         isPlaying,
         createVideo,
         setVideoPosition
+    },
+    component: {
+        WebComponent
     }
 }
 

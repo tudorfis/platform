@@ -11,13 +11,14 @@ const zoomMin = 50
 
 export function zoomIn() {
     if ( disableZoomIn() ) return
+
     app.tree.zoomLevel -= zoomChange
-    console.log(app.tree.zoomLevel)
     handleZoom()
 }
 
 export function zoomOut() {
     if ( disableZoomOut() ) return
+    
     app.tree.zoomLevel += zoomChange
     handleZoom()
 }
