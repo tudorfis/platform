@@ -10,6 +10,17 @@ body {
     color: var(--light-color);
 }
 
+.test-container {
+    background: gray;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    color: black;
+}
+
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
 

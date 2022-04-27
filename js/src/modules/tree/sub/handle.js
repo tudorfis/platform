@@ -1,23 +1,38 @@
 
 export function handleLoading() {
     const { mem } = modules.video
-    const chart = utils.dom.qs( app.tree.chartSelector )
+    const chart = app.tree.chart
+
+    const chartDebounce = utils.events.debounce( e => {
+        mem.chartHover = !!e.target.constructor.toString().match( 'SVGSVGElement' )
+    }, 10)
+
+    chart.addEventListener( 'click', e => {
+        if ( !mem.video || !mem.chartHover ) return
+
+        mem.video.classList.add( 'hide' )
+        utils.dom.qs( 'video', mem.video ).pause()
+    })
+
+    chart.addEventListener( 'mousemove', e => {
+        chartDebounce(e)
+    })
 
     utils.dom.qsa('.node').forEach( element => {
-        element.addEventListener( 'mouseenter', _ => {
-            if ( mem.video && !mem.video?.classList.contains('hide') ) return
+        const videoDebounce = utils.events.debounce(() => {
+            if ( mem.chartHover || ( mem.video && !mem.video?.classList.contains('hide'))) return
+            const nodeElement = utils.dom.qs( `.node[id="${mem.videoId}"]`, chart )
+            handleVideoLoad( mem, nodeElement, chart )
+        }, 770)
 
-            handleVideoLoad( mem, element, chart )
+        element.addEventListener( 'mouseenter', _ => {
+            mem.videoId = element.id
+            videoDebounce()
         })
 
         element.addEventListener( 'click', _ => {
-            if ( mem.video.id === element.id ) {
+            if ( mem.video?.id === element.id ) {
                 modules.video.setVideoPosition( mem.video, element )
-                return
-            }
-
-            if ( utils.dom.qs( '.collapse-switch', element ) ) {
-                mem.video?.classList.add( 'hide' )
                 return
             }
 

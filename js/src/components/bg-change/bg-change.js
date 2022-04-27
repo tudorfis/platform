@@ -9,7 +9,7 @@ export default class extends modules.component.WebComponent {
 
     }
     changeBg({ target: img }) {
-        const chart = utils.dom.qs( app.tree.chartSelector )
+        const chart = app.tree.chart
         const bgNum = img.parentNode.getAttribute('data-bg-num')
 
         const chartBgNum = chart.getAttribute( 'data-bg-num' )

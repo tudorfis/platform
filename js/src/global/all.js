@@ -3,6 +3,7 @@ import { fetch_scripts, fetch_text } from '/js/src/utils/async.utils.js'
 import { qs, qsa, engage_event_stoper } from '/js/src/utils/dom.utils.js'
 import { deepclone } from '/js/src/utils/object.utils.js'
 import { html_entities, create_element } from '/js/src/utils/html.utils.js'
+import { debounce, throttle } from '/js/src/utils/events.utils.js'
 import { get_folder, get_image_location, id_generator } from '/js/src/utils/tree.utils.js'
 window.utils = {
     async: {
@@ -20,6 +21,10 @@ window.utils = {
     html: {
         html_entities,
         create_element,
+    },
+    events: {
+        debounce, 
+        throttle, 
     },
     tree: {
         id_generator,
@@ -94,6 +99,8 @@ window.modules = {
 ///////// APP ///////////
 window.app = {
     tree: {
+        chartSelector: '#chart',
+        chart: null,
         zoomLevel: 100
     },
     events: {

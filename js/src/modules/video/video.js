@@ -1,7 +1,9 @@
 
 export const mem = {
     video: null,
+    videoId: '',
     videos: {},
+    chartHover: false,
 }
 
 export function isPlaying( video ) {

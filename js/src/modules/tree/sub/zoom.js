@@ -32,7 +32,7 @@ export function disableZoomIn() {
 }
 
 function handleZoom() {
-    const chart = utils.dom.qs( app.tree.chartSelector )
+    const chart = app.tree.chart
     const zoomDimension = zoomDimensions[ app.tree.zoomLevel ]
 
     const width = `${zoomDimension}vw`
