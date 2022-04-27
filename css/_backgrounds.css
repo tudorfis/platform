@@ -1,0 +1,50 @@
+
+.bg.chart .tooltip-arrow:before { display: none; }
+
+.bg-1.chart { background-image: url('/img/bg/314769.jpg'); }
+.bg-1.chart > svg { background: #00000777;}
+.bg-1.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-2.chart { background-image: url('/img/bg/4742279.jpg'); }
+.bg-2.chart > svg { background: #00000777;}
+.bg-2.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-3.chart { background-image: url('/img/bg/4742287.jpg'); }
+.bg-3.chart > svg { background: #00000777;}
+.bg-3.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-4.chart { background-image: url('/img/bg/314841.jpg'); }
+.bg-4.chart > svg { background: #00000777;}
+.bg-4.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-5.chart { background-image: url('/img/bg/314873.jpg'); }
+.bg-5.chart > svg { background: #00000777;}
+.bg-5.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-6.chart { background-image: url('/img/bg/314902.jpg'); }
+.bg-6.chart > svg { background: #00000777;}
+.bg-6.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-7.chart { background-image: url('/img/bg/314917.jpg'); }
+.bg-7.chart > svg { background: #00000777;}
+.bg-7.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-8.chart { background-image: url('/img/bg/314944.jpg'); }
+.bg-8.chart > svg { background: #00000777;}
+.bg-8.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-9.chart { background-image: url('/img/bg/4742295.jpg'); }
+.bg-9.chart > svg { background: #00000777;}
+.bg-9.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-10.chart { background-image: url('/img/bg/4742366.jpg'); }
+.bg-10.chart > svg { background: #00000777;}
+.bg-10.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-11.chart { background-image: url('/img/bg/4742472.jpg'); }
+.bg-11.chart > svg { background: #00000777;}
+.bg-11.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
+
+.bg-12.chart { background-image: url('/img/bg/4742482.jpg'); }
+.bg-12.chart > svg { background: #00000777;}
+.bg-12.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }

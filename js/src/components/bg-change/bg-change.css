@@ -1,0 +1,36 @@
+.wrapper {
+    position: absolute;
+    z-index: 11;
+    right: 1rem;
+    top: .5rem;
+    width: 370px;
+    overflow-x: scroll;
+    display: flex;
+    padding: .3rem;
+    background: var(--light-color);
+    border: 1px solid var(--dark-color);
+}
+button {
+    cursor: pointer;
+    padding: .1rem;
+    margin: 0 .2rem;
+    border: 0;
+}
+button:hover {
+    transform: scale(1.05);
+}
+img {
+    width: 100px;
+    aspect-ratio: 16/9;
+}
+
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar {
+    height: .5rem;
+    width: .5rem;
+    background: var(--light-color);
+}
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: var(--brand-color);
+    border-radius: 10rem;
+}

@@ -26,7 +26,26 @@
     /* border: 0.1rem solid var(--dark-color); */
     /* box-shadow: 0 0 3px 1px var(--dark-color); */
 }
-
+.video-icon.arrow-icon {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -2.8rem;
+    border: 0;
+    font-size: 3rem;
+}
+.video-icon.arrow-icon.left {
+    right: 100%;
+}
+.video-icon.arrow-icon.light {
+    text-shadow: 0 0 5px var(--dark-color);
+    color: var(--light-color);
+}
+.video-icon.arrow-icon.dark {
+    text-shadow: 0 0 5px var(--light-color);
+    color: var(--dark-color);
+}
 .video-icon.code-icon {
     color: var(--dark-color);
     margin-left: auto;
@@ -34,6 +53,7 @@
     left: 0;
     right: 0;
     bottom: -2rem;
+    font-size: 1rem;
 } 
 
 .video-icon.close-icon {

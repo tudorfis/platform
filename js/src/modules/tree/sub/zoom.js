@@ -32,11 +32,21 @@ export function disableZoomIn() {
 }
 
 function handleZoom() {
+    const chart = utils.dom.qs( app.tree.chartSelector )
     const zoomDimension = zoomDimensions[ app.tree.zoomLevel ]
 
-    Object.assign( utils.dom.qs( app.tree.chartSelector ).style, {
-        width: `${zoomDimension}vw`,
-        height: `${zoomDimension}vh`,
+    const width = `${zoomDimension}vw`
+    const height = `${zoomDimension}vh`
+
+    Object.assign( chart.style, {
+        'background-size': `${width} ${height}`,
+        width,
+        height,
+    })
+
+    Object.assign( utils.dom.qs( 'svg', chart ).style, {
+        width,
+        height,
     })
 
     document.body.style.zoom = `${app.tree.zoomLevel}%`

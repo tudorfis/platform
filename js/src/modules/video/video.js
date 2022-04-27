@@ -36,6 +36,7 @@ export function createVideo( chart, element, node ) {
         'src': [ node.folderPath, config.tree.locate.video ].join('/') 
     })
 
+    createArrowIcon( videoWrapper, node, element )
     createCodeIcon( videoWrapper, node )
     createCloseIcon( videoWrapper, node )
 
@@ -43,6 +44,25 @@ export function createVideo( chart, element, node ) {
 
     return videoWrapper
 }
+
+    function createArrowIcon( videoWrapper, node, element ) {
+        const extraClasses = []
+        
+        extraClasses.push([ 
+            config.app.jsColor, 
+            config.app.cssColor
+        ].includes( node.color ) ? 'dark' : 'light')
+
+        const left = Number(videoWrapper.style.left.replace('px',''))
+        const offset = element.getBoundingClientRect().width / 2
+        if ( left < offset ) {
+            extraClasses.push('left')
+        }
+
+        utils.html.create_element( 'i', '', videoWrapper, {
+            'class': [ 'fa-solid', 'fa-arrow-down', 'video-icon', 'arrow-icon', ...extraClasses ],
+        })
+    }
 
     function createCodeIcon( videoWrapper, node ) {
         const codeIcon = utils.html.create_element( 'i', '', videoWrapper, {
@@ -53,8 +73,6 @@ export function createVideo( chart, element, node ) {
         utils.html.create_element( 'span', 'Arata codul sursa<br>pentru aceasta lectie', codeIcon, {
             'class': [ 'tooltiptext', 'tooltip-bottom', 'tooltip-arrow' ],
         })
-
-        return codeIcon
     }
 
     function createCloseIcon( videoWrapper, node ) {
@@ -71,8 +89,6 @@ export function createVideo( chart, element, node ) {
             utils.dom.qs( 'video', videoWrapper ).pause()
             utils.dom.engage_event_stoper()
         })
-
-        return closeIcon
     }
 
 export function setVideoPosition( video, element ) {

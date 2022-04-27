@@ -1,15 +1,16 @@
-.zoom-wrapper {
+.wrapper {
     position: absolute;
     z-index: 11;
     left: 1rem;
     top: 1rem;
 }
-.zoom-wrapper button {
+button {
     cursor: pointer;
     font-size: 1rem;
     padding: 1rem;
     color: var(--dark-color);
+    font-family: var(--font-vera);
 }
-.zoom-wrapper button i {
-    color:  var(--dark-color);
+i {
+    color: var(--dark-color);
 }
