@@ -63,7 +63,7 @@ import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn } from '/js/src/modules/tree/sub/zoom.js'
 import { mem, isPlaying, createVideo, setVideoPosition } from '/js/src/modules/video/video.js'
-import { WebComponent } from '/js/src/modules/component/component.js'
+import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
 window.modules = {
     icons: {
         initIcons,
