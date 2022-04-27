@@ -9,21 +9,23 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
     element.addEventListener( 'mousedown', e => {
         if ( !e.target.constructor.toString().match( matchConstructor ) ) return
 
+        app.events.disableEvents = true
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
     })
     element.addEventListener( 'mouseup', _ => {
         panningConfig[ element ].isPanning = false
         element.style.cursor = 'auto';
+        app.events.disableEvents = false
     })
     element.addEventListener( 'mouseleave', _ => {
         panningConfig[ element ].isPanning = false
         element.style.cursor = 'auto';
+        app.events.disableEvents = false
     })
     element.addEventListener( 'mousemove', event => {
         if( !panningConfig[ element ]?.isPanning ) return
         event.preventDefault()
-
         element.scrollBy( - ( event.movementX * 2 ), - ( event.movementY * 2 ) )
     })
 }

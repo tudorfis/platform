@@ -51,7 +51,7 @@ export function createVideo( chart, element, node ) {
         })
 
         utils.html.create_element( 'span', 'Arata codul sursa<br>pentru aceasta lectie', codeIcon, {
-            'class': [ 'tooltiptext', 'tooltip-bottom' ],
+            'class': [ 'tooltiptext', 'tooltip-bottom', 'tooltip-arrow' ],
         })
 
         return codeIcon
@@ -63,12 +63,13 @@ export function createVideo( chart, element, node ) {
         })
 
         utils.html.create_element( 'span', 'Inchide videoul acestei lectii', closeIcon, {
-            'class': [ 'tooltiptext', 'tooltip-right' ],
+            'class': [ 'tooltiptext', 'tooltip-right', 'tooltip-arrow' ],
         })
 
         closeIcon.addEventListener('click', e => {
             videoWrapper.classList.add( 'hide' )
             utils.dom.qs( 'video', videoWrapper ).pause()
+            utils.dom.engage_event_stoper()
         })
 
         return closeIcon

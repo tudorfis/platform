@@ -27,6 +27,8 @@ export function handleLoading() {
 }
 
 function handleVideoLoad( mem, element, chart ) {
+    if ( app.events.disableEvents ) return
+    
     mem.video?.classList.add( 'hide' )
 
     const node = modules.tree.findNode( element.id )

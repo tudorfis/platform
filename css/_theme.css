@@ -5,6 +5,11 @@
     margin: 0;
 }
 
+body {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
+
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
 
@@ -17,9 +22,4 @@
     cursor: pointer;
     background: var(--brand-color);
     border-radius: 10rem;
-}
-
-body {
-    background: var(--dark-color);
-    color: var(--light-color);
 }
