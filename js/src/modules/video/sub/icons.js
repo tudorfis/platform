@@ -1,6 +1,6 @@
 
 import arrowIcon from './icons/arrow-icon.js'
-export function createArrowIcon( videoWrapper, node, element ) {
+export function createArrowIcon( videoWrapper, node, nodeElement ) {
     arrowIcon( ...arguments )
 }
 

@@ -14,6 +14,6 @@ if ( !utils.mobile.isMobile() ) {
     
     modules.icons.initIcons()
     modules.pan.initPan()
-    modules.highlight.initHighlight()
+    modules.code.initCode()
     modules.tree.initTree()
 }

@@ -12,7 +12,6 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
             !e.target.classList.contains('backdrop') 
         ) return
 
-        app.events.disableEvents = true
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
         modules.video.positioning.setBackdrop()
@@ -20,12 +19,10 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
     element.addEventListener( 'mouseup', _ => {
         panningConfig[ element ].isPanning = false
         element.style.cursor = 'auto';
-        app.events.disableEvents = false
     })
     element.addEventListener( 'mouseleave', _ => {
         panningConfig[ element ].isPanning = false
         element.style.cursor = 'auto';
-        app.events.disableEvents = false
     })
     element.addEventListener( 'mousemove', event => {
         if( !panningConfig[ element ]?.isPanning ) return

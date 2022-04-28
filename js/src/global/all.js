@@ -63,17 +63,19 @@ window.projects = {
 /////// MODULES /////////
 import { initIcons } from '/js/src/modules/icons/icons.js'
 import { initPan } from '/js/src/modules/pan/pan.js'
-import { initHighlight } from '/js/src/modules/highlight/highlight.js'
-import { renderCode } from '/js/src/modules/highlight/sub/render-code.js'
 import { initTree, reloadTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { handleNodeLoad } from '/js/src/modules/tree/sub/handle/handleNodeLoad.js'
 import { handleVideoLoad } from '/js/src/modules/tree/sub/handle/handleVideoLoad.js'
+import { handleCodeLoad } from '/js/src/modules/tree/sub/handle/handleCodeLoad.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn, handleZoom } from '/js/src/modules/tree/sub/zoom.js'
-import { mem, isPlaying, createVideo } from '/js/src/modules/video/video.js'
+import { mem, isPlaying, createVideo, showVideo, hideVideo } from '/js/src/modules/video/video.js'
 import { setVideoPosition, setBackdrop, calculateTop, calculateLeft } from '/js/src/modules/video/sub/positioning.js'
 import { createArrowIcon, createCloseIcon, createEnlargeIcon } from '/js/src/modules/video/sub/icons.js'
+import { initCode, codeMem, createCode, showCode, hideCode } from '/js/src/modules/code/code.js'
+import { setCodePosition, calculateCodeTop, calculateCodeLeft } from '/js/src/modules/code/sub/positioning.js'
+import { renderCode } from '/js/src/modules/code/sub/render-code.js'
 import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
 import { changeBackground } from '/js/src/modules/background/background.js'
 window.modules = {
@@ -82,10 +84,6 @@ window.modules = {
     },
     pan: {
         initPan,
-    },
-    highlight: {
-        initHighlight,
-        renderCode,
     },
     tree: {
         initTree,
@@ -98,6 +96,7 @@ window.modules = {
             handleLoading,
             handleNodeLoad,
             handleVideoLoad,
+            handleCodeLoad,
         },
         zoom: {
             zoomIn,
@@ -111,6 +110,8 @@ window.modules = {
         mem,
         isPlaying,
         createVideo,
+        showVideo,
+        hideVideo,
         positioning: {
             setVideoPosition,
             setBackdrop,
@@ -121,6 +122,19 @@ window.modules = {
             createArrowIcon,
             createCloseIcon,
             createEnlargeIcon,
+        }
+    },
+    code: {
+        initCode,
+        codeMem, 
+        createCode, 
+        showCode, 
+        hideCode,
+        renderCode,
+        positioning: {
+            setCodePosition,
+            calculateCodeTop,
+            calculateCodeLeft,
         }
     },
     component: {

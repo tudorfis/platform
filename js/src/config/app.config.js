@@ -7,6 +7,10 @@ export default {
     jsColor: '#efda4f',
 
     backdropNo: 'var(--dark-color)',
-    backdropCover:  '#00000777',
+    backdropLighter:  '#00000777',
     backdropDarker: '#000007bb',
+
+    offsetVideo: 110,
+    offsetCodeTop: 310,
+    offsetCodeLeft: 200,
 }

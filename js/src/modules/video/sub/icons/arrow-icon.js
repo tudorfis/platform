@@ -1,4 +1,4 @@
-export default function( videoWrapper, node, element ) {
+export default function( videoWrapper, node ) {
     const extraClasses = []
     
     extraClasses.push([ 

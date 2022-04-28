@@ -1,21 +1,12 @@
 
-export function handleVideoLoad( mem, element, chart ) {
-    if ( app.events.disableEvents ) return
+export function handleVideoLoad( nodeElement ) {
+    modules.video.hideVideo()
     
-    if ( mem.videoWrapper ) {
-        mem.videoWrapper.classList.add( 'hide' )
-        utils.dom.qs( 'video', mem.videoWrapper ).pause()
-    }
+    const mem = modules.video.mem
+    const videoWrapper = mem.videos[ nodeElement.id ] || modules.video.createVideo( nodeElement )
 
-    const node = modules.tree.node.findNode( element.id )
-    const videoWrapper = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
-
-    modules.video.positioning.setVideoPosition( videoWrapper, element )
-    videoWrapper.classList.remove( 'hide' )
+    modules.video.showVideo( videoWrapper )
     
-    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker: config.app.backdropNo
-    modules.video.positioning.setBackdrop( backdropColor )
-
-    utils.dom.qs( 'video', videoWrapper ).play()
     mem.videoWrapper = videoWrapper
+    mem.nodeElement = nodeElement
 }

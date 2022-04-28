@@ -1,10 +1,8 @@
 
-export function handleNodeLoad( element ) {
-    const { mem } = modules.video
+export function handleNodeLoad( nodeElement ) {
+    modules.video.mem.videoId = nodeElement.id
 
-    mem.videoId = element.id
-
-    const nodeIcons = utils.dom.qs( '.node-icons', element ) || createNodeIcons( element )
+    const nodeIcons = utils.dom.qs( '.node-icons', nodeElement ) || createNodeIcons( nodeElement )
     nodeIcons.classList.remove( 'hide' )
 
     nodeIcons.addEventListener( 'mouseleave', _ => {
@@ -12,29 +10,43 @@ export function handleNodeLoad( element ) {
     })
 }
 
-function createNodeIcons( element ) {
-    const { mem } = modules.video
-    const chart = app.tree.chart
-    const nodeIcons = utils.html.create_element( 'div', '', element, { 'class': [ 'node-icons' ]})
+function createNodeIcons( nodeElement ) {
+    const nodeIcons = utils.html.create_element( 'div', '', nodeElement, { 'class': [ 'node-icons' ]})
     
-    const collapseSwitch = utils.dom.qs( '.collapse-switch', element )
+    createCollapseIcon( nodeIcons, nodeElement )
+    createVideoIcon( nodeIcons, nodeElement )
+    createCodeIcon( nodeIcons, nodeElement )
+
+    utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'backdrop' ]})
+    return nodeIcons
+}
+
+///////
+
+function createCollapseIcon( nodeIcons, nodeElement ) {
+    const collapseSwitch = utils.dom.qs( '.collapse-switch', nodeElement )
 
     if ( collapseSwitch ) {
         const collapseIcon = utils.html.create_element( 'i', '', nodeIcons, { 'class': [ 'fa-solid', 'fa-sitemap', 'collapse-icon' ]})
         collapseIcon.addEventListener( 'click', _ => {
             collapseSwitch.click()
-            mem.videoWrapper ? utils.dom.qs( 'video', mem.videoWrapper ).pause() : ''
+            modules.video.hideVideo()
+            modules.code.hideCode()
         })
     }
+}
 
+function createVideoIcon( nodeIcons, nodeElement ) {
     const videoIcon = utils.html.create_element( 'i', '', nodeIcons, { 'class': [ 'fa-solid', 'fa-video', 'video-icon' ]})
+    
     videoIcon.addEventListener( 'click', _ => {
-        modules.tree.handle.handleVideoLoad(mem, element, chart )
+        modules.tree.handle.handleVideoLoad( nodeElement )
     })
+}
 
+function createCodeIcon( nodeIcons, nodeElement ) {
     const codeIcon = utils.html.create_element( 'i', '', nodeIcons, { 'class': [ 'fa-solid', 'fa-code', 'code-icon' ]})
-    
-    utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'backdrop' ]})
-    
-    return nodeIcons
+    codeIcon.addEventListener( 'click', _ => {
+        modules.tree.handle.handleCodeLoad( nodeElement )
+    })
 }

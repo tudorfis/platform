@@ -6,6 +6,7 @@ function nodeId() {
 
 export function generateNode( nodeValue ) {
     collapsedDefault( nodeValue )
+
     return {
         HTMLid: nodeId(),
         image: utils.tree.get_image_location( nodeValue ),

@@ -1,26 +1,20 @@
 
 export function handleLoading() {
-    const { mem } = modules.video
-    const chart = app.tree.chart
+    const setBackdropThrottle = utils.events.throttle( _ => {
+        modules.video.positioning.setBackdrop()
+    }, 100)
 
-    chart.addEventListener( 'scroll', e => {
-        utils.events.throttle( _ => {
-            modules.video.positioning.setBackdrop()
-        })
+    app.tree.chart.addEventListener( 'scroll', _ => {
+        setBackdropThrottle()
     })
 
-    utils.dom.qsa('.node').forEach( element => {
-        element.addEventListener( 'mouseenter', _ => {
-            modules.tree.handle.handleNodeLoad( element )
-        })
+    addEventListener('resize',function(){
+        setBackdropThrottle()
+    })
 
-        element.addEventListener( 'click', e => {
-            if ( mem.videoWrapper?.id !== element.id ) {
-                mem.videoWrapper?.classList.add( 'hide' )
-                return   
-            }
-
-            modules.video.positioning.setVideoPosition( mem.videoWrapper, element )
+    utils.dom.qsa('.node').forEach( nodeElement => {
+        nodeElement.addEventListener( 'mouseenter', _ => {
+            modules.tree.handle.handleNodeLoad( nodeElement )
         })
     })
 

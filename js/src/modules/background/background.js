@@ -15,6 +15,6 @@ export function changeBackground( src = '', bgNum = 0 ) {
     else {
         chart.classList.add( 'bg', `bg-${bgNum}`  )
         chart.setAttribute( 'data-bg-num', bgNum )
-        modules.video.positioning.setBackdrop( config.app.backdropCover )
+        modules.video.positioning.setBackdrop( config.app.backdropLighter )
     }
 }

@@ -8,9 +8,7 @@ export default function( videoWrapper ) {
         videoWrapper.classList.add( 'hide' )
         utils.dom.qs( 'video', videoWrapper ).pause()
         
-        const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropCover: config.app.backdropNo
-        
+        const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropLighter : config.app.backdropNo
         modules.video.positioning.setBackdrop( backdropColor )
-        utils.dom.engage_event_stoper()
     })
 }

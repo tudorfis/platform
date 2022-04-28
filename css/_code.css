@@ -1,7 +1,12 @@
 
 .code-wrapper {
-    position: relative;
-    margin: 2rem;
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    z-index: 11;
+    transition: all .5s ease-in-out;
+    user-select: none;
+    padding: -1rem;
 }
 .code-wrapper > h1 {
     position: absolute;
@@ -12,9 +17,11 @@
 }
 .code-wrapper > pre {
     font-family: veramolt;
+    width: 800px;
+    min-height: 300px;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0 2rem 0.3rem #333;
+    box-shadow: 0 0 10px 3px var(--dark-color);
 }
 
 pre.sh_sourceCode, 
