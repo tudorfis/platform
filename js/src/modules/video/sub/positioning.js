@@ -1,6 +1,6 @@
 
-export function setVideoPosition( video, element ) {
-    Object.assign( video.style, {
+export function setVideoPosition( videoWrapper, element ) {
+    Object.assign( videoWrapper.style, {
         top: calculateTop( element ),
         left: calculateLeft( element ),
     })

@@ -1,6 +1,6 @@
 
 export const mem = {
-    video: null,
+    videoWrapper: null,
     videoId: '',
     videos: {},
     chartHover: false,
@@ -42,7 +42,8 @@ export function createVideo( chart, element, node ) {
 
     video.icons.createArrowIcon( videoWrapper, node, element )
     video.icons.createCodeIcon( videoWrapper, node )
-    video.icons.createCloseIcon( videoWrapper, node )
+    video.icons.createCloseIcon( videoWrapper )
+    video.icons.createEnlargeIcon( videoWrapper )
 
     mem.videos[ element.id ] = videoWrapper
     return videoWrapper

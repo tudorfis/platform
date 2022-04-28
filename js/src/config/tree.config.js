@@ -15,6 +15,7 @@ export function chartConfig( container ) {
             },
             levelSeparation: 75,
             siblingSeparation: 50,
+            padding: 150,
             animation: {
                 nodeAnimation: "linear",
                 nodeSpeed: 700,

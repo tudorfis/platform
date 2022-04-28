@@ -13,3 +13,10 @@ modules.icons.initIcons()
 modules.pan.initPan()
 modules.highlight.initHighlight()
 modules.tree.initTree()
+
+//<i class="fa-regular fa-hand"></i>
+//<i class="fa-regular fa-hand-back-fist"></i>
+//<i class="fa-solid fa-diagram-project"></i>
+//<i class="fa-solid fa-gears"></i>
+//<i class="fa-solid fa-sitemap"></i>
+//<i class="fa-solid fa-network-wired"></i>

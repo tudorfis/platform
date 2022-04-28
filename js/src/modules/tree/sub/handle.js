@@ -21,7 +21,7 @@ export function handleLoading() {
 
     utils.dom.qsa('.node').forEach( element => {
         const videoDebounce = utils.events.debounce(() => {
-            if ( mem.chartHover || ( mem.video && !mem.video?.classList.contains('hide'))) return
+            if ( mem.chartHover || ( mem.videoWrapper && !mem.videoWrapper?.classList.contains('hide'))) return
             
             const nodeElement = utils.dom.qs( `.node[id="${mem.videoId}"]`, chart )
             handleVideoLoad( mem, nodeElement, chart )
@@ -33,8 +33,8 @@ export function handleLoading() {
         })
 
         element.addEventListener( 'click', _ => {
-            if ( mem.video?.id === element.id ) {
-                modules.video.positioning.setVideoPosition( mem.video, element )
+            if ( mem.videoWrapper?.id === element.id ) {
+                modules.video.positioning.setVideoPosition( mem.videoWrapper, element )
                 return
             }
 
@@ -50,16 +50,16 @@ export function handleLoading() {
 function handleVideoLoad( mem, element, chart ) {
     if ( app.events.disableEvents ) return
     
-    mem.video?.classList.add( 'hide' )
+    mem.videoWrapper?.classList.add( 'hide' )
 
     const node = modules.tree.node.findNode( element.id )
-    const video = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
+    const videoWrapper = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
 
-    video.classList.remove( 'hide' )
-    modules.video.positioning.setVideoPosition( video, element )
+    videoWrapper.classList.remove( 'hide' )
+    modules.video.positioning.setVideoPosition( videoWrapper, element )
     
     const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker: config.app.backdropNo
     modules.video.positioning.setBackdrop( backdropColor )
 
-    mem.video = video
+    mem.videoWrapper = videoWrapper
 }
