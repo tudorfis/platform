@@ -5,6 +5,7 @@ import { deepclone } from '/js/src/utils/object.utils.js'
 import { html_entities, create_element } from '/js/src/utils/html.utils.js'
 import { debounce, throttle } from '/js/src/utils/events.utils.js'
 import { get_folder, get_image_location, id_generator } from '/js/src/utils/tree.utils.js'
+import { isMobile, isIOSMobile } from '/js/src/utils/mobile.utils.js'
 window.utils = {
     async: {
         fetch_scripts,
@@ -30,6 +31,10 @@ window.utils = {
         id_generator,
         get_folder,
         get_image_location,
+    },
+    mobile: {
+        isMobile,
+        isIOSMobile,
     }
 }
 

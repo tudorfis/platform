@@ -6,7 +6,7 @@ export default {
     cssColor: '#25a1e2',
     jsColor: '#efda4f',
 
-    backdropNo: 'var(--light-color)',
+    backdropNo: 'var(--dark-color)',
     backdropCover:  '#00000777',
     backdropDarker: '#000007bb',
 }
