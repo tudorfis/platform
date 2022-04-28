@@ -20,6 +20,5 @@ export function initTree() {
 
 export function reloadTree() {
     app.tree.nodeStructure = modules.tree.node.generateNode(projects.calculator)
-    // app.tree.chart.innerHTML = ''
     modules.tree.initTree()
 }

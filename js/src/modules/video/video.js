@@ -3,7 +3,6 @@ export const mem = {
     videoWrapper: null,
     videoId: '',
     videos: {},
-    chartHover: false,
 }
 
 export function isPlaying( video ) {

@@ -8,6 +8,8 @@ export default function( videoWrapper ) {
         'class': [ 'tooltiptext', 'tooltip-right', 'tooltip-arrow' ],
     })
 
+    const tooltipText = utils.dom.qs( '.tooltiptext', enlargeIcon )
+
     let isPressed = false,
         initialWidth = videoWrapper.getBoundingClientRect().width,
         clientX = null,
@@ -20,23 +22,27 @@ export default function( videoWrapper ) {
         enlargeIcon.classList.add('fa-hand-back-fist')
         enlargeIcon.classList.add('pressed')
         isPressed = true
-
+        
         iconX = e.clientX
         iconY = e.clientY
         clientX = e.clientX
         clientY = e.clientY
+        
+        tooltipText.classList.add( 'hide' )
     }
-
+    
     function stopEvent(e) {
         enlargeIcon.classList.add('fa-hand')
         enlargeIcon.classList.remove('fa-hand-back-fist')
         enlargeIcon.classList.remove('pressed')
         isPressed = false
-
+        
         iconX = null
         iconY = null
         clientX = null
         clientY = null
+
+        tooltipText.classList.remove( 'hide' )
     }
 
     enlargeIcon.addEventListener('mousedown', e => {

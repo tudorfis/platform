@@ -14,8 +14,6 @@ export function zoomOut() {
 
     app.tree.zoomLevel -= zoomChange
     handleZoom()
-
-    // modules.tree.reloadTree()
 }
 
 export function zoomIn() {
@@ -23,8 +21,6 @@ export function zoomIn() {
     
     app.tree.zoomLevel += zoomChange
     handleZoom()
-
-    // modules.tree.reloadTree()
 }
 
 export function disableZoomOut() {
