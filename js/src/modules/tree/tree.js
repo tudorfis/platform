@@ -8,12 +8,18 @@ const libs = [
 
 export function initTree() {
     utils.async.fetch_scripts( libs, _ => {
-        new Treant({
+        window.treeInstance = new Treant({
             ...config.tree.chartConfig( app.tree.chartSelector ),
             nodeStructure: app.tree.nodeStructure
         }, _ => {
-            modules.tree.handleLoading()
-            modules.tree.handleZoom()
+            modules.tree.handle.handleLoading()
+            modules.tree.zoom.handleZoom()
         })
     })
+}
+
+export function reloadTree() {
+    app.tree.nodeStructure = modules.tree.node.generateNode(projects.calculator)
+    // app.tree.chart.innerHTML = ''
+    modules.tree.initTree()
 }

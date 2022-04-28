@@ -8,7 +8,7 @@ export function handleLoading() {
     }, 10)
 
     const chartScrollThrottle = utils.events.throttle( e => {
-        modules.video.setBackdrop()
+        modules.video.positioning.setBackdrop()
     })
 
     chart.addEventListener( 'mousemove', e => {
@@ -34,7 +34,7 @@ export function handleLoading() {
 
         element.addEventListener( 'click', _ => {
             if ( mem.video?.id === element.id ) {
-                modules.video.setVideoPosition( mem.video, element )
+                modules.video.positioning.setVideoPosition( mem.video, element )
                 return
             }
 
@@ -52,14 +52,14 @@ function handleVideoLoad( mem, element, chart ) {
     
     mem.video?.classList.add( 'hide' )
 
-    const node = modules.tree.findNode( element.id )
+    const node = modules.tree.node.findNode( element.id )
     const video = mem.videos[ element.id ] || modules.video.createVideo( chart, element, node )
 
     video.classList.remove( 'hide' )
-    modules.video.setVideoPosition( video, element )
+    modules.video.positioning.setVideoPosition( video, element )
     
     const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker: config.app.backdropNo
-    modules.video.setBackdrop( backdropColor )
+    modules.video.positioning.setBackdrop( backdropColor )
 
     mem.video = video
 }

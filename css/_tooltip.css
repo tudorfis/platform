@@ -65,3 +65,9 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.tooltiptext.small {
+    width: 5rem;
+    left: -1.25rem !important;
+    top: 3rem !important;
+}

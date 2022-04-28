@@ -14,6 +14,8 @@ export function zoomOut() {
 
     app.tree.zoomLevel -= zoomChange
     handleZoom()
+
+    // modules.tree.reloadTree()
 }
 
 export function zoomIn() {
@@ -21,6 +23,8 @@ export function zoomIn() {
     
     app.tree.zoomLevel += zoomChange
     handleZoom()
+
+    // modules.tree.reloadTree()
 }
 
 export function disableZoomOut() {
@@ -49,6 +53,6 @@ export function handleZoom() {
         height,
     })
 
-    modules.video.setBackdrop()
-    document.body.style.zoom = `${app.tree.zoomLevel}%`
+    modules.video.positioning.setBackdrop()
+    chart.style.zoom = `${app.tree.zoomLevel}%`
 }

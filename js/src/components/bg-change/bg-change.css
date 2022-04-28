@@ -6,20 +6,27 @@
     width: 370px;
     overflow-x: scroll;
     display: flex;
-    padding: .3rem;
+    padding: .1rem .1rem 0 .1rem;
     background: var(--light-color);
     border: 1px solid var(--dark-color);
+    overflow-y: hidden;
 }
 .bg-change button {
     cursor: pointer;
     padding: .1rem;
-    margin: 0 .2rem;
+    margin: 0 .1rem;
     border: 0;
+}
+.bg-change button img {
+    opacity: 0.95;
+}
+.bg-change button:hover img {
+    opacity: 1;
 }
 .bg-change button:hover {
     transform: scale(1.05);
 }
 .bg-change img {
-    width: 100px;
+    width: 75px;
     aspect-ratio: 16/9;
 }

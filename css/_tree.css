@@ -14,10 +14,12 @@
 .chart svg {
     z-index: 8;
 }
-
 .Treant>.node {
     border: 0;
     z-index: 9;
+}
+.Treant>.node:hover {
+    transform: scale(1.05);
 }
 
 .Treant>.node img {

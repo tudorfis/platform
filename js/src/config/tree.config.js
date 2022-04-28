@@ -13,6 +13,8 @@ export function chartConfig( container ) {
             node: {
                 collapsable: true
             },
+            levelSeparation: 75,
+            siblingSeparation: 50,
             animation: {
                 nodeAnimation: "linear",
                 nodeSpeed: 700,
