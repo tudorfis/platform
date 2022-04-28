@@ -44,11 +44,6 @@ export function handleZoom() {
         height,
     })
 
-    Object.assign( utils.dom.qs( 'svg', chart ).style, {
-        width,
-        height,
-    })
-
     modules.video.positioning.setBackdrop()
     chart.style.zoom = `${app.tree.zoomLevel}%`
 }
