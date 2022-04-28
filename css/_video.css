@@ -5,7 +5,7 @@
     aspect-ratio: 16/9;
     width: 400px;
     z-index: 10;
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 .video-wrapper > .video {
@@ -42,39 +42,29 @@
 .video-icon.arrow-icon.dark {
     text-shadow: 0 0 5px var(--light-color);
     color: var(--dark-color);
+    top: -2.2rem;
 }
 
 /*******/
-.video-icon.code-icon {
-    color: var(--dark-color);
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    bottom: -2rem;
-    font-size: 1rem;
-} 
-
-/*******/
 .video-icon.close-icon {
-    background: var(--red-color);
-    color: var(--light-color);
+    background: var(--light-color);
+    color: var(--dark-color);
     right: -1.5rem;
     top: -1rem;
-    width: .75rem;
-    padding: .75rem;
-    font-size: .75rem;
+    width: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
 } 
 
 /*******/
 .video-icon.enlarge-icon {
     background: none;
     color: var(--light-color);
-    font-size: 2em;
+    font-size: 2.2em;
     border: 0;
     padding: 1rem;
-    right: -3rem;
-    bottom: -3rem;
+    right: -2.2rem;
+    bottom: -2rem;
     border-radius: 0;
     width: auto;
     height: auto;

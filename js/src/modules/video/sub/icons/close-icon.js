@@ -1,11 +1,7 @@
 
 export default function( videoWrapper ) {
     const closeIcon = utils.html.create_element( 'i', '', videoWrapper, {
-        'class': [ 'fa-solid', 'fa-x', 'tooltip', 'video-icon', 'close-icon' ],
-    })
-
-    utils.html.create_element( 'span', 'Inchide videoul acestei lectii', closeIcon, {
-        'class': [ 'tooltiptext', 'tooltip-right', 'tooltip-arrow' ],
+        'class': [ 'fa-solid', 'fa-x', 'video-icon', 'close-icon' ],
     })
 
     closeIcon.addEventListener('click', e => {

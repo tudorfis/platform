@@ -32,7 +32,7 @@ export function calculateTop( element ) {
 
 export function calculateLeft( element ) {
     const left = Number(element.style.left.replace('px',''))
-    const offset = element.getBoundingClientRect().width / 2
+    const offset = 110
 
-    return left - (left < offset ? 0 : offset) + 'px'
+    return left - (left < 110 ? 0 : offset) + 'px'
 }

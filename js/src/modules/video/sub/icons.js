@@ -1,13 +1,7 @@
 
-
 import arrowIcon from './icons/arrow-icon.js'
 export function createArrowIcon( videoWrapper, node, element ) {
     arrowIcon( ...arguments )
-}
-
-import codeIcon from './icons/code-icon.js'
-export function createCodeIcon() {
-    codeIcon( ...arguments )
 }
 
 import closeIcon from './icons/close-icon.js'

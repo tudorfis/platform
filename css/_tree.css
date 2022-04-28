@@ -23,7 +23,7 @@
 }
 
 .Treant>.node img {
-    height: 115px;
+    width: 200px;
     aspect-ratio: 16/9;
     cursor: pointer;
 }

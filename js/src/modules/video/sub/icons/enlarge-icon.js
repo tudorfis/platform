@@ -1,14 +1,8 @@
 
 export default function( videoWrapper ) {
     const enlargeIcon = utils.html.create_element( 'i', '', videoWrapper, {
-        'class': [ 'fa-regular', 'fa-hand', 'tooltip', 'video-icon', 'enlarge-icon' ],
+        'class': [ 'fa-regular', 'fa-hand', 'video-icon', 'enlarge-icon' ],
     })
-
-    utils.html.create_element( 'span', 'Mareste sau micsoreaza<br>videoul actual', enlargeIcon, {
-        'class': [ 'tooltiptext', 'tooltip-right', 'tooltip-arrow' ],
-    })
-
-    const tooltipText = utils.dom.qs( '.tooltiptext', enlargeIcon )
 
     let isPressed = false,
         initialWidth = videoWrapper.getBoundingClientRect().width,
@@ -27,8 +21,6 @@ export default function( videoWrapper ) {
         iconY = e.clientY
         clientX = e.clientX
         clientY = e.clientY
-        
-        tooltipText.classList.add( 'hide' )
     }
     
     function stopEvent(e) {
@@ -41,8 +33,6 @@ export default function( videoWrapper ) {
         iconY = null
         clientX = null
         clientY = null
-
-        tooltipText.classList.remove( 'hide' )
     }
 
     enlargeIcon.addEventListener('mousedown', e => {

@@ -1,0 +1,35 @@
+.node-icons {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.node-icons i {
+    background: none;
+    color: var(--light-color);
+    font-size: 1.25rem;
+    padding: 1rem .7rem .7rem;
+    border-radius: 100%;
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    z-index: 9;
+    border: .2rem solid var(--light-color);
+    opacity: .8;
+    box-shadow: 0 0 10px 1px var(--dark-color);
+    margin: 0 .2rem;
+}
+.node-icons i:hover {
+    opacity: 1;
+    color: var(--dark-color);
+    background: var(--light-color);
+} 
+.node-icons .backdrop {
+    width: 100%;
+    height: 100%;
+    background: var(--dark-color);
+    opacity: .7;
+    z-index: 8;
+}

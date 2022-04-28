@@ -66,7 +66,7 @@ import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn, handleZoom } from '/js/src/modules/tree/sub/zoom.js'
 import { mem, isPlaying, createVideo } from '/js/src/modules/video/video.js'
 import { setVideoPosition, setBackdrop, calculateTop, calculateLeft } from '/js/src/modules/video/sub/positioning.js'
-import { createArrowIcon, createCodeIcon, createCloseIcon, createEnlargeIcon } from '/js/src/modules/video/sub/icons.js'
+import { createArrowIcon, createCloseIcon, createEnlargeIcon } from '/js/src/modules/video/sub/icons.js'
 import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
 import { changeBackground } from '/js/src/modules/background/background.js'
 window.modules = {
@@ -110,7 +110,6 @@ window.modules = {
         },
         icons: {
             createArrowIcon,
-            createCodeIcon,
             createCloseIcon,
             createEnlargeIcon,
         }
