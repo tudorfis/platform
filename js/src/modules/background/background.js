@@ -1,5 +1,7 @@
 
-export function changeBackground( src, bgNum ) {
+export function changeBackground( src = '', bgNum = 0 ) {
+    if( src === '' ) src = config.bg.find( (_, index) => index === bgNum - 1 )
+
     const chart = app.tree.chart
     const chartBgNum = chart.getAttribute( 'data-bg-num' )
 

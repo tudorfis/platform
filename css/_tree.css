@@ -17,6 +17,7 @@
 .Treant>.node {
     border: 0;
     z-index: 9;
+    user-select: none;
 }
 .Treant>.node:hover {
     transform: scale(1.02);
@@ -26,6 +27,7 @@
     width: 200px;
     aspect-ratio: 16/9;
     cursor: pointer;
+    user-select: none;
 }
 
 .Treant .collapse-switch {

@@ -6,9 +6,11 @@
     width: 400px;
     z-index: 10;
     transition: all .5s ease-in-out;
+    user-select: none;
 }
 
 .video-wrapper > .video {
+    user-select: none;
     width: inherit;
     height: inherit;
     border: .3rem solid;

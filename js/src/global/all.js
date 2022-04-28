@@ -63,6 +63,8 @@ import { renderCode } from '/js/src/modules/highlight/sub/render-code.js'
 import { initTree, reloadTree } from '/js/src/modules/tree/tree.js'
 import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
 import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
+import { handleNodeLoad } from '/js/src/modules/tree/sub/handle/handleNodeLoad.js'
+import { handleVideoLoad } from '/js/src/modules/tree/sub/handle/handleVideoLoad.js'
 import { zoomIn, zoomOut, disableZoomOut, disableZoomIn, handleZoom } from '/js/src/modules/tree/sub/zoom.js'
 import { mem, isPlaying, createVideo } from '/js/src/modules/video/video.js'
 import { setVideoPosition, setBackdrop, calculateTop, calculateLeft } from '/js/src/modules/video/sub/positioning.js'
@@ -89,6 +91,8 @@ window.modules = {
         },
         handle: {
             handleLoading,
+            handleNodeLoad,
+            handleVideoLoad,
         },
         zoom: {
             zoomIn,

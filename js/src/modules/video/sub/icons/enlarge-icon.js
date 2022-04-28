@@ -6,6 +6,7 @@ export default function( videoWrapper ) {
 
     let isPressed = false,
         initialWidth = videoWrapper.getBoundingClientRect().width,
+        prevWidth = null,
         clientX = null,
         clientY = null,
         iconX = null,
@@ -28,11 +29,6 @@ export default function( videoWrapper ) {
         enlargeIcon.classList.remove('fa-hand-back-fist')
         enlargeIcon.classList.remove('pressed')
         isPressed = false
-        
-        iconX = null
-        iconY = null
-        clientX = null
-        clientY = null
     }
 
     enlargeIcon.addEventListener('mousedown', e => {
@@ -67,18 +63,22 @@ export default function( videoWrapper ) {
                 offset = -offsetDiff
             }
         }
-        const { width } = videoWrapper.getBoundingClientRect() 
 
-        Object.assign( videoWrapper.style, {
-            width: width + offset + 'px', 
-            marginLeft: -(((width + offset) - initialWidth)/2) + 'px'
-        })
+        prevWidth = prevWidth || initialWidth
+        prevWidth = prevWidth + offset
+
+        if ( prevWidth > initialWidth/2 && prevWidth < initialWidth*2 ) {
+            Object.assign( videoWrapper.style, {
+                width: prevWidth + 'px', 
+                marginLeft: -((prevWidth - initialWidth)/2) + 'px'
+            })
+        }
 
         clientX = e.clientX
         clientY = e.clientY
 
         modules.video.positioning.setBackdrop()
-    }, 150)
+    }, 75)
 
     enlargeIcon.addEventListener('mousemove', e => {
         enlargeMoveThrottle(e)
