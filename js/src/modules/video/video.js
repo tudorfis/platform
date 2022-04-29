@@ -41,7 +41,7 @@ export function createVideo( nodeElement ) {
         'src': [ node.folderPath, config.tree.locate.video ].join('/') 
     })
 
-    this.icons.createArrowIcon( videoWrapper, node, nodeElement )
+    this.icons.createArrowIcon( videoWrapper )
     this.icons.createCloseIcon( videoWrapper )
     this.icons.createEnlargeIcon( videoWrapper )
 
@@ -54,14 +54,25 @@ export function hideVideo() {
 
     mem.videoWrapper.classList.add( 'hide' )
     utils.dom.qs( 'video', mem.videoWrapper ).pause()
-    this.positioning.setVideoPosition( mem.videoWrapper, mem.nodeElement )
-    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropLighter: config.app.backdropNo
-    this.positioning.setBackdrop( backdropColor )
+    modules.video.positioning?.setVideoPosition( mem.videoWrapper, mem.nodeElement )
+    modules.video.lighterBackdrop()
 }
 
-export function showVideo( videoWrapper ) {
+export function showVideo( videoWrapper, nodeElement ) {
+    modules.video.darkerBackdrop()
+    modules.video.positioning?.setVideoPosition( videoWrapper, nodeElement )
     videoWrapper.classList.remove( 'hide' )
     utils.dom.qs( 'video', videoWrapper ).play()
-    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker: config.app.backdropNo
-    this.positioning.setBackdrop( backdropColor )
+}
+
+export function lighterBackdrop() {
+    const someOpened = utils.dom.qsa( '.video-wrapper, .code-wrapper' ).some(element => !element.classList.contains( 'hide' ))
+    if ( someOpened ) return
+
+    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropLighter : config.app.backdropNo
+    modules.video.positioning.setBackdrop( backdropColor )
+}
+export function darkerBackdrop() {
+    const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker : config.app.backdropNo
+    modules.video.positioning.setBackdrop( backdropColor )
 }

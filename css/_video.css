@@ -49,6 +49,7 @@
 
 /*******/
 .video-icon.close-icon {
+    box-shadow: 0 0 10px 3px var(--dark-color);
     background: var(--light-color);
     color: var(--dark-color);
     right: -1.5rem;
@@ -70,6 +71,7 @@
     border-radius: 0;
     width: auto;
     height: auto;
+    text-shadow: 0 0 15px var(--dark-color);
 } 
 .video-icon.enlarge-icon.pressed {
     right: -19rem;

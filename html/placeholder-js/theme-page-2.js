@@ -10,10 +10,11 @@ if ( !utils.mobile.isMobile() ) {
     app.tree.chart = utils.dom.qs( app.tree.chartSelector ) 
     app.tree.nodeStructure = modules.tree.node.generateNode(projects.calculator)
     app.tree.chart.classList.add( 'pan', 'scroll-x', 'scroll-y' )
+   
     modules.background.changeBackground( '', 3 )
+    modules.pan.handlePan( app.tree.chart, 'chart-svg' )
     
     modules.icons.initIcons()
-    modules.pan.initPan()
     modules.code.initCode()
     modules.tree.initTree()
 }

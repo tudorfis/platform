@@ -1,3 +1,4 @@
+import { hideVideo } from '/js/src/modules/video/video.js'
 
 export default function( videoWrapper ) {
     const closeIcon = utils.html.create_element( 'i', '', videoWrapper, {
@@ -5,10 +6,6 @@ export default function( videoWrapper ) {
     })
 
     closeIcon.addEventListener('click', e => {
-        videoWrapper.classList.add( 'hide' )
-        utils.dom.qs( 'video', videoWrapper ).pause()
-        
-        const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropLighter : config.app.backdropNo
-        modules.video.positioning.setBackdrop( backdropColor )
+        hideVideo()
     })
 }

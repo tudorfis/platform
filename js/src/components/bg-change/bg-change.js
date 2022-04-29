@@ -15,5 +15,7 @@ export default class extends modules.component.WebComponent {
                 <img src="${src.replace('.','_small.')}" />
             </button>
         `).join('') + this.refs.wrapper.innerHTML
+
+        modules.pan.handlePan( this.refs.wrapper, 'bg-change' )
     }
 }

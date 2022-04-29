@@ -6,3 +6,7 @@
     font-family: veramolt;
     src: url("../fonts/veramolt.ttf") format("truetype");
 }
+@font-face {
+    font-family: dejavu;
+    src: url("../fonts/dejavu.ttf") format("truetype");
+}

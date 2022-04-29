@@ -1,33 +1,63 @@
 
+
+const heightAdjust = {
+    content: [],
+}
+
 export async function renderCode( node = {}, codeWrapper ) {
+    heightAdjust.content = []
+    heightAdjust.heights = []
+
     for await ( const code of node.code ) {
         const fetchUrl = [ utils.tree.get_folder( node ), config.tree.locate.code + code ].join('/')
         const text = await utils.async.fetch_text( fetchUrl )
-        
-        const codeSection = utils.html.create_element( 'section', '', codeWrapper, { 'class': [ 'code-wrapper' ]})
-        handle[code]( codeSection, text )
+
+        const pre = handle[code]( codeWrapper, text, node.code.length > 1 )
+        heightAdjust.content.push( pre )
     }
 
     sh_highlightDocument()
-
+    fixHeights()
 }
 
 const handle = {
     html() {
-        const [ codeSection, text ] = arguments
-        utils.html.create_element( 'h1', 'HTML', codeSection )
+        const [ codeWrapper, text, lengthierCode ] = arguments
+        createTitle( codeWrapper, 'HTML', lengthierCode )
         
         const escapedHtml = utils.html.html_entities( text )
-        utils.html.create_element( 'pre', escapedHtml, codeSection, { 'class': [ 'sh_html' ] })
+        return utils.html.create_element( 'pre', escapedHtml, codeWrapper, { 'class': [ 'code-pre', 'sh_html' ] })
     },
     css() {
-        const [ codeSection, text ] = arguments
-        utils.html.create_element( 'h1', 'CSS', codeSection )
-        utils.html.create_element( 'pre', text, codeSection, { 'class': [ 'sh_css' ] })
+        let [ codeWrapper, text, lengthierCode ] = arguments
+        createTitle( codeWrapper, 'CSS', lengthierCode )
+        
+        if ( lengthierCode ) text = '&lt;style&gt;\n' + text + '\n&lt;/style&gt;'
+        return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_css' ] })
     },
     js() {
-        const [ codeSection, text ] = arguments
-        utils.html.create_element( 'h1', 'JS', codeSection )
-        utils.html.create_element( 'pre', text, codeSection, { 'class': [ 'sh_javascript' ] })
+        let [ codeWrapper, text, lengthierCode ] = arguments
+        createTitle( codeWrapper, 'JS', lengthierCode )
+
+        if ( lengthierCode ) text = '&lt;script&gt;\n' + text + '\n&lt;/script&gt;'
+        return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_javascript' ] })
     },
+}
+
+function createTitle( codeWrapper, text, ignoreTitle ) {
+    if ( ignoreTitle ) return
+
+    const parent = utils.dom.find_parent( codeWrapper, 'code-wrapper' )
+    utils.html.create_element( 'h1', text, parent, {}, 'prepend' )
+}
+
+function fixHeights() {
+    const offset = 50
+    const heights = heightAdjust.content.map( pre => pre.getBoundingClientRect().height )
+    let totalHeight = heights[ 0 ] + offset
+    
+    for ( let i = 1; i < heights.length; i++ ) {
+        heightAdjust.content[ i ].style.top = totalHeight+'px'
+        totalHeight += heights[i] + offset
+    }
 }

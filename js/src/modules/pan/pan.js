@@ -1,16 +1,13 @@
 
 const panningConfig = {}
 
-export function pan( element, matchConstructor = 'SVGSVGElement' ) {
+export function handlePan( element, matchClass = 'className', elementScroll ) {
     panningConfig[ element ] = {
         isPanning: false
     }
 
-    element.addEventListener( 'mousedown', e => {
-        if ( 
-            !e.target.constructor.toString().match( matchConstructor ) && 
-            !e.target.classList.contains('backdrop') 
-        ) return
+    element.addEventListener( 'mousedown', event => {
+        if (!event.target.classList.contains( matchClass )) return
 
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
@@ -25,14 +22,10 @@ export function pan( element, matchConstructor = 'SVGSVGElement' ) {
         element.style.cursor = 'auto';
     })
     element.addEventListener( 'mousemove', event => {
-        if( !panningConfig[ element ]?.isPanning ) return
-        event.preventDefault()
-        element.scrollBy( - ( event.movementX * 2 ), - ( event.movementY * 2 ) )
-    })
-}
+        if (!panningConfig[ element ].isPanning) return
+        if (!event.target.classList.contains( matchClass )) return
 
-export function initPan() {
-    document.addEventListener( 'DOMContentLoaded', _ => {
-        utils.dom.qsa( '.pan' ).forEach( element => pan( element ))
+        event.preventDefault()
+        ;( elementScroll || element ).scrollBy( - ( event.movementX * 2 ), - ( event.movementY * 2 ) )
     })
 }

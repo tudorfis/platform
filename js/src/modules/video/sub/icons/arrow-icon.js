@@ -1,12 +1,5 @@
-export default function( videoWrapper, node ) {
-    const extraClasses = []
-    
-    extraClasses.push([ 
-        config.app.jsColor, 
-        config.app.cssColor
-    ].includes( node.color ) ? 'dark' : 'light')
-
+export default function( videoWrapper ) {
     utils.html.create_element( 'i', '', videoWrapper, {
-        'class': [ 'fa-solid', 'fa-arrow-down', 'video-icon', 'arrow-icon', ...extraClasses ],
+        'class': [ 'fa-solid', 'fa-arrow-down', 'video-icon', 'arrow-icon' ],
     })
 }

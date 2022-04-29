@@ -39,6 +39,10 @@
     right: calc(100% + .3rem);
 }
 
+.tooltip .tooltiptext.tooltip-top {
+    bottom: calc(100% + .5rem);
+    left: -6rem;
+}
 .tooltip .tooltiptext.tooltip-bottom {
     top: calc(100% + .3rem);
     left: -6rem;
