@@ -44,7 +44,7 @@ export function createCode( nodeElement ) {
     })
     
     this.renderCode( node, codeSubWrapper )
-    modules.pan.handlePan( codeWrapper, 'code-backdrop', codeSubWrapper )
+    modules.general.handlePan( codeWrapper, 'code-backdrop', codeSubWrapper )
     
     this.icons.createCodeArrowIcon( codeWrapper )
     this.icons.createCodeCloseIcon( codeWrapper )

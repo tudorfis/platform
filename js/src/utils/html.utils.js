@@ -1,12 +1,12 @@
 
-export function html_entities( html ) {
+function html_entities( html ) {
     const div = document.createElement('div');
     div.innerText = html
     
     return div.innerHTML
 }
 
-export function create_element( 
+function create_element( 
     type = '', 
     html = '', 
     parent = HTMLElement, 
@@ -31,4 +31,9 @@ export function create_element(
     }
 
     return element
+}
+
+export default {
+    html_entities,
+    create_element,
 }

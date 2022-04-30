@@ -1,17 +1,33 @@
 
-export function get_folder( nodeValue ) {
+function get_folder( node ) {
     return [
         location.origin,
-        nodeValue.folderPath,
+        node.folderPath,
     ].join('/')
 }
 
-export function get_image_location( nodeValue ) {
-    return [ get_folder( nodeValue ), config.tree.locate.image ].join('/')
+function get_image_location( node ) {
+    return [ get_folder( node ), 'i.jpg' ].join('/')
 }
 
-export function* id_generator() {
+function get_video_location( node ) {
+    return [ node.folderPath, 'v.mp4' ].join('/') 
+}
+
+function get_code_location( node, code ) {
+    return [ get_folder( node ), `c.${code}` ].join('/')
+}
+
+function* id_generator() {
     while ( true ) {
         yield (Math.random() + 1).toString(36).substring(7)
     }
+}
+
+export default {
+    get_folder,
+    get_image_location,
+    get_video_location,
+    get_code_location,
+    id_generator,
 }

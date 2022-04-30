@@ -1,13 +1,13 @@
 
-export function qs(selector, parent = document) {
+function qs(selector, parent = document) {
     return parent.querySelector(selector)
 }
 
-export function qsa(selector, parent = document) {
+function qsa(selector, parent = document) {
     return [...parent.querySelectorAll(selector)]
 }
 
-export function engage_event_stoper( timeoutTime = 330 ) {
+function engage_event_stoper( timeoutTime = 330 ) {
     app.events.disableEvents = true
     
     setTimeout(_ => {
@@ -15,13 +15,13 @@ export function engage_event_stoper( timeoutTime = 330 ) {
     }, timeoutTime)
 }
 
-export function find_parent( element, className = '', id = '') {
+function find_parent( element, className = '', id = '') {
     if ( element.classList.contains( className ) ) return element
 
     return element.parentNode ? find_parent( element.parentNode, className, id ) : null
 }
 
-export function select_text( element ){
+function select_text( element ){
 	if (window.getSelection && document.createRange ) { 
 	  const selection = window.getSelection()
 	  
@@ -35,4 +35,12 @@ export function select_text( element ){
         range.moveToElementText(el)
         range.select() 
 	}
+}
+
+export default {
+    qs,
+    qsa,
+    engage_event_stoper,
+    find_parent,
+    select_text,
 }

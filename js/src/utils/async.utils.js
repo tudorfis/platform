@@ -1,5 +1,5 @@
 
-export function fetch_scripts( libs, callbackFn ) {
+function fetch_scripts( libs, callbackFn ) {
     const obj = { index: 0 }
     libs = libs.map( lib => [ lib, false ] )
 
@@ -29,6 +29,11 @@ function create_script( libs, obj, cb = _ => {} ) {
     }
 }
 
-export async function fetch_text( url ) {
+async function fetch_text( url ) {
     return await (await fetch( url )).text()
+}
+
+export default {
+    fetch_scripts,
+    fetch_text
 }

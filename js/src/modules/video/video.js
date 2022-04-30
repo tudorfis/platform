@@ -1,16 +1,16 @@
 
-export const mem = {
+const mem = {
     videoWrapper: null,
     nodeElement: null,
     videoId: '',
     videos: {},
 }
 
-export function isPlaying( video ) {
+function isPlaying( video ) {
     return !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
 }
 
-export function createVideo( nodeElement ) {
+function createVideo( nodeElement ) {
     const chart = app.tree.chart
     const node = modules.tree.node.findNode( nodeElement.id )
 
@@ -38,7 +38,7 @@ export function createVideo( nodeElement ) {
     
     utils.html.create_element( 'source', '', video, {
         'type': 'video/mp4',
-        'src': [ node.folderPath, config.tree.locate.video ].join('/') 
+        'src': utils.tree.get_video_location( node )
     })
 
     this.icons.createArrowIcon( videoWrapper )
@@ -49,7 +49,7 @@ export function createVideo( nodeElement ) {
     return videoWrapper
 }
 
-export function hideVideo() {
+function hideVideo() {
     if ( !mem.videoWrapper ) return
 
     mem.videoWrapper.classList.add( 'hide' )
@@ -58,21 +58,38 @@ export function hideVideo() {
     modules.video.lighterBackdrop()
 }
 
-export function showVideo( videoWrapper, nodeElement ) {
+function showVideo( videoWrapper, nodeElement ) {
     modules.video.darkerBackdrop()
     modules.video.positioning?.setVideoPosition( videoWrapper, nodeElement )
     videoWrapper.classList.remove( 'hide' )
     utils.dom.qs( 'video', videoWrapper ).play()
 }
 
-export function lighterBackdrop() {
+function lighterBackdrop() {
     const someOpened = utils.dom.qsa( '.video-wrapper, .code-wrapper' ).some(element => !element.classList.contains( 'hide' ))
     if ( someOpened ) return
 
     const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropLighter : config.app.backdropNo
     modules.video.positioning.setBackdrop( backdropColor )
 }
-export function darkerBackdrop() {
+function darkerBackdrop() {
     const backdropColor = app.tree.chart.classList.contains('bg') ? config.app.backdropDarker : config.app.backdropNo
     modules.video.positioning.setBackdrop( backdropColor )
+}
+
+////////
+
+import positioning from '/js/src/modules/video/sub/positioning.js'
+import icons from '/js/src/modules/video/sub/icons.js'
+
+export default {
+    mem,
+    isPlaying,
+    createVideo,
+    hideVideo,
+    showVideo,
+    lighterBackdrop,
+    darkerBackdrop,
+    positioning,
+    icons,
 }

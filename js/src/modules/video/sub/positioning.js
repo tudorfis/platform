@@ -1,12 +1,12 @@
 
-export function setVideoPosition( videoWrapper, nodeElement ) {
+function setVideoPosition( videoWrapper, nodeElement ) {
     Object.assign( videoWrapper.style, {
         top: calculateTop( nodeElement ),
         left: calculateLeft( nodeElement ),
     })
 }
 
-export function setBackdrop( backdropColor = '' ) {
+function setBackdrop( backdropColor = '' ) {
     const backdrop = utils.dom.qs('.backdrop', app.tree.chart)
     
     if ( !backdrop ) return
@@ -26,10 +26,17 @@ export function setBackdrop( backdropColor = '' ) {
     })
 }
 
-export function calculateTop( nodeElement ) {
+function calculateTop( nodeElement ) {
     return Number(nodeElement.style.top.replace('px','')) + nodeElement.getBoundingClientRect().height * 1.08 + 'px'
 }
 
-export function calculateLeft( nodeElement ) {
+function calculateLeft( nodeElement ) {
     return Number(nodeElement.style.left.replace('px','')) - config.app.offsetVideo + 'px'
+}
+
+export default {
+    setVideoPosition,
+    setBackdrop,
+    calculateTop,
+    calculateLeft,
 }

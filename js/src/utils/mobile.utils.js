@@ -1,5 +1,5 @@
 
-export function isMobile() {
+function isMobile() {
     return !!(
         navigator.userAgent.match(/Android/i) || 
         navigator.userAgent.match(/webOS/i) || 
@@ -9,10 +9,15 @@ export function isMobile() {
     )
 }
 
-export function isIOSMobile() {
+function isIOSMobile() {
     return !!(
         navigator.userAgent.match(/iPhone/i) || 
         navigator.userAgent.match(/iPad/i) || 
         navigator.userAgent.match(/iPod/i)
     )
+}
+
+export default {
+    isMobile,
+    isIOSMobile,
 }

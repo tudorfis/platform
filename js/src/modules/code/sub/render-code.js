@@ -9,7 +9,7 @@ export async function renderCode( node = {}, codeWrapper ) {
     heightAdjust.heights = []
 
     for await ( const code of node.code ) {
-        const fetchUrl = [ utils.tree.get_folder( node ), config.tree.locate.code + code ].join('/')
+        const fetchUrl = utils.tree.get_code_location( node, code )
         const text = await utils.async.fetch_text( fetchUrl )
 
         const pre = handle[code]( codeWrapper, text, node.code.length > 1 )

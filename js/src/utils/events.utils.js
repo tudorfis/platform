@@ -1,5 +1,5 @@
 
-export function debounce(cb, delay = 1000) {
+function debounce(cb, delay = 1000) {
     let timeout
 
     return (...args) => {
@@ -10,7 +10,7 @@ export function debounce(cb, delay = 1000) {
     }
 }
 
-export function throttle(cb, delay = 1000) {
+function throttle(cb, delay = 1000) {
     let shouldWait = false
     let waitingArgs
 
@@ -35,4 +35,9 @@ export function throttle(cb, delay = 1000) {
 
         setTimeout(timeoutFunc, delay)
     }
+}
+
+export default { 
+    debounce,
+    throttle,
 }

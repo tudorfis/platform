@@ -19,7 +19,7 @@ export function generateNode( nodeValue ) {
         ...( nodeValue.collapsed !== undefined ? { collapsed: nodeValue.collapsed } : {} ),
         ...( nodeValue.stackChildren !== undefined ? { stackChildren: nodeValue.stackChildren } : {} ),
         ...( nodeValue.color !== undefined ? { color: nodeValue.color } : {} ),
-        ...( nodeValue.lineColor !== undefined ? config.tree.connectorColor( nodeValue.lineColor ) : {} ),
+        ...( nodeValue.lineColor !== undefined ? modules.tree.connectorColor( nodeValue.lineColor ) : {} ),
     }
 }
 
