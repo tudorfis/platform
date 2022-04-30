@@ -19,7 +19,7 @@
     width: 590px;
     height: 300px;
     position: absolute;
-    opacity: .75;
+    opacity: .85;
     background: black;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@
     font-family: dejavu;
     font-size: 1.07rem;
     width: auto;
-    min-height: 300px;
+    min-height: calc(300px - 2rem);
     margin: 0;
     padding: 0;
     border-radius: 0.5rem;

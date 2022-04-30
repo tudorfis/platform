@@ -2,7 +2,7 @@
 .chart {
     height: 100vh;
     width: 100vw;
-    background: #ededed;
+    background: var(--dark-color);
 }
 .chart .backdrop {
     position: absolute;

@@ -2,7 +2,7 @@
 .video-wrapper {
     position: absolute;
     background-color: var(--dark-color);
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/7;
     width: 400px;
     z-index: 10;
     transition: all .5s ease-in-out;

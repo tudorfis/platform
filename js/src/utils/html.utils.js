@@ -3,7 +3,8 @@ function html_entities( html ) {
     const div = document.createElement('div');
     div.innerText = html
     
-    return div.innerHTML
+    const entities = div.innerHTML
+    return entities.replaceAll('	','  ')
 }
 
 function create_element( 

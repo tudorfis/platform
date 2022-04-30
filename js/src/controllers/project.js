@@ -1,6 +1,11 @@
 
 const params = utils.linkode.get_url_params()
 
+if ( !params.type ) {
+    window.location = '/#/project/calculator'
+    window.location.reload()
+}
+
 if ( !utils.mobile.isMobile() ) {
     app.tree.chart = utils.dom.qs( app.tree.chartSelector ) 
     app.tree.nodeStructure = modules.tree.node.generateNode( projects[ params.selector ] )
