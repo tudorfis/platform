@@ -7,13 +7,13 @@ function lighterBackdrop() {
 
     const backdrop = utils.dom.qs('.backdrop', app.tree.chart)
     if ( !backdrop ) return
-    backdrop.style.background = config.app.backdropLighter
+    backdrop.style.background = constants.colors.backdropLighter
 }
 
 function darkerBackdrop() {
     const backdrop = utils.dom.qs('.backdrop', app.tree.chart)
     if ( !backdrop ) return
-    backdrop.style.background = config.app.backdropDarker
+    backdrop.style.background = constants.colors.backdropDarker
 }
 
 function readjustBackdrop() {

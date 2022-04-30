@@ -36,7 +36,6 @@ function chartConfig( container ) {
                 connectorsSpeed: 300,
                 connectorsType: 'step'
             },
-            ...connectorColor( config.app.brandColor )
         }
     }
 }

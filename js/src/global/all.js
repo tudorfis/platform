@@ -31,15 +31,11 @@ window.utils = {
     behaviour,
 }
 
-/////// CONFIG /////////
-import app from '/js/src/config/app.config.js'
-window.config = {
-    app,
-}
-
 /////// CONSTANTS ////////
+import colors from '/js/src/constants/colors.js'
 import bgColors from '/js/src/constants/bgColors.js'
 window.constants = {
+    colors,
     bgColors,
 }
 
