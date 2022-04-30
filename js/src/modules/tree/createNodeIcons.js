@@ -21,6 +21,7 @@ function createVideoIcon( nodeIcons, nodeElement ) {
     
     videoIcon.addEventListener( 'click', _ => {
         modules.video.handleVideoLoad( nodeElement )
+        modules.general.setTitleFavicon( modules.tree.node.findNode( nodeElement.id ))
     })
 }
 
@@ -28,9 +29,10 @@ function createCodeIcon( nodeIcons, nodeElement ) {
     const codeIcon = utils.html.create_element( 'i', '', nodeIcons, { 
         'class': [ 'fa-solid', 'fa-code', 'code-icon' ]
     })
-
+    
     codeIcon.addEventListener( 'click', _ => {
         modules.code.handleCodeLoad( nodeElement )
+        modules.general.setTitleFavicon( modules.tree.node.findNode( nodeElement.id ))
     })
 }
 

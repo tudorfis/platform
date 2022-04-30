@@ -1,7 +1,7 @@
 import colors from '/js/src/constants/colors.js'
 
 export default {
-    title: 'Proiect web - authentificare - html, css, javascript',
+    title: 'Authentificare web',
     folderPath: '/media/autentificare/1.project',
     lineColor: colors.treeColor,
     code: [ 'html', 'css', 'js' ],

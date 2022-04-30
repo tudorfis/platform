@@ -7,20 +7,18 @@ if ( !params.type ) {
 }
 
 if ( !utils.mobile.isMobile() ) {
-    app.tree.chart = utils.dom.qs( app.tree.chartSelector ) 
-    app.tree.nodeStructure = modules.tree.node.generateNode( projects[ params.selector ] )
-    app.tree.chart.classList.add( 'scroll-x', 'scroll-y' )
+    addEventListener( 'popstate', _ => window.location.reload())
+    
+    app.chart = utils.dom.qs( app.tree.chartSelector ) 
+    app.project = projects[ params.selector ]
+    app.tree.nodeStructure = modules.tree.node.generateNode( app.project )
    
+    modules.general.setTitleFavicon( app.project )
     modules.general.changeBackground( '', params.param1 || 0 )
-    modules.general.handlePan( app.tree.chart, 'chart-svg' )
+    modules.general.handlePan( app.chart, 'chart-svg' )
     modules.general.initIcons()
     modules.general.initCodeHighlight()
-
     modules.tree.initTree()
-
-    addEventListener( 'popstate', _ => {
-        window.location.reload()
-    })
 }
 
 import NoMobileSupport from '/js/src/components/no-mobile-support/no-mobile-support.js'

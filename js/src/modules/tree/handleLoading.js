@@ -16,7 +16,7 @@ export default function() {
         modules.backdrop.readjustBackdrop()
     }, 100)
 
-    app.tree.chart.addEventListener( 'scroll', _ => {
+    app.chart.addEventListener( 'scroll', _ => {
         readjustBackdropThrottle()
     })
 

@@ -2,7 +2,7 @@
 import colors from '/js/src/constants/colors.js'
 
 export default {
-    title: 'Proiect web - calculator digital - html, css, javascript',
+    title: 'Calculator Digital',
     folderPath: '/media/calculator/1.project',
     lineColor: colors.treeColor,
     color: colors.treeColor,

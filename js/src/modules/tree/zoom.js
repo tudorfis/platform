@@ -32,7 +32,6 @@ function disableZoomIn() {
 }
 
 function handleZoom() {
-    const chart = app.tree.chart
     const zoomDimension = zoomDimensions[ app.tree.zoomLevel ]
 
     const width = `${zoomDimension}vw`
@@ -45,7 +44,7 @@ function handleZoom() {
     })
 
     modules.backdrop.readjustBackdrop()
-    chart.style.zoom = `${app.tree.zoomLevel}%`
+    app.chart.style.zoom = `${app.tree.zoomLevel}%`
 }
 
 export default {

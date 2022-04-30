@@ -1,9 +1,10 @@
 
 ///////// APP ///////////
 window.app = {
+    chart: null,
+    project: null,
     tree: {
         chartSelector: '#chart',
-        chart: null,
         zoomLevel: 75
     },
     events: {

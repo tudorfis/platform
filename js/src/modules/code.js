@@ -7,7 +7,6 @@ const mem = {
 }
 
 function createCode( nodeElement ) {
-    const chart = app.tree.chart
     const node = modules.tree.node.findNode( nodeElement.id )
 
     const styles = [
@@ -17,7 +16,7 @@ function createCode( nodeElement ) {
 
     const style = styles.map( arr => arr.join(':') ).join(';')
 
-    const codeWrapper = utils.html.create_element( 'div', '', chart, { 
+    const codeWrapper = utils.html.create_element( 'div', '', app.chart, { 
         'class': [ 'code-wrapper', 'fade-in' ],
         'id': nodeElement.id,
         'style': style,

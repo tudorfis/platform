@@ -6,7 +6,6 @@ const mem = {
 }
 
 function createVideo( nodeElement ) {
-    const chart = app.tree.chart
     const node = modules.tree.node.findNode( nodeElement.id )
 
     const styles = [
@@ -16,7 +15,7 @@ function createVideo( nodeElement ) {
     
     const style = styles.map( arr => arr.join(':') ).join(';')
 
-    const videoWrapper = utils.html.create_element( 'div', '', chart, { 
+    const videoWrapper = utils.html.create_element( 'div', '', app.chart, { 
         'class': [ 'video-wrapper', 'fade-in' ],
         'id': nodeElement.id,
         'style': style,

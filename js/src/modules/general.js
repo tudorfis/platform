@@ -2,6 +2,11 @@
 
 const panningConfig = {}
 
+function setTitleFavicon( node ) {
+    document.title = `${node.title} # Linkode`
+    utils.dom.qs( 'link[rel="icon"]', document.head ).setAttribute('href', utils.linkode.get_image_location( node ))
+}
+
 function handlePan( element, matchClass = 'className', elementScroll ) {
     panningConfig[ element ] = {
         isPanning: false
@@ -34,19 +39,18 @@ function handlePan( element, matchClass = 'className', elementScroll ) {
 function changeBackground( src = '', bgNum = 0 ) {
     src = src || constants.bgColors.find( (_, index) => index === bgNum - 1 )
 
-    const chart = app.tree.chart
-    const chartBgNum = chart.getAttribute( 'data-bg-num' )
+    const chartBgNum = app.chart.getAttribute( 'data-bg-num' )
     
-    chart.classList.remove( `bg-${chartBgNum}` )
-    chart.style[ 'background-image' ] = src ? `url('${src}')` : 'none'
+    app.chart.classList.remove( `bg-${chartBgNum}` )
+    app.chart.style[ 'background-image' ] = src ? `url('${src}')` : 'none'
     
     if ( bgNum === 0 ) {
-        chart.classList.remove('bg')
+        app.chart.classList.remove('bg')
         modules.backdrop.darkerBackdrop()
     }
     else {
-        chart.classList.add( 'bg', `bg-${bgNum}`  )
-        chart.setAttribute( 'data-bg-num', bgNum )
+        app.chart.classList.add( 'bg', `bg-${bgNum}`  )
+        app.chart.setAttribute( 'data-bg-num', bgNum )
         modules.backdrop.lighterBackdrop()
     }
 }
@@ -71,6 +75,7 @@ function initCodeHighlight( cb = _ => {} ) {
 }
 
 export default {
+    setTitleFavicon,
     changeBackground,
     handlePan,
     initIcons,
