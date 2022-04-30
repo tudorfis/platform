@@ -6,6 +6,7 @@
 }
 .chart .backdrop {
     position: absolute;
+    background: #000007bb;
     top: 0;
     left: 0;
     bottom: 0;

@@ -27,7 +27,7 @@ body {
 :is(.scroll-x,.scroll-y)::-webkit-scrollbar {
     height: .5rem;
     width: .5rem;
-    background: transparent;
+    background: var(--dark-color);
 }
 :is(.scroll-x,.scroll-y)::-webkit-scrollbar-thumb {
     background: var(--light-color);

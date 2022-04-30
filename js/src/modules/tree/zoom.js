@@ -44,7 +44,7 @@ function handleZoom() {
         height,
     })
 
-    modules.video.positioning.setBackdrop()
+    modules.backdrop.readjustBackdrop()
     chart.style.zoom = `${app.tree.zoomLevel}%`
 }
 

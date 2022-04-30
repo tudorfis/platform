@@ -1,3 +1,38 @@
+<style>
+    .bg-change {
+        position: absolute;
+        z-index: 11;
+        right: 1rem;
+        top: .5rem;
+        width: 370px;
+        overflow-x: scroll;
+        display: flex;
+        padding: .1rem .1rem 0 .1rem;
+        overflow-y: hidden;
+    }
+    .bg-change button {
+        cursor: pointer;
+        padding: 0;
+        margin: .5rem;
+        border: 0;
+        z-index: 8;
+    }
+    .bg-change button img {
+        opacity: 0.95;
+        box-shadow: 0 0 4px 2px var(--light-color);
+    }
+    .bg-change button:hover img {
+        opacity: 1;
+    }
+    .bg-change button:hover {
+        transform: scale(1.05);
+    }
+    .bg-change img {
+        width: 75px;
+        aspect-ratio: 16/9;
+    }
+</style>
+
 <div 
     ref="wrapper" 
     class="bg-change scroll-x"

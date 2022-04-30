@@ -19,7 +19,7 @@ import html from '/js/src/utils/html.utils.js'
 import events from '/js/src/utils/events.utils.js'
 import linkode from '/js/src/utils/linkode.utils.js'
 import mobile from '/js/src/utils/mobile.utils.js'
-import enlarge from '/js/src/utils/enlarge.utils.js'
+import behaviour from '/js/src/utils/behaviour.utils.js'
 window.utils = {
     async,
     dom,
@@ -28,7 +28,7 @@ window.utils = {
     events,
     linkode,
     mobile,
-    enlarge,
+    behaviour,
 }
 
 /////// CONFIG /////////
@@ -52,12 +52,12 @@ window.projects = {
 }
 
 /////// MODULES /////////
-import general from '/js/src/modules/general/general.js'
-import webcomponent from '/js/src/modules/webcomponent/webcomponent.js'
-
-import tree from '/js/src/modules/tree/tree.js'
-import video from '/js/src/modules/video/video.js'
-import code from '/js/src/modules/code/code.js'
+import general from '/js/src/modules/general.js'
+import webcomponent from '/js/src/modules/webcomponent.js'
+import tree from '/js/src/modules/tree.js'
+import video from '/js/src/modules/video.js'
+import code from '/js/src/modules/code.js'
+import backdrop from '/js/src/modules/backdrop.js'
 
 window.modules = {
     general,
@@ -65,4 +65,5 @@ window.modules = {
     tree,
     video,
     code,
+    backdrop,
 }

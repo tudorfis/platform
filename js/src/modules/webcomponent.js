@@ -6,13 +6,15 @@ export default class extends HTMLElement {
         templateContent = '',
         componentUrl = '',
         props = [],
-        data = {}
+        data = {},
+        withCss = false,
     }) {
         super()
         
         this.templateContent = templateContent
         this.componentUrl = componentUrl
         this.props = props
+        this.withCss = withCss
 
         this.storeData( data )
         this.init()
@@ -60,7 +62,7 @@ export default class extends HTMLElement {
         const templateHtml = this.componentUrl.replace( /js$/, 'html' )
         
         this.templateContent = `
-            <style>${ await (await fetch( templateCss)).text() }</style>
+            ${ this.withCss ? `<style>${ await (await fetch( templateCss)).text() }</style>` : '' }
             ${ await (await fetch( templateHtml)).text() }
         `
     }

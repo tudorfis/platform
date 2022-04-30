@@ -9,8 +9,4 @@ export default {
     backdropNo: 'var(--dark-color)',
     backdropLighter:  '#00000777',
     backdropDarker: '#000007bb',
-
-    offsetVideo: 110,
-    offsetCodeTop: 310,
-    offsetCodeLeft: 200,
 }

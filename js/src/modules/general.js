@@ -12,7 +12,7 @@ function handlePan( element, matchClass = 'className', elementScroll ) {
 
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
-        modules.video.positioning.setBackdrop()
+        modules.backdrop.readjustBackdrop()
     })
     element.addEventListener( 'mouseup', _ => {
         panningConfig[ element ].isPanning = false
@@ -32,22 +32,22 @@ function handlePan( element, matchClass = 'className', elementScroll ) {
 }
 
 function changeBackground( src = '', bgNum = 0 ) {
-    if( src === '' ) src = constants.bgColors.find( (_, index) => index === bgNum - 1 )
+    src = src || constants.bgColors.find( (_, index) => index === bgNum - 1 )
 
     const chart = app.tree.chart
     const chartBgNum = chart.getAttribute( 'data-bg-num' )
-
+    
     chart.classList.remove( `bg-${chartBgNum}` )
-    chart.style[ 'background-image' ] = `url('${src}')`
-
+    chart.style[ 'background-image' ] = src ? `url('${src}')` : 'none'
+    
     if ( bgNum === 0 ) {
         chart.classList.remove('bg')
-        modules.video.positioning.setBackdrop( config.app.backdropNo )
+        modules.backdrop.darkerBackdrop()
     }
     else {
         chart.classList.add( 'bg', `bg-${bgNum}`  )
         chart.setAttribute( 'data-bg-num', bgNum )
-        modules.video.positioning.setBackdrop( config.app.backdropLighter )
+        modules.backdrop.lighterBackdrop()
     }
 }
 
@@ -55,8 +55,24 @@ function initIcons() {
     utils.async.fetch_scripts([ '/js/lib/font-awesome/font-awesome.js' ])
 }
 
+const codeHighlightlibs = [
+    '/js/lib/shjs/sh_main.js',
+    '/js/lib/shjs/sh_javascript.js',
+    '/js/lib/shjs/sh_html.js',
+    '/js/lib/shjs/sh_css.js',
+    '/js/lib/shjs/sh_php.js',
+    '/js/lib/shjs/sh_sql.js',
+]
+
+function initCodeHighlight( cb = _ => {} ) {
+    utils.async.fetch_scripts( codeHighlightlibs, _ => {
+        if ( cb ) cb()
+    })
+}
+
 export default {
     changeBackground,
     handlePan,
     initIcons,
+    initCodeHighlight,
 }

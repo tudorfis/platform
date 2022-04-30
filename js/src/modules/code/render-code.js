@@ -4,22 +4,6 @@ const heightAdjust = {
     content: [],
 }
 
-export async function renderCode( node = {}, codeWrapper ) {
-    heightAdjust.content = []
-    heightAdjust.heights = []
-
-    for await ( const code of node.code ) {
-        const fetchUrl = utils.linkode.get_code_location( node, code )
-        const text = await utils.async.fetch_text( fetchUrl )
-
-        const pre = handle[code]( codeWrapper, text, node.code.length > 1 )
-        heightAdjust.content.push( pre )
-    }
-
-    sh_highlightDocument()
-    fixHeights()
-}
-
 const handle = {
     html() {
         const [ codeWrapper, text, lengthierCode ] = arguments
@@ -60,4 +44,22 @@ function fixHeights() {
         heightAdjust.content[ i ].style.top = totalHeight+'px'
         totalHeight += heights[i] + offset
     }
+}
+
+////
+
+export default async function( node = {}, codeWrapper ) {
+    heightAdjust.content = []
+    heightAdjust.heights = []
+
+    for await ( const code of node.code ) {
+        const fetchUrl = utils.linkode.get_code_location( node, code )
+        const text = await utils.async.fetch_text( fetchUrl )
+
+        const pre = handle[code]( codeWrapper, text, node.code.length > 1 )
+        heightAdjust.content.push( pre )
+    }
+
+    sh_highlightDocument()
+    fixHeights()
 }

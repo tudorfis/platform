@@ -1,7 +1,51 @@
+<style>
+    .no-mobile-support > * {
+        font-family: Roboto;
+    }
+    .no-mobile-support {
+        background: linear-gradient(0deg, #333 0%, #111 100%);
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .no-mobile-support h1 {
+        font-size: 2.3rem;
+        padding: 1.15rem;
+        text-align: center;
+        color: var(--brand-color);
+        font-weight: bold;
+        line-height: 2rem;
+        text-shadow: 0 0 5px var(--dark-color);
+    }
+    .no-mobile-support h3 {
+        color: var(--light-color);
+        font-size: 1.5rem;
+        padding: 2rem;
+        text-align: center;
+        text-shadow: 0 0 3px var(--dark-color);
+    }
+    .no-mobile-support a {
+        color: var(--light-color);
+        font-size: 1.1rem;
+    }
+    .no-mobile-support img.arrow {
+        margin-right: -6rem;
+    }
+    .no-mobile-support img.face {
+        margin-bottom: 1.5rem;
+    }
+</style>
+
 <div class="no-mobile-support">
     <img src="\img\mobile\no-mobile-support-face.png" class="face" />
+
     <h1>Applicatia functioneaza doar pe pc sau laptop</h1>
     <h3>Nu oferim momentan suport pentru telefoane sau tablete.</h3>
+    
     <a href="https://www.linkode.ro">Acceseaza siteul principal</a>
     <img src="\img\mobile\no-mobile-support-arrow.png" class="arrow" />
 </div>
