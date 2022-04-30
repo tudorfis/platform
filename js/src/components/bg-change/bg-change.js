@@ -1,6 +1,6 @@
 
 
-export default class extends modules.component.WebComponent {
+export default class extends modules.webcomponent {
     constructor() {
         super({ 
             componentUrl: import.meta.url

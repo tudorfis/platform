@@ -9,20 +9,20 @@ const libs = [
     '/js/lib/shjs/sh_sql.js',
 ]
 
-export function initCode( cb = _ => {} ) {
+function initCode( cb = _ => {} ) {
     utils.async.fetch_scripts( libs, _ => {
         if ( cb ) cb()
     })
 }
 
-export const codeMem = {
+const mem = {
     codeWrapper: null,
     nodeElement: null,
     codeId: '',
     codes: {},
 }
 
-export function createCode( nodeElement ) {
+function createCode( nodeElement ) {
     const chart = app.tree.chart
     const node = modules.tree.node.findNode( nodeElement.id )
 
@@ -46,29 +46,46 @@ export function createCode( nodeElement ) {
     this.renderCode( node, codeSubWrapper )
     modules.general.handlePan( codeWrapper, 'code-backdrop', codeSubWrapper )
     
-    this.icons.createCodeArrowIcon( codeWrapper )
-    this.icons.createCodeCloseIcon( codeWrapper )
-    this.icons.createCodeCopyIcon( codeWrapper )
+    this.icons.createArrowIcon( codeWrapper )
+    this.icons.createCloseIcon( codeWrapper )
+    this.icons.createCopyIcon( codeWrapper )
 
     utils.html.create_element( 'div', '', codeWrapper, { 
         'class': [ 'code-backdrop' ],
     })
 
     this.positioning.setCodePosition( codeWrapper, nodeElement )
-    this.codeMem.codes[ nodeElement.id ] = codeWrapper
+    this.mem.codes[ nodeElement.id ] = codeWrapper
     return codeWrapper
 }
 
-export function hideCode() {
-    if ( !codeMem.codeWrapper ) return
+function hideCode() {
+    if ( !mem.codeWrapper ) return
 
-    codeMem.codeWrapper.classList.add( 'hide' )
-    modules.code.positioning.setCodePosition( codeMem.codeWrapper, codeMem.nodeElement )
+    mem.codeWrapper.classList.add( 'hide' )
+    modules.code.positioning.setCodePosition( mem.codeWrapper, mem.nodeElement )
     modules.video.lighterBackdrop()
 }
 
-export function showCode( codeWrapper, nodeElement ) {
+function showCode( codeWrapper, nodeElement ) {
     modules.code.positioning.setCodePosition( codeWrapper, nodeElement )
     modules.video.darkerBackdrop()
     codeWrapper.classList.remove( 'hide' )
+}
+
+///////////
+
+import positioning from '/js/src/modules/code/sub/positioning.js'
+import icons from '/js/src/modules/code/sub/icons.js'
+import { renderCode } from '/js/src/modules/code/sub/render-code.js'
+
+export default {
+    initCode,
+    mem, 
+    createCode, 
+    showCode, 
+    hideCode,
+    positioning,
+    icons,
+    renderCode,
 }

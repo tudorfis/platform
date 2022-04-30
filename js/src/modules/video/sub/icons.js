@@ -66,19 +66,10 @@ function createEnlargeIcon( videoWrapper ) {
         let offset = 0
 
         if ( e.clientX !== clientX) {
-            if ( e.clientX > clientX ) {
-                offset = offsetDiff
-            } else {
-                offset = -offsetDiff
-            }
+            offset = e.clientX > clientX ? +offsetDiff : -offsetDiff
         }
-        
-        if ( e.clientY !== clientY ) {
-            if ( e.clientY > clientY ) {
-                offset = offsetDiff
-            } else {
-                offset = -offsetDiff
-            }
+        else if ( e.clientY !== clientY ) {
+            offset = e.clientY > clientY ? +offsetDiff : -offsetDiff
         }
 
         prevWidth = prevWidth || initialWidth

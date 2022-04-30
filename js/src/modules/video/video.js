@@ -38,7 +38,7 @@ function createVideo( nodeElement ) {
     
     utils.html.create_element( 'source', '', video, {
         'type': 'video/mp4',
-        'src': utils.tree.get_video_location( node )
+        'src': utils.linkode.get_video_location( node )
     })
 
     this.icons.createArrowIcon( videoWrapper )

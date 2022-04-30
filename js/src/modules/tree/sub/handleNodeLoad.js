@@ -1,14 +1,5 @@
 
-export function handleNodeLoad( nodeElement ) {
-    modules.video.mem.videoId = nodeElement.id
 
-    const nodeIcons = utils.dom.qs( '.node-icons', nodeElement ) || createNodeIcons( nodeElement )
-    nodeIcons.classList.remove( 'hide' )
-
-    nodeIcons.addEventListener( 'mouseleave', _ => {
-        nodeIcons.classList.add( 'hide' )
-    })
-}
 
 function createNodeIcons( nodeElement ) {
     const nodeIcons = utils.html.create_element( 'div', '', nodeElement, { 'class': [ 'node-icons' ]})
@@ -20,8 +11,6 @@ function createNodeIcons( nodeElement ) {
     utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'backdrop' ]})
     return nodeIcons
 }
-
-///////
 
 function createCollapseIcon( nodeIcons, nodeElement ) {
     const collapseSwitch = utils.dom.qs( '.collapse-switch', nodeElement )
@@ -48,5 +37,16 @@ function createCodeIcon( nodeIcons, nodeElement ) {
     const codeIcon = utils.html.create_element( 'i', '', nodeIcons, { 'class': [ 'fa-solid', 'fa-code', 'code-icon' ]})
     codeIcon.addEventListener( 'click', _ => {
         modules.tree.handle.handleCodeLoad( nodeElement )
+    })
+}
+
+export function handleNodeLoad( nodeElement ) {
+    modules.video.mem.videoId = nodeElement.id
+
+    const nodeIcons = utils.dom.qs( '.node-icons', nodeElement ) || createNodeIcons( nodeElement )
+    nodeIcons.classList.remove( 'hide' )
+
+    nodeIcons.addEventListener( 'mouseleave', _ => {
+        nodeIcons.classList.add( 'hide' )
     })
 }

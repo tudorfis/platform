@@ -9,29 +9,29 @@ const zoomChange = 25
 const zoomOutLimit = 50
 const zoomInLimit = 100
 
-export function zoomOut() {
+function zoomOut() {
     if ( disableZoomOut() ) return
 
     app.tree.zoomLevel -= zoomChange
     handleZoom()
 }
 
-export function zoomIn() {
+function zoomIn() {
     if ( disableZoomIn() ) return
     
     app.tree.zoomLevel += zoomChange
     handleZoom()
 }
 
-export function disableZoomOut() {
+function disableZoomOut() {
     return app.tree.zoomLevel === zoomOutLimit
 }
 
-export function disableZoomIn() {
+function disableZoomIn() {
     return app.tree.zoomLevel === zoomInLimit
 }
 
-export function handleZoom() {
+function handleZoom() {
     const chart = app.tree.chart
     const zoomDimension = zoomDimensions[ app.tree.zoomLevel ]
 
@@ -46,4 +46,12 @@ export function handleZoom() {
 
     modules.video.positioning.setBackdrop()
     chart.style.zoom = `${app.tree.zoomLevel}%`
+}
+
+export default {
+    zoomIn,
+    zoomOut,
+    disableZoomOut,
+    disableZoomIn,
+    handleZoom,
 }

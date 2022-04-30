@@ -1,15 +1,24 @@
 
 function nodeId() {
-    const id = utils.tree.id_generator()
+    const id = utils.linkode.id_generator()
     return id.next().value
 }
 
-export function generateNode( nodeValue ) {
+function collapsedDefault( nodeValue ) {
+    if (
+        nodeValue.collapsed === undefined &&
+        nodeValue.children.length 
+    ) {
+        nodeValue.collapsed = true
+    }
+}
+
+function generateNode( nodeValue ) {
     collapsedDefault( nodeValue )
 
     return {
         HTMLid: nodeId(),
-        image: utils.tree.get_image_location( nodeValue ),
+        image: utils.linkode.get_image_location( nodeValue ),
         children: nodeValue.children.map( nodeValue => generateNode( nodeValue ) ),
         
         title: nodeValue.title,
@@ -23,7 +32,7 @@ export function generateNode( nodeValue ) {
     }
 }
 
-export function findNode( nodeId, node = app.tree.nodeStructure ) {
+function findNode( nodeId, node = app.tree.nodeStructure ) {
     if ( nodeId === node.HTMLid ) return node
 
     return node.children
@@ -31,11 +40,7 @@ export function findNode( nodeId, node = app.tree.nodeStructure ) {
         .find( node => !!node )
 }
 
-function collapsedDefault( nodeValue ) {
-    if (
-        nodeValue.collapsed === undefined &&
-        nodeValue.children.length 
-    ) {
-        nodeValue.collapsed = true
-    }
+export default {
+    generateNode,
+    findNode,
 }

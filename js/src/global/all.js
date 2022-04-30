@@ -17,16 +17,18 @@ import dom from '/js/src/utils/dom.utils.js'
 import object from '/js/src/utils/object.utils.js'
 import html from '/js/src/utils/html.utils.js'
 import events from '/js/src/utils/events.utils.js'
-import tree from '/js/src/utils/tree.utils.js'
+import linkode from '/js/src/utils/linkode.utils.js'
 import mobile from '/js/src/utils/mobile.utils.js'
+import enlarge from '/js/src/utils/enlarge.utils.js'
 window.utils = {
     async,
     dom,
     object,
     html,
     events,
-    tree,
+    linkode,
     mobile,
+    enlarge,
 }
 
 /////// CONFIG /////////
@@ -51,67 +53,16 @@ window.projects = {
 
 /////// MODULES /////////
 import general from '/js/src/modules/general/general.js'
+import webcomponent from '/js/src/modules/webcomponent/webcomponent.js'
 
-import { initTree, reloadTree, chartConfig, connectorColor } from '/js/src/modules/tree/tree.js'
-import { generateNode, findNode } from '/js/src/modules/tree/sub/node.js'
-import { handleLoading } from '/js/src/modules/tree/sub/handle.js'
-import { handleNodeLoad } from '/js/src/modules/tree/sub/handle/handleNodeLoad.js'
-import { handleVideoLoad } from '/js/src/modules/tree/sub/handle/handleVideoLoad.js'
-import { handleCodeLoad } from '/js/src/modules/tree/sub/handle/handleCodeLoad.js'
-
-import { zoomIn, zoomOut, disableZoomOut, disableZoomIn, handleZoom } from '/js/src/modules/tree/sub/zoom.js'
+import tree from '/js/src/modules/tree/tree.js'
 import video from '/js/src/modules/video/video.js'
-import { initCode, codeMem, createCode, showCode, hideCode } from '/js/src/modules/code/code.js'
-import { setCodePosition, calculateCodeTop, calculateCodeLeft } from '/js/src/modules/code/sub/positioning.js'
-import { createCodeArrowIcon, createCodeCloseIcon, createCodeCopyIcon } from '/js/src/modules/code/sub/icons.js'
-import { renderCode } from '/js/src/modules/code/sub/render-code.js'
-import { WebComponent } from '/js/src/modules/webcomponent/webcomponent.js'
+import code from '/js/src/modules/code/code.js'
 
 window.modules = {
     general,
-    tree: {
-        initTree,
-        reloadTree,
-        chartConfig, 
-        connectorColor,
-        node: {
-            generateNode,
-            findNode,
-        },
-        handle: {
-            handleLoading,
-            handleNodeLoad,
-            handleVideoLoad,
-            handleCodeLoad,
-        },
-        zoom: {
-            zoomIn,
-            zoomOut,
-            disableZoomOut,
-            disableZoomIn,
-            handleZoom,
-        }
-    },
+    webcomponent,
+    tree,
     video,
-    code: {
-        initCode,
-        codeMem, 
-        createCode, 
-        showCode, 
-        hideCode,
-        renderCode,
-        positioning: {
-            setCodePosition,
-            calculateCodeTop,
-            calculateCodeLeft,
-        },
-        icons: {
-            createCodeArrowIcon, 
-            createCodeCloseIcon,
-            createCodeCopyIcon,
-        }
-    },
-    component: {
-        WebComponent
-    },
+    code,
 }

@@ -6,7 +6,7 @@ const libs = [
     '/js/lib/Treant.js',
 ]
 
-export function initTree() {
+function initTree() {
     utils.async.fetch_scripts( libs, _ => {
         window.treeInstance = new Treant({
             ...modules.tree.chartConfig( app.tree.chartSelector ),
@@ -18,13 +18,13 @@ export function initTree() {
     })
 }
 
-export function reloadTree() {
+function reloadTree() {
     app.tree.nodeStructure = modules.tree.node.generateNode(projects.calculator)
     modules.tree.initTree()
 }
 
 
-export function chartConfig( container ) {
+function chartConfig( container ) {
     return {
         chart: {
             container,
@@ -47,7 +47,7 @@ export function chartConfig( container ) {
     }
 }
 
-export function connectorColor( color ) {
+function connectorColor( color ) {
     return {
         connectors: {
             type: 'step',
@@ -57,4 +57,21 @@ export function connectorColor( color ) {
             }
         },
     }
+}
+
+/////
+
+import node from '/js/src/modules/tree/sub/node.js'
+import handle from '/js/src/modules/tree/sub/handle.js'
+import zoom from '/js/src/modules/tree/sub/zoom.js'
+
+export default {
+    initTree,
+    reloadTree,
+    chartConfig, 
+    connectorColor,
+
+    node,
+    handle,
+    zoom, 
 }

@@ -1,5 +1,5 @@
 
-export class WebComponent extends HTMLElement {
+export default class extends HTMLElement {
     #finished = false
 
     constructor({ 
