@@ -21,6 +21,7 @@ import events from '/js/src/utils/events.utils.js'
 import linkode from '/js/src/utils/linkode.utils.js'
 import mobile from '/js/src/utils/mobile.utils.js'
 import behaviour from '/js/src/utils/behaviour.utils.js'
+import positioning from '/js/src/utils/positioning.utils.js'
 window.utils = {
     async,
     dom,
@@ -30,6 +31,7 @@ window.utils = {
     linkode,
     mobile,
     behaviour,
+    positioning,
 }
 
 /////// CONSTANTS ////////

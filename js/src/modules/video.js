@@ -1,6 +1,6 @@
 
 const mem = {
-    videoWrapper: null,
+    wrapper: null,
     nodeElement: null,
     videos: {},
 }
@@ -8,20 +8,12 @@ const mem = {
 function createVideo( nodeElement ) {
     const node = modules.tree.node.findNode( nodeElement.id )
 
-    const styles = [
-        [ 'top', positioning.calculateTop( nodeElement ) ],
-        [ 'left', positioning.calculateLeft( nodeElement )],
-    ]
-    
-    const style = styles.map( arr => arr.join(':') ).join(';')
-
-    const videoWrapper = utils.html.create_element( 'div', '', app.chart, { 
+    const wrapper = utils.html.create_element( 'div', '', app.chart, { 
         'class': [ 'video-wrapper', 'fade-in' ],
         'id': nodeElement.id,
-        'style': style,
     })
 
-    const video = utils.html.create_element( 'video', '', videoWrapper, { 
+    const video = utils.html.create_element( 'video', '', wrapper, { 
         'class': [ 'video' ],
         'style': `
             border-color: ${node.color}; 
@@ -35,44 +27,45 @@ function createVideo( nodeElement ) {
         'src': utils.linkode.get_video_location( node )
     })
 
-    icons.createArrowIcon( videoWrapper )
-    icons.createCloseIcon( videoWrapper )
-    icons.createEnlargeIcon( videoWrapper )
+    icons.createArrowIcon( wrapper )
+    icons.createCloseIcon( wrapper )
+    icons.createEnlargeIcon( wrapper )
 
-    mem.videos[ nodeElement.id ] = videoWrapper
-    return videoWrapper
+    utils.positioning.setPosition( wrapper, nodeElement )
+    mem.videos[ nodeElement.id ] = wrapper
+    return wrapper
 }
 
 function hideVideo() {
-    if ( !mem.videoWrapper ) return
+    if ( !mem.wrapper ) return
 
-    mem.videoWrapper.classList.add( 'hide' )
-    utils.dom.qs( 'video', mem.videoWrapper ).pause()
-    positioning.setVideoPosition( mem.videoWrapper, mem.nodeElement )
+    mem.wrapper.classList.add( 'hide' )
+    utils.dom.qs( 'video', mem.wrapper ).pause()
+    utils.positioning.setPosition( mem.wrapper, mem.nodeElement )
     modules.backdrop.lighterBackdrop()
 }
 
-function showVideo( videoWrapper, nodeElement ) {
+function showVideo( wrapper, nodeElement ) {
     modules.backdrop.darkerBackdrop()
-    positioning.setVideoPosition( videoWrapper, nodeElement )
-    videoWrapper.classList.remove( 'hide' )
-    utils.dom.qs( 'video', videoWrapper ).play()
+    utils.positioning.setPosition( wrapper, nodeElement )
+    wrapper.classList.remove( 'hide' )
+    utils.dom.qs( 'video', wrapper ).play()
 }
 
 function handleVideoLoad( nodeElement ) {
     hideVideo()
-    
-    const videoWrapper = mem.videos[ nodeElement.id ] || createVideo( nodeElement )
+    modules.code.hideCode()
 
-    showVideo( videoWrapper, nodeElement )
+    const wrapper = mem.videos[ nodeElement.id ] || createVideo( nodeElement )
+
+    showVideo( wrapper, nodeElement )
     
-    mem.videoWrapper = videoWrapper
+    mem.wrapper = wrapper
     mem.nodeElement = nodeElement
 }
 
 ////////
 
-import positioning from '/js/src/modules/video/positioning.js'
 import icons from '/js/src/modules/video/icons.js'
 
 export default {

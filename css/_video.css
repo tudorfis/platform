@@ -7,6 +7,7 @@
     z-index: 10;
     transition: all .5s ease-in-out;
     user-select: none;
+    padding-top: .5rem;
 }
 
 .video-wrapper > .video {
@@ -14,68 +15,4 @@
     width: inherit;
     height: inherit;
     border: .3rem solid;
-}
-.video-wrapper > .video-icon {
-    position: absolute;
-    border: .1rem solid var(--light-color);
-    text-align: center;
-    font-weight: bold;
-    border-radius: 100%;
-    padding: 1rem;
-    width: 1rem;
-    aspect-ratio: 1/1;
-    cursor: pointer;
-}
-
-/*******/
-.video-icon.arrow-icon {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    top: -2.8rem;
-    border: 0;
-    font-size: 3rem;
-}
-.video-icon.arrow-icon.light {
-    text-shadow: 0 0 5px var(--dark-color);
-    color: var(--light-color);
-}
-.video-icon.arrow-icon.dark {
-    text-shadow: 0 0 5px var(--light-color);
-    color: var(--dark-color);
-    top: -2.2rem;
-}
-
-/*******/
-.video-icon.close-icon {
-    box-shadow: 0 0 10px 3px var(--dark-color);
-    background: var(--light-color);
-    color: var(--dark-color);
-    right: -1.5rem;
-    top: -1rem;
-    width: 1rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-} 
-
-/*******/
-.video-icon.enlarge-icon {
-    background: none;
-    color: var(--light-color);
-    font-size: 2.2em;
-    border: 0;
-    padding: 1rem;
-    right: -2.2rem;
-    bottom: -2rem;
-    border-radius: 0;
-    width: auto;
-    height: auto;
-    text-shadow: 0 0 15px var(--dark-color);
-} 
-.video-icon.enlarge-icon.pressed {
-    right: -19rem;
-    bottom: -19rem;
-    padding: 17rem;
-    font-size: 3em;
 }

@@ -1,8 +1,9 @@
 
-function enlarge_content( element, icon, cb = _ => {} ) {
+function enlarge_content( element, icon, cb = _ => {}, target = 'width', 
+                            targetElements, enlargeIn = 2, enlargeOut = 2 ) {
     let isPressed = false,
-        initialWidth = element.getBoundingClientRect().width,
-        prevWidth = null,
+        initialDimension = element.getBoundingClientRect()[ target ],
+        dimension = null,
         clientX = null,
         clientY = null,
         iconX = null,
@@ -38,6 +39,7 @@ function enlarge_content( element, icon, cb = _ => {} ) {
     })
 
     const enlargeMoveThrottle = utils.events.throttle( e => {
+    // const enlargeMoveThrottle = e => {
         if ( !isPressed ) return
 
         const offsetDiff = 50
@@ -51,13 +53,16 @@ function enlarge_content( element, icon, cb = _ => {} ) {
             offset = e.clientY > clientY ? +offsetDiff : -offsetDiff
         }
 
-        prevWidth = prevWidth || initialWidth
-        prevWidth = prevWidth + offset
+        dimension = dimension || initialDimension
+        dimension = dimension + offset
 
-        if ( prevWidth > initialWidth/2 && prevWidth < initialWidth*2 ) {
-            Object.assign( element.style, {
-                width: prevWidth + 'px', 
-                marginLeft: -((prevWidth - initialWidth)/2) + 'px'
+        if ( dimension > initialDimension/enlargeIn && dimension < initialDimension*enlargeOut ) {
+            const elements = targetElements || [ element ]
+            
+            elements.forEach( element => {
+                Object.assign( element.style, {
+                    [target]: dimension + 'px', 
+                })
             })
         }
 
@@ -65,7 +70,7 @@ function enlarge_content( element, icon, cb = _ => {} ) {
         clientY = e.clientY
 
         cb()
-    }, 75)
+    }, 250)
 
     icon.addEventListener('mousemove', e => {
         enlargeMoveThrottle(e)

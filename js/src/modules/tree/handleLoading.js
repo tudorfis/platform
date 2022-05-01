@@ -9,6 +9,8 @@ function handleNodeLoad( nodeElement ) {
     })
 }
 
+///////////////
+
 import createNodeIcons from '/js/src/modules/tree/createNodeIcons.js'
 
 export default function() {

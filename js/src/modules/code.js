@@ -1,7 +1,7 @@
 
 
 const mem = {
-    codeWrapper: null,
+    wrapper: null,
     nodeElement: null,
     codes: {},
 }
@@ -9,68 +9,64 @@ const mem = {
 function createCode( nodeElement ) {
     const node = modules.tree.node.findNode( nodeElement.id )
 
-    const styles = [
-        [ 'top', positioning.calculateTop( nodeElement ) ],
-        [ 'left', positioning.calculateLeft( nodeElement )],
-    ]
-
-    const style = styles.map( arr => arr.join(':') ).join(';')
-
-    const codeWrapper = utils.html.create_element( 'div', '', app.chart, { 
+    const wrapper = utils.html.create_element( 'div', '', app.chart, { 
         'class': [ 'code-wrapper', 'fade-in' ],
         'id': nodeElement.id,
-        'style': style,
     })
 
-    const codeSubWrapper = utils.html.create_element( 'div', '', codeWrapper, { 
+    const subWrapper = utils.html.create_element( 'div', '', wrapper, { 
         'class': [ 'code-sub-wrapper', 'scroll-y' ],
     })
     
-    renderCode( node, codeSubWrapper )
-    modules.general.handlePan( codeWrapper, 'code-backdrop', codeSubWrapper )
-    
-    icons.createArrowIcon( codeWrapper )
-    icons.createCloseIcon( codeWrapper )
-    icons.createCopyIcon( codeWrapper )
-
-    utils.html.create_element( 'div', '', codeWrapper, { 
+    const backdrop = utils.html.create_element( 'div', '', wrapper, { 
         'class': [ 'code-backdrop' ],
     })
 
-    positioning.setCodePosition( codeWrapper, nodeElement )
-    mem.codes[ nodeElement.id ] = codeWrapper
-    return codeWrapper
+    renderCode( node, subWrapper )
+    modules.general.handlePan( wrapper, 'code-backdrop', subWrapper )
+    
+    icons.createArrowIcon( wrapper )
+    icons.createCloseIcon( wrapper )
+    icons.createCopyIcon( wrapper )
+    icons.createEnlargeIcon( wrapper, subWrapper, backdrop )
+
+   
+
+    window.wrapper = wrapper
+    utils.positioning.setPosition( wrapper, nodeElement )
+    mem.codes[ nodeElement.id ] = wrapper
+    return wrapper
 }
 
 function hideCode() {
-    if ( !mem.codeWrapper ) return
+    if ( !mem.wrapper ) return
 
-    mem.codeWrapper.classList.add( 'hide' )
-    positioning.setCodePosition( mem.codeWrapper, mem.nodeElement )
+    mem.wrapper.classList.add( 'hide' )
+    utils.positioning.setPosition( mem.wrapper, mem.nodeElement )
     modules.backdrop.lighterBackdrop()
 }
 
-function showCode( codeWrapper, nodeElement ) {
+function showCode( wrapper, nodeElement ) {
     modules.backdrop.darkerBackdrop()
-    positioning.setCodePosition( codeWrapper, nodeElement )
-    codeWrapper.classList.remove( 'hide' )
+    utils.positioning.setPosition( wrapper, nodeElement )
+    wrapper.classList.remove( 'hide' )
 }
 
 function handleCodeLoad( nodeElement ) {
     hideCode()
+    modules.video.hideVideo()
     
-    const codeWrapper = mem.codes[ nodeElement.id ] || createCode( nodeElement )
+    const wrapper = mem.codes[ nodeElement.id ] || createCode( nodeElement )
 
-    showCode( codeWrapper, nodeElement )
+    showCode( wrapper, nodeElement )
     
-    mem.codeWrapper = codeWrapper
+    mem.wrapper = wrapper
     mem.nodeElement = nodeElement
 }
 
 
 ///////////
 
-import positioning from '/js/src/modules/code/positioning.js'
 import icons from '/js/src/modules/code/icons.js'
 import renderCode from '/js/src/modules/code/render-code.js'
 
