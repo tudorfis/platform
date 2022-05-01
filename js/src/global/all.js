@@ -1,5 +1,4 @@
 
-///////// APP ///////////
 window.app = {
     chart: null,
     project: null,
@@ -12,7 +11,6 @@ window.app = {
     }
 }
 
-/////// UTILS /////////
 import async from '/js/src/utils/async.utils.js'
 import dom from '/js/src/utils/dom.utils.js'
 import object from '/js/src/utils/object.utils.js'
@@ -34,7 +32,6 @@ window.utils = {
     positioning,
 }
 
-/////// CONSTANTS ////////
 import colors from '/js/src/constants/colors.js'
 import bgColors from '/js/src/constants/bgColors.js'
 window.constants = {
@@ -42,7 +39,6 @@ window.constants = {
     bgColors,
 }
 
-/////// PROJECTS /////////
 import calculator from '/js/src/projects/calculator.js'
 import autentificare from '/js/src/projects/autentificare.js'
 window.projects = {
@@ -50,7 +46,6 @@ window.projects = {
     autentificare,
 }
 
-/////// MODULES /////////
 import general from '/js/src/modules/general.js'
 import webcomponent from '/js/src/modules/webcomponent.js'
 import tree from '/js/src/modules/tree.js'

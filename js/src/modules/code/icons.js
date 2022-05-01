@@ -20,7 +20,7 @@ function createCopyIcon( wrapper ) {
         'class': [ 'fa-solid', 'fa-copy', 'widget-icon', 'copy-icon', 'tooltip' ],
     })
 
-    utils.behaviour.clipboard_content( [ wrapper, 'pre' ], copyIcon, 'Codul a fost <br>copiat in clipboard!')
+    utils.behaviour.clipboard_content( wrapper, copyIcon, 'Codul a fost <br>copiat in clipboard!')
 }
 
 function createEnlargeIcon( wrapper, subWrapper, backdrop ) {

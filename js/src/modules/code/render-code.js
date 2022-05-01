@@ -16,14 +16,14 @@ const handle = {
         let [ codeWrapper, text, lengthierCode ] = arguments
         createTitle( codeWrapper, 'CSS', lengthierCode )
         
-        if ( lengthierCode ) text = '&lt;style&gt;\n' + text + '\n&lt;/style&gt;'
+        if ( lengthierCode ) text = '\n\n&lt;style&gt;\n' + text + '\n&lt;/style&gt;'
         return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_css' ] })
     },
     js() {
         let [ codeWrapper, text, lengthierCode ] = arguments
         createTitle( codeWrapper, 'JS', lengthierCode )
 
-        if ( lengthierCode ) text = '&lt;script&gt;\n' + text + '\n&lt;/script&gt;'
+        if ( lengthierCode ) text = '\n\n&lt;script&gt;\n' + text + '\n&lt;/script&gt;'
         return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_javascript' ] })
     },
 }

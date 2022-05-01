@@ -39,7 +39,6 @@ function enlarge_content( element, icon, cb = _ => {}, target = 'width',
     })
 
     const enlargeMoveThrottle = utils.events.throttle( e => {
-    // const enlargeMoveThrottle = e => {
         if ( !isPressed ) return
 
         const offsetDiff = 50
@@ -77,7 +76,7 @@ function enlarge_content( element, icon, cb = _ => {}, target = 'width',
     })
 }
 
-function clipboard_content( target = [], icon, copyText = '', tooltipLocation = 'top') {
+function clipboard_content( target = null, icon, copyText = '', tooltipLocation = 'top') {
     const tooltipText = utils.html.create_element( 'span', copyText, icon, {
         'class': [ 'tooltiptext', `tooltip-${tooltipLocation}` ],
     })
@@ -87,10 +86,7 @@ function clipboard_content( target = [], icon, copyText = '', tooltipLocation = 
     })
 
     icon.addEventListener('click', e => {
-        const element = target[1] ? utils.dom.qs( target[1], target[0] ) : target[0]
-        if ( !element ) return
-
-        utils.dom.select_text( element )
+        utils.dom.select_text( target )
         document.execCommand('copy')
         tooltipText.classList.remove('hide')
     })
