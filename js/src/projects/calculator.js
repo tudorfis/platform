@@ -34,7 +34,7 @@ export default {
                 {
                     title: 'Atribute pentru elemente',
                     folderPath: '/media/calculator/2.3.atribute',
-                    lineColor: '#f06329',
+                    lineColor: colors.htmlColor,
                     color: colors.htmlColor,
                     stackChildren: true,
                     code: [ 'html' ],

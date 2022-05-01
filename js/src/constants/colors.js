@@ -1,6 +1,6 @@
 
 export default {
-    treeColor: '#999999',
+    treeColor: '#efefef',
     htmlColor: '#f06329',
     cssColor: '#25a1e2',
     jsColor: '#efda4f',

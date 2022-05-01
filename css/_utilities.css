@@ -26,3 +26,5 @@
 
 .margin-05-0 { margin: .5rem 0; }
 .margin-1-0 { margin: 1rem 0; }
+
+.fade-in { animation: fadeIn .3s ease-in; }

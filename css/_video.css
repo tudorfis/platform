@@ -10,9 +10,10 @@
     padding-top: .5rem;
 }
 
-.video-wrapper > .video {
+.video-wrapper .video {
     user-select: none;
     width: inherit;
     height: inherit;
     border: .3rem solid;
+    border-radius: .5rem;
 }

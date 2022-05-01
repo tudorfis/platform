@@ -1,0 +1,52 @@
+
+* {
+    --brand-color: #01abf8;
+    --dark-color: #1e1e1e;
+    --light-color: #efefef;
+    
+    --html-color: #f06329;
+    --css-color: #25a1e2;
+    --js-color: #efda4f;
+}
+
+body {
+    background: var(--dark-color);
+    color: var(--light-color);
+    overflow: hidden;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+}
+
+p { margin: 1.2rem 0; }
+.scroll-x { overflow-x: auto; }
+.scroll-y { overflow-y: auto; }
+
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar {
+    height: .5rem;
+    width: .5rem;
+    background: var(--dark-color);
+}
+:is(.scroll-x,.scroll-y)::-webkit-scrollbar-thumb {
+    background: var(--light-color);
+    border-radius: 10rem;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@font-face {
+    font-family: vera;
+    src: url("../fonts/veramolt.ttf") format("truetype");
+}
+@font-face {
+    font-family: dejavu;
+    src: url("../fonts/dejavu.ttf") format("truetype");
+}

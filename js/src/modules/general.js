@@ -59,25 +59,38 @@ function initIcons() {
     utils.async.fetch_scripts([ '/js/lib/font-awesome/font-awesome.js' ])
 }
 
-const codeHighlightlibs = [
-    '/js/lib/shjs/sh_main.js',
-    '/js/lib/shjs/sh_javascript.js',
-    '/js/lib/shjs/sh_html.js',
-    '/js/lib/shjs/sh_css.js',
-    '/js/lib/shjs/sh_php.js',
-    '/js/lib/shjs/sh_sql.js',
-]
-
 function initCodeHighlight( cb = _ => {} ) {
-    utils.async.fetch_scripts( codeHighlightlibs, _ => {
+    utils.async.fetch_scripts([
+        '/js/lib/shjs/sh_main.js',
+        '/js/lib/shjs/sh_javascript.js',
+        '/js/lib/shjs/sh_html.js',
+        '/js/lib/shjs/sh_css.js',
+        '/js/lib/shjs/sh_php.js',
+        '/js/lib/shjs/sh_sql.js',
+    ], _ => {
         if ( cb ) cb()
     })
+}
+
+function initProject() {
+    const params = utils.linkode.get_url_params()
+    if ( utils.html.handle_location( params, '/#/project/calculator' ) ) return
+
+    app.chart = utils.dom.qs( app.tree.chartSelector ) 
+    app.project = projects[ params.selector ]
+    app.tree.nodeStructure = modules.tree.node.generateNode( app.project )
+    modules.tree.initTree()
+
+    setTitleFavicon( app.project )
+    changeBackground( '', params.param1 || 0 )
+    handlePan( app.chart, 'chart-svg' )
+    initIcons()
+    initCodeHighlight()
 }
 
 export default {
     setTitleFavicon,
     changeBackground,
     handlePan,
-    initIcons,
-    initCodeHighlight,
+    initProject
 }

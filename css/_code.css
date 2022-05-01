@@ -24,10 +24,11 @@
     opacity: .90;
     background: black;
     padding-bottom: 3rem;
+    border-radius: .2rem;
 }
 .code-wrapper > h1 {
     position: absolute;
-    font-family: dejavu;
+    font-family: 'dejavu';
     top: 0;
     right: 1rem;
     font-size: 2rem;
@@ -43,7 +44,7 @@
 .code-sub-wrapper .code-pre {
     position: absolute;
     background: none;
-    font-family: dejavu;
+    font-family: 'dejavu';
     font-size: 1.07rem;
     width: auto;
     min-height: calc(300px - 2rem);
@@ -62,7 +63,7 @@
 .code-sub-wrapper .code-pre > * > * > * > * {
     z-index: 10;
     text-shadow: 0 0 5px var(--light-color);
-    font-family: dejavu !important;
+    font-family: 'dejavu' !important;
 }
 .code-sub-wrapper .code-pre.sh_html > *::selection,
 .code-sub-wrapper .code-pre.sh_html > * > ::selection,
@@ -89,18 +90,18 @@
     color: var(--dark-color);
 }
 
-
+/*************************************/
 
 pre.sh_sourceCode, 
 pre.sh_sourceCode .sh_type {
-    color:  #f06329;
+    color:  var(--html-color);
 }
 pre.sh_sourceCode .sh_string,
 pre.sh_sourceCode .sh_value {
-    color: #efda4f;
+    color: var(--js-color);
 }
 pre.sh_sourceCode .sh_selector,
 pre.sh_sourceCode .sh_function,
 pre.sh_sourceCode .sh_keyword {
-    color: #25a1e2;
+    color: var(--css-color);
 }

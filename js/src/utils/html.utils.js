@@ -34,7 +34,25 @@ function create_element(
     return element
 }
 
+function handle_location( params = {}, url = '' ) {
+    addEventListener( 'popstate', _ => window.location.reload())
+    
+    if ( window.location.pathname === '/index.html' ) {
+        document.body.innerHTML = ''
+        return true
+    }
+    
+    if ( !params.type ) {
+        window.location = url
+        window.location.reload()
+        return true
+    }
+
+    return false
+}
+
 export default {
     html_entities,
     create_element,
+    handle_location,
 }
