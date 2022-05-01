@@ -82,9 +82,9 @@
     text-shadow: 0 0 15px var(--dark-color);
 } 
 .widget-icon.enlarge-icon.pressed {
-    right: -19rem;
-    bottom: -19rem;
-    padding: 17rem;
+    right: -29rem;
+    bottom: -29rem;
+    padding: 27rem;
     font-size: 3em;
 }
 .widget-icon.arrow-icon {

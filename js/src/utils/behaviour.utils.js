@@ -1,6 +1,6 @@
 
 function enlarge_content( element, icon, cb = _ => {}, target = 'width', 
-                            targetElements, enlargeIn = 2, enlargeOut = 2 ) {
+                            targetElements, enlargeIn = 1.5, enlargeOut = 2.5 ) {
     let isPressed = false,
         initialDimension = element.getBoundingClientRect()[ target ],
         dimension = null,
@@ -69,7 +69,7 @@ function enlarge_content( element, icon, cb = _ => {}, target = 'width',
         clientY = e.clientY
 
         cb()
-    }, 250)
+    }, 150)
 
     icon.addEventListener('mousemove', e => {
         enlargeMoveThrottle(e)
