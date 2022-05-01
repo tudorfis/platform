@@ -37,6 +37,7 @@ function createCodeIcon( nodeIcons, nodeElement ) {
 }
 
 export default function( nodeElement ) {
+    const node = modules.tree.node.findNode( nodeElement.id )
     const nodeIcons = utils.html.create_element( 'div', '', nodeElement, { 'class': [ 'node-icons' ]})
     
     createCollapseIcon( nodeIcons, nodeElement )
@@ -44,5 +45,7 @@ export default function( nodeElement ) {
     createCodeIcon( nodeIcons, nodeElement )
 
     utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'backdrop' ]})
+    utils.html.create_element( 'h1', node.title, nodeIcons, { 'class': [ 'node-title' ]})
+
     return nodeIcons
 }
