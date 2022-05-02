@@ -37,7 +37,19 @@ function throttle(cb, delay = 1000) {
     }
 }
 
+function dispatch( eventName = '', payload = {}) {
+    document.dispatchEvent(new CustomEvent( eventName, { detail: payload }))
+}
+
+function watch( eventName, cb = _ => {}) {
+    document.addEventListener( eventName, e => {
+        cb( e.detail )
+    })
+}
+
 export default { 
     debounce,
     throttle,
+    dispatch,
+    watch,
 }

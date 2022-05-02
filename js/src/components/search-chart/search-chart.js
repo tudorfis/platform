@@ -1,5 +1,4 @@
 
-
 export default class extends modules.webcomponent {
     constructor() {
         super({ 
@@ -64,6 +63,8 @@ export default class extends modules.webcomponent {
 
         this.refs.input.addEventListener( 'input', e => {
             const value = e.target.value.trim()
+            
+            utils.events.dispatch( 'search-input', value )
             resultsElement.classList.remove('hide')
             
             autoAdjustInput( this.refs.input, value )
