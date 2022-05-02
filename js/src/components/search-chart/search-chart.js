@@ -38,6 +38,10 @@ export default class extends modules.webcomponent {
 
                 item.addEventListener( 'click', _ => {
                     removeResults()
+                    
+                    modules.video.hideVideo()
+                    modules.code.hideCode()
+
                     findElement(node)
                 })
             })
