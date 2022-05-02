@@ -38,7 +38,7 @@
     font-size: 1rem;
     position: absolute;
     text-align: center;
-    bottom: calc(100% - .1rem);
+    bottom: calc(100% - .5rem);
     font-family: 'vera';
     background: var(--dark-color);
     padding: 0.5rem 0;
@@ -59,7 +59,7 @@
     cursor: pointer;
 }
 .widget-icon.close-icon {
-    box-shadow: 0 0 10px 3px var(--dark-color);
+    box-shadow: 0 0 5px 1px var(--dark-color);
     background: var(--light-color);
     color: var(--dark-color);
     top: -1rem;

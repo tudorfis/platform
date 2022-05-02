@@ -69,9 +69,6 @@ function handleVideoLoad( nodeElement ) {
 import icons from '/js/src/modules/video/icons.js'
 
 export default {
-    mem,
-    createVideo,
     hideVideo,
-    showVideo,
     handleVideoLoad,
 }

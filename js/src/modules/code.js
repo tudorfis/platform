@@ -71,8 +71,6 @@ import icons from '/js/src/modules/code/icons.js'
 import renderCode from '/js/src/modules/code/render-code.js'
 
 export default {
-    createCode, 
-    showCode, 
     hideCode,
     handleCodeLoad,
 }

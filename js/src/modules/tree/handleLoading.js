@@ -1,6 +1,6 @@
 
 
-function handleNodeLoad( nodeElement ) {
+export function handleNodeLoad( nodeElement ) {
     const nodeIcons = utils.dom.qs( '.node-icons', nodeElement ) || createNodeIcons( nodeElement )
     nodeIcons.classList.remove( 'hide' )
 
@@ -9,11 +9,8 @@ function handleNodeLoad( nodeElement ) {
     })
 }
 
-///////////////
-
 import createNodeIcons from '/js/src/modules/tree/createNodeIcons.js'
-
-export default function() {
+export function handleLoading() {
     const readjustBackdropThrottle = utils.events.throttle( _ => {
         modules.backdrop.readjustBackdrop()
     }, 100)

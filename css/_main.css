@@ -12,6 +12,7 @@
 body {
     background: var(--dark-color);
     color: var(--light-color);
+    font-family: 'Arial';
     overflow: hidden;
     margin: 0;
 }

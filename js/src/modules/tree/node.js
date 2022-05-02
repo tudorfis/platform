@@ -13,17 +13,19 @@ function collapsedDefault( nodeValue ) {
     }
 }
 
-function generateNode( nodeValue ) {
+function generateNode( nodeValue, parentNodeId = '' ) {
     collapsedDefault( nodeValue )
-
+    const HTMLid = nodeId()
+    
     return {
-        HTMLid: nodeId(),
+        HTMLid,
         image: utils.linkode.get_image_location( nodeValue ),
-        children: nodeValue.children.map( nodeValue => generateNode( nodeValue ) ),
+        children: nodeValue.children.map( nodeValue => generateNode( nodeValue, HTMLid ) ),
         
         title: nodeValue.title,
         folderPath: nodeValue.folderPath,
         code: nodeValue.code,
+        parentId: parentNodeId,
         
         ...( nodeValue.collapsed !== undefined ? { collapsed: nodeValue.collapsed } : {} ),
         ...( nodeValue.stackChildren !== undefined ? { stackChildren: nodeValue.stackChildren } : {} ),
@@ -40,7 +42,31 @@ function findNode( nodeId, node = app.tree.nodeStructure ) {
         .find( node => !!node )
 }
 
+function traverseNode( cb = _ => {}, node = app.tree.nodeStructure, ) {
+    if ( !node ) return
+
+    cb( node )
+
+    node.children.forEach( node => traverseNode( cb, node ))
+}
+
+function traverseNodeUp( nodeId, cb = _ => {} ) {
+    const node = findNode( nodeId )
+    if ( !node ) return
+
+    cb( nodeId )
+
+    return traverseNodeUp( node.parentId, cb )
+}
+
+function findNodeElement( nodeId ) {
+    return utils.dom.qs( `.node[id="${nodeId}"]` )
+}
+
 export default {
     generateNode,
     findNode,
+    traverseNode,
+    traverseNodeUp,
+    findNodeElement,
 }

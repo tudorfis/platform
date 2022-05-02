@@ -1,0 +1,84 @@
+<style>
+    .search-chart {
+        left: 115px;
+        top: 1rem;
+        position: absolute;
+        z-index: 11;
+    }
+    .search-chart input {
+        background: black;
+        border-radius: 0.5rem;
+        border: 0.07rem solid var(--light-color);
+        padding: 0.5rem 1rem 0.7rem 1rem;
+        color: var(--light-color);
+        font-size: .9rem;
+        font-family: 'vera';
+        letter-spacing: .01rem;
+        outline: none;
+        opacity: .8;
+    }
+    .search-chart input:focus {
+        opacity: 1;
+        border: 0.1rem solid var(--light-color);
+    }
+    .search-chart input::selection {
+        background: var(--light-color);
+        color: var(--dark-color);
+    }
+    .search-chart input::-webkit-search-cancel-button {
+        background: var(--light-color);
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .search-chart .no-results {
+        margin: .5rem auto;
+        text-align: center;
+    }
+    .search-chart .results {
+        width: 100%;
+        max-height: 250px;
+        overflow-x: hidden;
+    }
+    .search-chart .results::-webkit-scrollbar {
+        width: .35rem;
+    }
+    .search-chart .results .item {
+        height: 30px;
+        padding: 7px;
+        display: flex;
+    }
+    .search-chart .results .item img {
+        width: 50px;
+        height: 30px;
+        margin-right: .5rem;
+    }
+    .search-chart .results .item p {
+        width: 130px;
+        height: 30px;
+        color: var(--light-color);
+        font-size: .75rem;
+        font-family: 'vera';
+        user-select: none;
+        padding: 0;
+        margin: 0;
+    }
+    .search-chart .results .item:hover {
+        cursor: pointer;
+        background-color: var(--light-color);
+    }
+    .search-chart .results .item:hover p {
+        color: var(--dark-color);
+    }
+</style>
+<div
+    ref="wrapper"
+    class="search-chart"
+>
+    <input
+        ref="input"
+        type="search"
+        placeholder="Cauta..."
+        spellcheck="false"
+        maxlength="40"
+    />
+</div>

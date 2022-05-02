@@ -3,6 +3,7 @@ window.app = {
     chart: null,
     project: null,
     tree: {
+        treeInstance: null,
         chartSelector: '#chart',
         zoomLevel: 75
     },
