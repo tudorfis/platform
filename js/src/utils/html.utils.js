@@ -51,8 +51,13 @@ function handle_location( params = {}, url = '' ) {
     return false
 }
 
+function scroll_to_element( element, options = {} ) {
+    element.scrollIntoView({ inline: "center", ...options })
+}
+
 export default {
     html_entities,
     create_element,
     handle_location,
+    scroll_to_element,
 }
