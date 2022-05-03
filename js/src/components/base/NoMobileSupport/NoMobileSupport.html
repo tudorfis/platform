@@ -1,8 +1,6 @@
 <style>
-    .no-mobile-support > * {
-        font-family: Roboto;
-    }
     .no-mobile-support {
+        display: none;
         background: linear-gradient(0deg, #333 0%, #111 100%);
         position: absolute;
         width: 100vw;
@@ -11,6 +9,9 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+    .no-mobile-support > * {
+        font-family: Roboto;
     }
     .no-mobile-support h1 {
         font-size: 2.3rem;
