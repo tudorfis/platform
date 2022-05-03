@@ -72,10 +72,11 @@ function initCodeHighlight( cb = _ => {} ) {
     })
 }
 
-function initProject() {
-    const params = utils.linkode.get_url_params()
+function initProject( params ) {
     if ( utils.html.handle_location( params, '/#/project/calculator' ) ) return
 
+    utils.events.start_throttle()
+    
     app.chart = utils.dom.qs( app.tree.chartSelector ) 
     app.project = projects[ params.selector ]
     app.tree.nodeStructure = modules.tree.node.generateNode( app.project )
@@ -86,6 +87,8 @@ function initProject() {
     handlePan( app.chart, 'chart-svg' )
     initIcons()
     initCodeHighlight()
+
+    utils.events.stop_throttle(_ => utils.events.dispatch( 'finished-loading'), 1000)
 }
 
 export default {

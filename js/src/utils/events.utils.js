@@ -1,4 +1,10 @@
 
+const state = {
+    timeBeforeThrottle: 0,
+    throttleTime: 1000,
+    totalThrottleTime: 0,
+}
+
 function debounce(cb, delay = 1000) {
     let timeout
 
@@ -38,13 +44,31 @@ function throttle(cb, delay = 1000) {
 }
 
 function dispatch( eventName = '', payload = {}) {
-    document.dispatchEvent(new CustomEvent( eventName, { detail: payload }))
+    dispatchEvent(new CustomEvent( eventName, { detail: payload }))
 }
 
 function watch( eventName, cb = _ => {}) {
-    document.addEventListener( eventName, e => {
+    addEventListener( eventName, e => {
         cb( e.detail )
     })
+}
+
+function start_throttle() {
+    state.timeBeforeThrottle = performance.now()
+}
+
+function stop_throttle(cb = _ => {}, timeoutTime = state.throttleTime ) {
+    state.totalThrottleTime = performance.now() - state.timeBeforeThrottle
+    
+    if ( state.totalThrottleTime < state.throttleTime ) {
+        setTimeout(
+            _ => cb(),
+            timeoutTime - state.totalThrottleTime 
+        )
+    } 
+    else {
+        cb()
+    }
 }
 
 export default { 
@@ -52,4 +76,6 @@ export default {
     throttle,
     dispatch,
     watch,
+    start_throttle,
+    stop_throttle,
 }
