@@ -10,10 +10,13 @@ customElements.define('zoom-buttons', ZoomButtons)
 customElements.define('search-chart', SearchChart)
 customElements.define('bg-change', BgChange)
 
-if ( !utils.mobile.isMobile() ) {
-    const params = utils.linkode.get_url_params()
-
-    if ( params.type === 'project' ) {
-        modules.general.initProject( params )
+;(_ => {
+    if ( !utils.mobile.isMobile() ) {
+        const params = utils.linkode.get_url_params()
+        if ( utils.html.handle_location( params, '/#/project/calculator' ) ) return
+    
+        if ( params.type === 'project' ) {
+            modules.general.initProject( params )
+        }
     }
-}
+})()

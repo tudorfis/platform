@@ -73,8 +73,6 @@ function initCodeHighlight( cb = _ => {} ) {
 }
 
 function initProject( params ) {
-    if ( utils.html.handle_location( params, '/#/project/calculator' ) ) return
-
     utils.events.start_throttle()
     
     app.chart = utils.dom.qs( app.tree.chartSelector ) 

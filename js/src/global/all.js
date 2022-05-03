@@ -5,7 +5,7 @@ window.app = {
     tree: {
         treeInstance: null,
         chartSelector: '#chart',
-        zoomLevel: 75
+        zoomLevel: 100,
     },
     events: {
         disableEvents: false
@@ -15,6 +15,7 @@ window.app = {
 import async from '/js/src/utils/async.utils.js'
 import dom from '/js/src/utils/dom.utils.js'
 import object from '/js/src/utils/object.utils.js'
+import array from '/js/src/utils/array.utils.js'
 import html from '/js/src/utils/html.utils.js'
 import events from '/js/src/utils/events.utils.js'
 import linkode from '/js/src/utils/linkode.utils.js'
@@ -25,6 +26,7 @@ window.utils = {
     async,
     dom,
     object,
+    array,
     html,
     events,
     linkode,

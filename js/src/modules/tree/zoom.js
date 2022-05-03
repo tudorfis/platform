@@ -9,18 +9,33 @@ const zoomChange = 25
 const zoomOutLimit = 50
 const zoomInLimit = 100
 
-function zoomOut() {
+async function zoomOut() {
     if ( disableZoomOut() ) return
 
-    app.tree.zoomLevel -= zoomChange
-    handleZoom()
+    handleZoom(app.tree.zoomLevel - zoomChange)
+
+    for ( const i of utils.array.range(10)) {
+        setTimeout( _ => {
+            app.tree.zoomLevel -= zoomChange/10
+            app.chart.style.zoom = `${app.tree.zoomLevel}%`
+        }, i*20)
+    }
+
+    return new Promise(resolve => setTimeout(_ => resolve(),200))
 }
 
-function zoomIn() {
+async function zoomIn() {
     if ( disableZoomIn() ) return
     
-    app.tree.zoomLevel += zoomChange
-    handleZoom()
+    for ( const i of utils.array.range(10)) {
+        setTimeout( _ => {
+            app.tree.zoomLevel += zoomChange/10
+            app.chart.style.zoom = `${app.tree.zoomLevel}%`
+            handleZoom(app.tree.zoomLevel)
+        }, i*20)
+    }
+
+    return new Promise(resolve => setTimeout(_ => resolve(),200))
 }
 
 function disableZoomOut() {
@@ -31,8 +46,8 @@ function disableZoomIn() {
     return app.tree.zoomLevel === zoomInLimit
 }
 
-function handleZoom() {
-    const zoomDimension = zoomDimensions[ app.tree.zoomLevel ]
+function handleZoom( zoomLevel ) {
+    const zoomDimension = zoomDimensions[ zoomLevel ]
 
     const width = `${zoomDimension}vw`
     const height = `${zoomDimension}vh`

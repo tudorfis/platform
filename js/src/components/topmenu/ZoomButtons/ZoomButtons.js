@@ -5,9 +5,6 @@ export default class extends modules.webcomponent {
             componentUrl: import.meta.url
         })
     }
-    afterRender() {
-        this.toggleDisabled()
-    }
     toggleDisabled() {
         modules.tree.zoom.disableZoomIn() ?
             this.refs.zoomInBtn.setAttribute( 'disabled', '' ) :
@@ -17,12 +14,18 @@ export default class extends modules.webcomponent {
             this.refs.zoomOutBtn.setAttribute( 'disabled', '' ) :
             this.refs.zoomOutBtn.removeAttribute( 'disabled' )        
     }
-    zoomIn() {
-        modules.tree.zoom.zoomIn()
+    async zoomIn() {
+        this.refs.zoomInBtn.setAttribute( 'disabled', '' )
+        this.refs.zoomOutBtn.setAttribute( 'disabled', '' )
+        
+        await modules.tree.zoom.zoomIn()
         this.toggleDisabled()
     }
-    zoomOut() {
-        modules.tree.zoom.zoomOut()
+    async zoomOut() {
+        this.refs.zoomInBtn.setAttribute( 'disabled', '' )
+        this.refs.zoomOutBtn.setAttribute( 'disabled', '' )
+        
+        await modules.tree.zoom.zoomOut()
         this.toggleDisabled()
     }
 }

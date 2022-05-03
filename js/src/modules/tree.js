@@ -28,7 +28,7 @@ function initTree() {
             nodeStructure: app.tree.nodeStructure
         }, _ => {
             handleLoading()
-            zoom.handleZoom()
+            zoom.zoomOut()
         })
     })
 }
