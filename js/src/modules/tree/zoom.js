@@ -14,12 +14,12 @@ async function zoomOut() {
 
     handleZoom(app.tree.zoomLevel - zoomChange)
 
-    for ( const i of utils.array.range(10)) {
+    utils.array.loop(10, num => {
         setTimeout( _ => {
             app.tree.zoomLevel -= zoomChange/10
             app.chart.style.zoom = `${app.tree.zoomLevel}%`
-        }, i*20)
-    }
+        }, num * 20)
+    })
 
     return new Promise(resolve => setTimeout(_ => resolve(),200))
 }
@@ -27,13 +27,13 @@ async function zoomOut() {
 async function zoomIn() {
     if ( disableZoomIn() ) return
     
-    for ( const i of utils.array.range(10)) {
+    utils.array.loop(10, num => {
         setTimeout( _ => {
             app.tree.zoomLevel += zoomChange/10
             app.chart.style.zoom = `${app.tree.zoomLevel}%`
             handleZoom(app.tree.zoomLevel)
-        }, i*20)
-    }
+        }, num * 20)
+    })
 
     return new Promise(resolve => setTimeout(_ => resolve(),200))
 }

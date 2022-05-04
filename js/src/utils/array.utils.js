@@ -7,6 +7,13 @@ function range( num = 0, arr = [] ) {
     return range( num - 1, arr )
 }
 
+function loop( times, cb = _ => {} ) {
+    if ( times === 0 ) return
+    cb( times )
+    return loop( times - 1, cb )
+}
+
 export default {
     range,
+    loop,
 }

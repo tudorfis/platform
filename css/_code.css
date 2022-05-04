@@ -13,9 +13,6 @@
     position: absolute;
     width: 600px;
     height: 300px;
-    padding: 0;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 .code-backdrop {
     z-index: 4;
@@ -23,7 +20,7 @@
     height: 300px;
     opacity: .90;
     background: black;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     border-radius: .2rem;
 }
 .code-wrapper > h1 {

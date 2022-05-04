@@ -71,6 +71,12 @@
     .search-chart .results .item:hover p {
         color: var(--dark-color);
     }
+    .search-chart img.help-img {
+        position: absolute;
+        top: -1.40rem;
+        left: 100%;
+        z-index: 12;
+    }
 </style>
 <div
     ref="wrapper"
@@ -83,4 +89,5 @@
         spellcheck="false"
         maxlength="40"
     />
+    <img src="/img/help/cauta.png" class="help-img fade-in" />
 </div>
