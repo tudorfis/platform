@@ -37,10 +37,15 @@ function select_text( element ){
 	}
 }
 
+function some_are_visible( selector = '', hideClass = 'hide') {
+    return qsa( selector ).some(element => !element.classList.contains( 'hide' ))
+}
+
 export default {
     qs,
     qsa,
     engage_event_stoper,
     find_parent,
     select_text,
+    some_are_visible,
 }

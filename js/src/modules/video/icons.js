@@ -15,18 +15,12 @@ function createCloseIcon( wrapper ) {
     })
 }
 
-function createEnlargeIcon( wrapper ) {
-    const enlargeIcon = utils.html.create_element( 'i', '', wrapper, {
-        'class': [ 'fa-regular', 'fa-hand', 'widget-icon', 'enlarge-icon' ],
-    })
-
-    utils.behaviour.enlarge_content( wrapper, enlargeIcon, _ => {
-        modules.backdrop.readjustBackdrop()
-    })
+function createPlusMinusIcon( wrapper ) {
+    utils.behaviour.plus_minus_enlarge( wrapper, 'width' )
 }
 
 export default {
     createArrowIcon,
     createCloseIcon,
-    createEnlargeIcon,
+    createPlusMinusIcon,
 }

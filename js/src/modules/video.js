@@ -29,7 +29,7 @@ function createVideo( nodeElement ) {
 
     icons.createArrowIcon( wrapper )
     icons.createCloseIcon( wrapper )
-    icons.createEnlargeIcon( wrapper )
+    icons.createPlusMinusIcon( wrapper )
 
     utils.positioning.setPosition( wrapper, nodeElement )
     mem.videos[ nodeElement.id ] = wrapper
@@ -53,6 +53,14 @@ function showVideo( wrapper, nodeElement ) {
 }
 
 function handleVideoLoad( nodeElement ) {
+    if ( 
+        utils.dom.some_are_visible( '.video-wrapper' ) &&
+        mem.nodeElement === nodeElement
+    ) {
+        hideVideo()
+        return
+    }
+
     hideVideo()
     modules.code.hideCode()
 

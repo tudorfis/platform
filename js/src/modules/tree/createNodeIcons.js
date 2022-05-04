@@ -44,7 +44,7 @@ export default function( nodeElement ) {
     createVideoIcon( nodeIcons, nodeElement )
     createCodeIcon( nodeIcons, nodeElement )
 
-    utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'backdrop' ]})
+    utils.html.create_element( 'div', '', nodeIcons, { 'class': [ 'node-backdrop' ]})
     utils.html.create_element( 'h1', node.title, nodeIcons, { 'class': [ 'node-title' ]})
 
     return nodeIcons

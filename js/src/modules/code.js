@@ -23,7 +23,7 @@ function createCode( nodeElement ) {
     })
 
     renderCode( node, subWrapper )
-    modules.general.handlePan( wrapper, 'code-backdrop', subWrapper )
+    modules.general.handlePan( wrapper, [ 'code-backdrop' ], subWrapper )
     
     icons.createArrowIcon( wrapper )
     icons.createCloseIcon( wrapper )
@@ -53,6 +53,14 @@ function showCode( wrapper, nodeElement ) {
 }
 
 function handleCodeLoad( nodeElement ) {
+    if ( 
+        utils.dom.some_are_visible( '.code-wrapper' ) &&
+        mem.nodeElement === nodeElement
+    ) {
+        hideCode()
+        return
+    }
+    
     hideCode()
     modules.video.hideVideo()
     

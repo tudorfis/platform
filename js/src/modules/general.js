@@ -7,13 +7,13 @@ function setTitleFavicon( node ) {
     utils.dom.qs( 'link[rel="icon"]', document.head ).setAttribute('href', utils.linkode.get_image_location( node ))
 }
 
-function handlePan( element, matchClass = 'className', elementScroll ) {
+function handlePan( element, matchClasses = [], elementScroll ) {
     panningConfig[ element ] = {
         isPanning: false
     }
 
     element.addEventListener( 'mousedown', event => {
-        if (!event.target.classList.contains( matchClass )) return
+        if ( !matchClasses.some( matchClass => event.target.classList.contains( matchClass )) ) return
 
         panningConfig[ element ].isPanning = true
         element.style.cursor = 'grab';
@@ -29,7 +29,7 @@ function handlePan( element, matchClass = 'className', elementScroll ) {
     })
     element.addEventListener( 'mousemove', event => {
         if (!panningConfig[ element ].isPanning) return
-        if (!event.target.classList.contains( matchClass )) return
+        if ( !matchClasses.some( matchClass => event.target.classList.contains( matchClass )) ) return
 
         event.preventDefault()
         ;( elementScroll || element ).scrollBy( - ( event.movementX * 2 ), - ( event.movementY * 2 ) )
@@ -82,7 +82,7 @@ function initProject( params ) {
 
     setTitleFavicon( app.project )
     changeBackground( '', params.param1 || 0 )
-    handlePan( app.chart, 'chart-svg' )
+    handlePan( app.chart, [ 'chart-svg','chart-backdrop' ] )
     initIcons()
     initCodeHighlight()
 

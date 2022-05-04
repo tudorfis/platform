@@ -4,7 +4,7 @@
     width: 100vw;
     background: var(--dark-color);
 }
-.chart .backdrop {
+.chart .chart-backdrop {
     position: absolute;
     background: #000007bb;
     top: 0;

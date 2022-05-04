@@ -7,33 +7,24 @@ const heightAdjust = {
 const handle = {
     html() {
         const [ codeWrapper, text, lengthierCode ] = arguments
-        createTitle( codeWrapper, 'HTML', lengthierCode )
         
         const escapedHtml = utils.html.html_entities( text )
         return utils.html.create_element( 'pre', escapedHtml, codeWrapper, { 'class': [ 'code-pre', 'sh_html' ] })
     },
     css() {
         let [ codeWrapper, text, lengthierCode ] = arguments
-        createTitle( codeWrapper, 'CSS', lengthierCode )
         
         if ( lengthierCode ) text = '\n\n&lt;style&gt;\n' + text + '\n&lt;/style&gt;'
         return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_css' ] })
     },
     js() {
         let [ codeWrapper, text, lengthierCode ] = arguments
-        createTitle( codeWrapper, 'JS', lengthierCode )
 
         if ( lengthierCode ) text = '\n\n&lt;script&gt;\n' + text + '\n&lt;/script&gt;'
         return utils.html.create_element( 'pre', text, codeWrapper, { 'class': [ 'code-pre', 'sh_javascript' ] })
     },
 }
 
-function createTitle( codeWrapper, text, ignoreTitle ) {
-    if ( ignoreTitle ) return
-
-    const parent = utils.dom.find_parent( codeWrapper, 'code-wrapper' )
-    utils.html.create_element( 'h1', text, parent, {}, 'prepend' )
-}
 
 function fixHeights() {
     const offset = 50

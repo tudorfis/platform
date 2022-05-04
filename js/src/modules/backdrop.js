@@ -5,19 +5,19 @@ function lighterBackdrop() {
     const someOpened = utils.dom.qsa( widgetSelectors ).some(element => !element.classList.contains( 'hide' ))
     if ( someOpened ) return
 
-    const backdrop = utils.dom.qs('.backdrop', app.chart)
+    const backdrop = utils.dom.qs('.chart-backdrop', app.chart)
     if ( !backdrop ) return
     backdrop.style.background = constants.colors.backdropLighter
 }
 
 function darkerBackdrop() {
-    const backdrop = utils.dom.qs('.backdrop', app.chart)
+    const backdrop = utils.dom.qs('.chart-backdrop', app.chart)
     if ( !backdrop ) return
     backdrop.style.background = constants.colors.backdropDarker
 }
 
 function readjustBackdrop() {
-    const backdrop = utils.dom.qs('.backdrop', app.chart)
+    const backdrop = utils.dom.qs('.chart-backdrop', app.chart)
     if ( !backdrop ) return
     
     Object.assign( backdrop.style, {

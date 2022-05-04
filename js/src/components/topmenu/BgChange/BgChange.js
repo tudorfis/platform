@@ -16,6 +16,6 @@ export default class extends modules.webcomponent {
             </button>
         `).join('') + this.refs.wrapper.innerHTML
 
-        modules.general.handlePan( this.refs.wrapper, 'bg-change' )
+        modules.general.handlePan( this.refs.wrapper, [ 'bg-change' ] )
     }
 }

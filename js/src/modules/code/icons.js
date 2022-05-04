@@ -24,13 +24,15 @@ function createCopyIcon( wrapper ) {
 }
 
 function createEnlargeIcon( wrapper, subWrapper, backdrop ) {
-    const enlargeIcon = utils.html.create_element( 'i', '', wrapper, {
-        'class': [ 'fa-regular', 'fa-hand', 'widget-icon', 'enlarge-icon' ],
-    })
-
-    utils.behaviour.enlarge_content( subWrapper, enlargeIcon, _ => {
-        modules.backdrop.readjustBackdrop()
-    }, 'height', [ wrapper, backdrop, subWrapper ], 1.5, 3.5 )
+    utils.behaviour.enlarge_content( 
+        subWrapper, 
+        wrapper,
+        _ => modules.backdrop.readjustBackdrop(), 
+        'height',
+        [ wrapper, backdrop, subWrapper ], 
+        1.5, 
+        3.5
+    )
 }
 
 export default { 

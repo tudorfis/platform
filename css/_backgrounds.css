@@ -1,6 +1,6 @@
 
 .bg.chart .tooltip-arrow:before { display: none; }
-.bg.chart > .backdrop { background: #00000777;}
+.bg.chart > .chart-backdrop { background: #00000777;}
 .bg.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
 
 :is(.bg-1.chart.scroll-x,.bg-1.chart.scroll-y)::-webkit-scrollbar-thumb { background: #1A3A49;}
