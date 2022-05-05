@@ -10,6 +10,10 @@ function get_image_location( node ) {
     return [ get_folder( node ), 'i.jpg' ].join('/')
 }
 
+function get_gif_location( node ) {
+    return [ get_folder( node ), 'i.gif' ].join('/')
+}
+
 function get_video_location( node ) {
     return [ node.folderPath, 'v.mp4' ].join('/') 
 }
@@ -36,6 +40,7 @@ function* id_generator() {
 export default {
     get_folder,
     get_image_location,
+    get_gif_location,
     get_video_location,
     get_code_location,
     get_url_params,

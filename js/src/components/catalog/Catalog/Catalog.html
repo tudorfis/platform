@@ -1,18 +1,98 @@
-
 <style>
-    .catalog {
-        z-index: 15;
-        position: absolute;
-        background-color: var(--dark-color);
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .catalog {
+    z-index: 15;
+    position: absolute;
+    background-color: var(--dark-color);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .catalog img.help-arrow {
+    position: absolute;
+    left: 3rem;
+    top: 3rem;
+    z-index: 15;
+  }
+
+  .catalog .catalog-item {
+    width: 350px;
+    aspect-ratio: 1/0.9;
+    background: var(--light-color);
+    margin: 0 2rem;
+    box-shadow: 0 0 5px 2px var(--light-color);
+    position: relative;
+  }
+
+  .catalog .catalog-item:hover {
+    transform: scale(1.10);
+    box-shadow: 0 0 2px 5px var(--light-color);
+  }
+
+  .catalog .catalog-item img {
+    width: 100%;
+  }
+
+  .catalog .catalog-item h1 {
+    font-size: 1.25rem;
+    text-align: left;
+    color: var(--dark-color);
+    padding: 0 0.75rem;
+    margin: 0.5rem auto;
+    font-weight: bold;
+    font-family: dejavu;
+  }
+
+  .catalog .catalog-item ul.tags {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    text-align: left;
+  }
+
+  .catalog .catalog-item ul.tags>li {
+    text-transform: lowercase;
+    display: inline;
+    margin: 0 0.05rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.15rem;
+    font-family: vera;
+  }
+
+  .catalog .catalog-item ul.tags>li.light {
+    color: var(--light-color);
+  }
+
+  .catalog .catalog-item ul.tags>li.dark {
+    color: var(--dark-color);
+  }
+
+  .catalog .catalog-item button {
+    font-size: 1.15rem;
+    padding: 0.65rem 1rem;
+    position: absolute;
+    bottom: 0.35rem;
+    right: 0.35rem;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.35rem;
+    color: var(--light-color);
+    background-color: var(--brand-color);
+    width: 7.5rem;
+    margin: 0 auto;
+  }
+
+  .catalog .catalog-item button:hover {
+    color: var(--brand-color);
+    background-color: var(--light-color);
+    padding: .5rem 1rem;
+    font-size: 1.1rem;
+    border: .2rem solid var(--brand-color);
+  }
 </style>
 
-<div
-  ref="wrapper"
-  class="catalog hide"
->catalog</div>
+<div ref="wrapper" class="catalog hide">
+  <img src="/img/help/arrow-catalog.png" class="help-arrow fade-in" />
+</div>

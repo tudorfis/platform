@@ -19,6 +19,7 @@ export default class extends modules.webcomponent {
     }
     info() {
         utils.dom.qs('chart-info-modal modal-wrapper').showModal()
+        utils.dom.qs('chart-info-modal video').play()
     }
     myProfile() {
         utils.dom.qs('my-profile-modal modal-wrapper').showModal()
