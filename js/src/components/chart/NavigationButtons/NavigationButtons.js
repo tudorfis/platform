@@ -6,16 +6,16 @@ export default class extends modules.webcomponent {
         })
     }
     afterRender() {
-        // this.refs.catalogBtn
         // this.refs.homeBtn
+        // this.refs.catalogBtn
         // this.refs.infoBtn
         // this.refs.myProfileBtn
     }
-    catalog() {
-        console.log('catalog')
-    }
     home() {
-        console.log('home')
+        window.location.href = 'https://www.linkode.ro'
+    }
+    catalog() {
+        window.location.href = '/#/catalog'
     }
     info() {
         console.log('info')

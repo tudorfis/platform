@@ -1,0 +1,50 @@
+<style>
+    .chart {
+        height: 100vh;
+        width: 100vw;
+        background: var(--dark-color);
+        background-size: 100% 100%;
+    }
+    .chart .chart-backdrop {
+        position: absolute;
+        background: #000007bb;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .chart svg {
+        z-index: 8;
+    }
+    .chart >.node {
+        border: 0;
+        z-index: 9;
+        user-select: none;
+    }
+    .chart >.node:hover {
+        transform: scale(1.02);
+    }
+
+    .chart >.node img {
+        width: 200px;
+        aspect-ratio: 16/9;
+        cursor: pointer;
+        user-select: none;
+        border-radius: .15rem;
+    }
+
+    .chart .node .collapse-switch {
+        width: 0;
+        height: 0;
+        border: none;
+    }
+
+    .chart .node.collapsed .collapse-switch {
+        background: none;
+    }
+</style>
+
+<div 
+  ref="wrapper"
+  class="chart scroll-x scroll-y hide">
+</div>

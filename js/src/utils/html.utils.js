@@ -37,18 +37,12 @@ function create_element(
 function handle_location( params = {}, url = '' ) {
     addEventListener( 'popstate', _ => window.location.reload())
     
-    if ( window.location.pathname === '/index.html' ) {
-        window.location = '/'
-        return true
+    if (
+        window.location.pathname === '/index.html' || 
+        !params.type 
+    ) {
+        window.location.href = url
     }
-    
-    if ( !params.type ) {
-        window.location = url
-        window.location.reload()
-        return true
-    }
-
-    return false
 }
 
 function scroll_to_element( element, options = {} ) {

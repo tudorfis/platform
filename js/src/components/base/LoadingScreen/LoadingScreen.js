@@ -6,7 +6,7 @@ export default class extends modules.webcomponent {
         })
     }
     afterRender() {
-        utils.events.watch('finished-loading', _ => {
+        utils.events.watch( 'finished-loading', _ => {
             this.refs.wrapper.style.display = 'none'
         })
     }

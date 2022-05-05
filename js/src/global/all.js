@@ -2,10 +2,14 @@
 window.app = {
     chart: null,
     project: null,
+    catalog: null,
     tree: {
         treeInstance: null,
-        chartSelector: '.chart',
+        selector: '.chart',
         zoomLevel: 100,
+    },
+    catalog: {
+        selector: '.catalog',
     },
     events: {
         disableEvents: false

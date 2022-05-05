@@ -72,26 +72,10 @@ function initCodeHighlight( cb = _ => {} ) {
     })
 }
 
-function initProject( params ) {
-    utils.events.start_throttle()
-    
-    app.chart = utils.dom.qs( app.tree.chartSelector ) 
-    app.project = projects[ params.selector ]
-    app.tree.nodeStructure = modules.tree.node.generateNode( app.project )
-    modules.tree.initTree()
-
-    setTitleFavicon( app.project )
-    changeBackground( '', params.param1 || 0 )
-    handlePan( app.chart, [ 'chart-svg','chart-backdrop' ] )
-    initIcons()
-    initCodeHighlight()
-
-    utils.events.stop_throttle(_ => utils.events.dispatch( 'finished-loading'), 1000)
-}
-
 export default {
     setTitleFavicon,
     changeBackground,
     handlePan,
-    initProject
+    initIcons,
+    initCodeHighlight,
 }

@@ -9,7 +9,7 @@ function initTree() {
         app.chart.innerHTML = ''
         app.tree.treeInstance = new Treant({
             chart: {
-                container: app.tree.chartSelector ,
+                container: app.tree.selector ,
                 animateOnInit: true,
                 node: {
                     collapsable: true

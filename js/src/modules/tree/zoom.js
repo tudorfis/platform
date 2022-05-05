@@ -1,13 +1,13 @@
 
-const zoomDimensions = {
-    50: 200,
-    75: 133,
-    100: 100,
-}
-
 const zoomChange = 25
 const zoomOutLimit = 75
 const zoomInLimit = 125
+
+const zoomDimensions = {
+    75: 133.3,
+    100: 100,
+    125: 80,
+}
 
 async function zoomOut() {
     if ( disableZoomOut() ) return
@@ -49,13 +49,9 @@ function disableZoomIn() {
 function handleZoom( zoomLevel ) {
     const zoomDimension = zoomDimensions[ zoomLevel ]
 
-    const width = `${zoomDimension}vw`
-    const height = `${zoomDimension}vh`
-
     Object.assign( app.chart.style, {
-        'background-size': `${width} ${height}`,
-        width,
-        height,
+        'width': `${zoomDimension}vw`,
+        'height': `${zoomDimension}vh`,
     })
 
     modules.backdrop.readjustBackdrop()
