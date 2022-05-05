@@ -55,7 +55,6 @@ function handleZoom( zoomLevel ) {
     })
 
     modules.backdrop.readjustBackdrop()
-    app.chart.style.zoom = `${app.tree.zoomLevel}%`
 }
 
 export default {
