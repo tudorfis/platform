@@ -10,9 +10,15 @@
     align-items: center;
   }
   .catalog.is-mobile {
-    flex-direction: column;
+    padding: 0 2rem;
     height: 105vh;
     width: 105vw;
+  }
+  .catalog.is-mobile.is-portrait {
+    flex-direction: column;
+  }
+  .catalog.is-mobile.is-landscape {
+    flex-direction: row;
   }
   .catalog.is-mobile .catalog-item {
     width: 330px;

@@ -93,9 +93,15 @@ export default class extends HTMLElement {
         })
     }
     callAfterRender() {
-        this.refs?.wrapper?.classList?.toggle( 'is-mobile', utils.mobile.isMobile() )
-
+        this.handleMobileClasses()
         this[ 'afterRender' ] ? this[ 'afterRender' ]() : void(0)
+    }
+    handleMobileClasses() {
+        if ( !utils.mobile.isMobile() ) return
+
+        this.refs?.wrapper?.classList?.toggle( 'is-portrait', screen.availHeight > screen.availWidth )
+        this.refs?.wrapper?.classList?.toggle( 'is-landscape', screen.availHeight < screen.availWidth )
+        this.refs?.wrapper?.classList?.add( 'is-mobile' )
     }
 
     #refs = {}

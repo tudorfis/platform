@@ -18,6 +18,8 @@ export default class extends modules.webcomponent {
         utils.events.start_throttle()
 
         app.chart = utils.dom.qs( app.tree.selector ) 
+        if ( utils.mobile.isMobile() ) modules.tree.zoom.zoomOut()
+
         app.project = projects[ params.selector ]
         app.tree.nodeStructure = modules.tree.node.generateNode( app.project )
         modules.tree.initTree()
