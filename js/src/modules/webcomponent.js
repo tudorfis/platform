@@ -176,4 +176,26 @@ export default class extends HTMLElement {
     attr( attribute ) {
         return this.getAttribute( attribute )
     }
+
+    static htmlSlots( vm = null, wrapperSelector = '', slots = [], cb = _ => {} ) {
+        const wrapper = vm.qs( wrapperSelector )
+
+        if ( wrapper.finished ) {
+            doSlots()
+        } else {
+            wrapper.loaded.then(_ => {
+                doSlots()
+            })
+        }
+
+        function doSlots() {
+            slots.forEach( slotName => {
+                const slotElement = utils.dom.qs( `slot[name="${slotName}"]` ) 
+                const template = vm.qs(`template[id="${slotName}"]`).cloneNode( true )
+                
+                slotElement.innerHTML = template.innerHTML
+                cb(slotElement)
+            })
+        }
+    }
 }

@@ -18,9 +18,9 @@ export default class extends modules.webcomponent {
         window.location.href = '/#/catalog'
     }
     info() {
-        console.log('info')
+        utils.dom.qs('chart-info-modal modal-wrapper').showModal()
     }
     myProfile() {
-        console.log('myProfile')
+        utils.dom.qs('my-profile-modal modal-wrapper').showModal()
     }
 }
