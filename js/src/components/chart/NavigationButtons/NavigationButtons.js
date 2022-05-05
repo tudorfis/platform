@@ -5,12 +5,6 @@ export default class extends modules.webcomponent {
             componentUrl: import.meta.url
         })
     }
-    afterRender() {
-        // this.refs.homeBtn
-        // this.refs.catalogBtn
-        // this.refs.infoBtn
-        // this.refs.myProfileBtn
-    }
     home() {
         window.location.href = 'https://www.linkode.ro'
     }

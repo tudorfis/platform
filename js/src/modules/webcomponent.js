@@ -93,6 +93,8 @@ export default class extends HTMLElement {
         })
     }
     callAfterRender() {
+        this.refs?.wrapper?.classList?.toggle( 'is-mobile', utils.mobile.isMobile() )
+
         this[ 'afterRender' ] ? this[ 'afterRender' ]() : void(0)
     }
 
