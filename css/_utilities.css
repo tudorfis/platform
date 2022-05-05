@@ -1,7 +1,7 @@
 
 .hide { display: none !important;}
 .show { display: block !important; }
-.fade-in { animation: fadeIn .3s ease-in; }
+.fade-in { animation: fadeIn var(--timeout-time) ease-in; }
 
 .scroll-x { overflow-x: auto; }
 .scroll-y { overflow-y: auto; }

@@ -29,7 +29,7 @@ export function handleLoading() {
         })
     })
 
-    const svg = utils.dom.qs( 'svg', chart ) 
+    const svg = utils.dom.qs( 'svg', app.chart ) 
     svg.classList.add( 'chart-svg' )
     utils.html.create_element( 'div', '', svg, { 'class': [ 'chart-backdrop' ]}, 'after' )
 }

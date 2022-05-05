@@ -4,7 +4,7 @@ window.app = {
     project: null,
     tree: {
         treeInstance: null,
-        chartSelector: '#chart',
+        chartSelector: '.chart',
         zoomLevel: 100,
     },
     events: {

@@ -38,7 +38,7 @@ function handle_location( params = {}, url = '' ) {
     addEventListener( 'popstate', _ => window.location.reload())
     
     if ( window.location.pathname === '/index.html' ) {
-        document.body.innerHTML = ''
+        window.location = '/'
         return true
     }
     

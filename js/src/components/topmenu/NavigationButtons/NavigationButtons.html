@@ -1,0 +1,31 @@
+<style>
+    .navigation-buttons {
+        right: calc(250px + 2.3rem);
+        top: 1rem;
+    }
+    .navigation-buttons button {
+        border-radius: 25%;
+    }
+</style>
+
+<div
+  ref="wrapper"
+  class="buttons navigation-buttons"
+>
+    <button ref="homeBtn" click="home" class="tooltip">
+        <div class="tooltiptext tooltip-bottom">Navigheaza catre <br> websiteul principal linkode</div>
+        <i class="fa-solid fa-home"></i>
+    </button>
+    <button ref="catalogBtn" click="catalog" class="tooltip">
+        <div class="tooltiptext tooltip-bottom">Deschide catalogul <br>cu toate cursurile</div>
+        <i class="fa-solid fa-graduation-cap"></i>
+    </button>
+    <button ref="infoBtn" click="info" class="tooltip">
+        <div class="tooltiptext tooltip-bottom">Urmareste tutorialul<br>pt folosirea aplicatiei</div>
+        <i class="fa-solid fa-info"></i>
+    </button>
+    <button ref="myProfileBtn" click="myProfile" class="tooltip">
+        <div class="tooltiptext tooltip-bottom">Schimare date personale<br>si subscriptie</div>
+        <i class="fa-solid fa-user"></i>
+    </button>
+</div>

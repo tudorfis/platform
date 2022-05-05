@@ -3,12 +3,14 @@ import LoadingScreen from '/js/src/components/base/LoadingScreen/LoadingScreen.j
 import ZoomButtons from '/js/src/components/topmenu/ZoomButtons/ZoomButtons.js'
 import BgChange from '/js/src/components/topmenu/BgChange/BgChange.js'
 import SearchChart from '/js/src/components/topmenu/SearchChart/SearchChart.js'
+import NavigationButtons from '/js/src/components/topmenu/NavigationButtons/NavigationButtons.js'
 
 customElements.define('loading-screen', LoadingScreen)
 customElements.define('no-mobile-support', NoMobileSupport)
 customElements.define('zoom-buttons', ZoomButtons)
 customElements.define('search-chart', SearchChart)
 customElements.define('bg-change', BgChange)
+customElements.define('navigation-buttons', NavigationButtons)
 
 ;(_ => {
     if ( !utils.mobile.isMobile() ) {

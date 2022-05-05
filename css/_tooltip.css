@@ -5,10 +5,10 @@
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    background-color: var(--dark-color);
+    background-color: var(--light-color);
     font-family: 'Arial';
     font-weight: bold;
-    color: var(--light-color);
+    color: var(--dark-color);
     text-align: center;
     border-radius: .4rem;
     width: 13rem;
@@ -16,60 +16,26 @@
     font-size: .9rem;
     position: absolute;
     z-index: 10;
-    box-shadow: 0 0 7px 2px var(--light-color);
+    box-shadow: 0 0 5px 2px var(--dark-color);
 }
-
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 .tooltip .tooltiptext.tooltip-right {
     top: 0;
-    left: calc(100% + .3rem);
+    left: calc(100% + .5rem);
 }
-.tooltip .tooltiptext.tooltip-right.tooltip-arrow {
-    left: calc(100% + 1rem);
-}
-.tooltip .tooltiptext.tooltip-right.tooltip-arrow:before {
-    content:"\A";
-    border-style: solid;
-    border-width: 10px 15px 10px 0;
-    border-color: transparent var(--dark-color) transparent transparent;
-    position: absolute;
-    left: -10px;
-    top: 5px;
-}
-
 .tooltip .tooltiptext.tooltip-left {
     top: .1rem;
-    right: calc(100% + .3rem);
+    right: calc(100% + .5rem);
 }
-
 .tooltip .tooltiptext.tooltip-top {
     bottom: calc(100% + .5rem);
     left: -6rem;
 }
 .tooltip .tooltiptext.tooltip-bottom {
-    top: calc(100% + .3rem);
+    top: calc(100% + .5rem);
     left: -6rem;
-}
-.tooltip .tooltiptext.tooltip-bottom.tooltip-arrow {
-    top: calc(100% + 1rem);
-}
-.tooltip .tooltiptext.tooltip-bottom.tooltip-arrow:before {
-    content: "\A";
-    position: absolute;
-    right: 93px;
-    top: -10px;
-    border-top: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 15px solid black;
-}
-
-.tooltip .tooltiptext.tooltip-top {
-    top: -calc(100% + .3rem);
-    left: -6rem;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
 }
 
 .tooltiptext.small {

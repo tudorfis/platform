@@ -1,5 +1,4 @@
 
-.bg.chart .tooltip-arrow:before { display: none; }
 .bg.chart > .chart-backdrop { background: #00000777;}
 .bg.chart > .node { box-shadow: 4px 4px 2px 1px var(--dark-color); }
 

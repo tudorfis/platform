@@ -6,8 +6,8 @@ const zoomDimensions = {
 }
 
 const zoomChange = 25
-const zoomOutLimit = 50
-const zoomInLimit = 100
+const zoomOutLimit = 75
+const zoomInLimit = 125
 
 async function zoomOut() {
     if ( disableZoomOut() ) return
@@ -52,7 +52,7 @@ function handleZoom( zoomLevel ) {
     const width = `${zoomDimension}vw`
     const height = `${zoomDimension}vh`
 
-    Object.assign( chart.style, {
+    Object.assign( app.chart.style, {
         'background-size': `${width} ${height}`,
         width,
         height,
